@@ -9,7 +9,9 @@
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
         $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
+        unlink("upload/".$row['FoodImage']); //unlink function permanently remove your file
 
+        // delete an original record from database
         $delete_stmt = $db->prepare("DELETE FROM foodlist WHERE id = :id");
         $delete_stmt->bindParam(':id', $id);
         $delete_stmt->execute();
@@ -41,6 +43,7 @@
                 <tr>
                     <th>Food Name</th>
                     <th>Food Price</th>
+                    <th>Food Image</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -56,6 +59,7 @@
                     <tr>
                         <td><?php echo $row["FoodName"]; ?></td>
                         <td><?php echo $row["FoodPrice"]; ?></td>
+                        <td><img src="upload/<?php echo $row['FoodImage'];?>" width="100px" height="100px" alt=""></td>
                         <td><a href="edit.php?update_id=<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
                         <td><a href="?delete_id=<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
                     </tr>

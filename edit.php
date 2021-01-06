@@ -15,31 +15,59 @@
     }
 
     if(isset($_REQUEST['btn_update'])) {
-        $FoodName_up = $_REQUEST['txt_foodname'];
-        $FoodPrice_up = $_REQUEST['txt_foodprice'];
+        // $FoodName_up = $_REQUEST['txt_foodname'];
+        // $FoodPrice_up = $_REQUEST['txt_foodprice'];
 
-        if(empty($FoodName_up)) {
-            $errorMsg = "Please Enter Food Name";
-        } else if(empty($FoodPrice_up)) {
-            $errorMsg = "Please Enter Food Price";
-        } else {
-            try {
-                if(!isset($errorMsg)) {
-                    $update_stmt = $db->prepare("UPDATE foodlist SET FoodName = :fname_up, FoodPrice = :fprice_up WHERE id = :id");
-                    $update_stmt->bindParam(':fname_up', $FoodName_up);
-                    $update_stmt->bindParam(':fprice_up', $FoodPrice_up);
-                    $update_stmt->bindParam(':id', $id);
+        $FoodName = $_REQUEST['txt_foodname'];
+        $FoodPrice = $_REQUEST['txt_foodprice'];
+        $FoodImg = $_FILES['file_foodimg']['name'];
+        $type= $_FILES['file_foodimg']['type'];
+        $size = $_FILES['file_foodimg']['size'];
+        $temp = $_FILES['file_foodimg']['tmp_name'];
 
-                    if($update_stmt->execute()) {
-                        $updateMsg = "Record update Successfully...";
-                        $FoodName = $FoodName_up;
-                        $FoodPrice = $FoodPrice_up;
-                        header("refresh:2;DataTable.php");
+        $path = "upload/".$FoodImg;
+        $directory = "upload/"; // set upload folder path for update time previous file remove and new file upload and new file upload for next use
+        
+        if(empty($FoodName)) {
+            $errorMsg = "Please enter Food Name";
+        } else if(empty($FoodPrice)) {
+            $errorMsg = "Please enter Food Price";
+        } 
+        if($FoodImg) {
+            if($type == "image/jpg" || $type == "image/jpeg" || $type == "image/png" || $type == "image/gif") {
+                if(!file_exists($path)) { // check file not exist in your upload folder path
+                    if ($size < 5000000) { // check file size 5MB
+                        unlink($directory.$row['FoodImage']); // uplink function remove previous file
+                        move_uploaded_file($temp, 'upload/'.$FoodImg); // move upload file temperory directory to your upload folder
+                    } else {
+                        $errorMsg = "Your file too large please upload 5MB size"; // error message file size larger then 5MB
                     }
+                } else {
+                    $errorMsg = "File already exists... Check upload folder"; // error message file not exists your upload folder
                 }
-            } catch(PDOException $e) {
-                echo $e->getMessage();
+            } else {
+                $errorMsg = "Upload JPG, JPEG, PNG & GIF file format...";
             }
+        } else {
+            $FoodImg = $row['FoodImage'];
+        }
+        try {
+            if(!isset($errorMsg)) {
+                $update_stmt = $db->prepare("UPDATE foodlist SET FoodName = :fname_up, FoodPrice = :fprice_up, FoodImage = :fimage_up WHERE id = :id");
+                $update_stmt->bindParam(':fname_up', $FoodName);
+                $update_stmt->bindParam(':fprice_up', $FoodPrice);
+                $update_stmt->bindParam(':fimage_up', $FoodImg);
+                $update_stmt->bindParam(':id', $id);
+
+                if($update_stmt->execute()) {
+                    $updateMsg = "Record update Successfully...";
+                    // $FoodName = $FoodName;
+                    // $FoodPrice = $FoodPrice;
+                    header("refresh:2;DataTable.php");
+                }
+            }
+        } catch(PDOException $e) {
+            echo $e->getMessage();
         }
     }
 ?>
@@ -72,7 +100,7 @@
         </div>
     <?php } ?>
 
-    <form method="post" class="form-horizontal mt-5">
+    <form method="post" class="form-horizontal mt-5" enctype="multipart/form-data">
             <div class="form-group text-center">
                 <div class="row">
                     <label for="FoodName" class="col-sm-3 control-label">Food Name</label>
@@ -86,6 +114,17 @@
                     <label for="FoodPrice" class="col-sm-3 control-label">Food Price</label>
                     <div class="col-sm-6">
                         <input type="text" name="txt_foodprice" class="form-control" value="<?php echo $FoodPrice ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-center mt-2">
+                <div class="row">
+                    <label for="FoodImg" class="col-sm-3 control-label">Food Image</label>
+                    <div class="col-sm-6">
+                        <input type="file" name="file_foodimg" class="form-control" value="<?php echo $FoodImage ?>">
+                        <p>
+                            <img src="upload/<?php echo $FoodImage ?>" height=100px width=100px alt="">
+                        </p>
                     </div>
                 </div>
             </div>
