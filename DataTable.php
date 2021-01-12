@@ -36,7 +36,7 @@
                 <a href="index.php?logout='1'" style="color: red;">Logout</a> 
             </p>
         <?php endif ?>
-    <div class="display-3 text-center">Food List</div>
+    <div class="display-3 text-center">Food List!</div>
     <a href="add.php" class="btn btn-success mb-3">Add</a>
         <table class="table table-striped table-bordered table-hover">
             <thead>
