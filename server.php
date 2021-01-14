@@ -29,4 +29,5 @@
         die("Connection Failed" . mysqli_connect_error());
     }
     $conn->set_charset("utf8");
+    $db->exec("set names utf8");
 ?>
