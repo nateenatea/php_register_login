@@ -25,9 +25,9 @@
     return $result;
     }
 
-    $mysql->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+    $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-    $getUser = $mysql->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
+    $getUser = $conn->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
     $getuserNum = $getUser->num_rows;
     $replyText["type"] = "text";
     if ($getuserNum == "0"){
