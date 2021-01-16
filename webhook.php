@@ -28,7 +28,7 @@
     $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
     $replyText["type"] = "text";
-    $replyText["text"] = "สวัสดีครับ";
+    $replyText["text"] = $text;
 
     // $getUser = $conn->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
     // $getuserNum = $getUser->num_rows;
