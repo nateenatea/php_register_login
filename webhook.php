@@ -27,18 +27,21 @@
 
     $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-    $getUser = $conn->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
-    $getuserNum = $getUser->num_rows;
     $replyText["type"] = "text";
-    if ($getuserNum == "0"){
-    $replyText["text"] = "สวัสดีคับบบบ";
-    } else {
-    while($row = $getUser->fetch_assoc()){
-        $Name = $row['Name'];
-        $Surname = $row['Surname'];
-        $CustomerID = $row['CustomerID'];
-    }
-    $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
+    $replyText["text"] = $text;
+
+    // $getUser = $conn->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
+    // $getuserNum = $getUser->num_rows;
+    // $replyText["type"] = "text";
+    // if ($getuserNum == "0"){
+    // $replyText["text"] = "สวัสดีคับบบบ";
+    // } else {
+    // while($row = $getUser->fetch_assoc()){
+    //     $Name = $row['Name'];
+    //     $Surname = $row['Surname'];
+    //     $CustomerID = $row['CustomerID'];
+    // }
+    // $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
     }
 
     $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
