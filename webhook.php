@@ -32,23 +32,23 @@
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
     } else if ($text == "เมนูอาหาร") {
-        $replyText = [
-            "type": "template",
-            "altText": "this is a buttons template",
-            "template": {
-            "type": "buttons",
-            "thumbnailImageUrl": "https://www.scb.co.th/content/dam/scb/personal-banking/stories-tips/thai-food/thai-food10.jpg",
-            "title": "ร้าน ...",
-            "text": "เปิดทุกวัน 10.00 - 18.00 น.",
-            "actions": [
-                {
-                "type": "message",
-                "label": "เมนูอาหาร",
-                "text": "เมนูอาหาร"
-                }
-            ]
-            }
-        ];
+        // $replyText = [
+        //     "type": "template",
+        //     "altText": "this is a buttons template",
+        //     "template": {
+        //     "type": "buttons",
+        //     "thumbnailImageUrl": "https://www.scb.co.th/content/dam/scb/personal-banking/stories-tips/thai-food/thai-food10.jpg",
+        //     "title": "ร้าน ...",
+        //     "text": "เปิดทุกวัน 10.00 - 18.00 น.",
+        //     "actions": [
+        //         {
+        //         "type": "message",
+        //         "label": "เมนูอาหาร",
+        //         "text": "เมนูอาหาร"
+        //         }
+        //     ]
+        //     }
+        // ];
     } else {
         $replyText["type"] = "text";
         $replyText["text"] = $text;
