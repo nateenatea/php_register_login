@@ -12,7 +12,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": {$test},
+                "text": "{$test}",
                 "align": "center",
                 "contents": []
               }
