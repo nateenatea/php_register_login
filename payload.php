@@ -1,4 +1,5 @@
 <?php
+    $test = "ทดสอบ";
     $getMe = '{
         "type": "flex",
         "altText": "Flex Message",
@@ -11,7 +12,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": "ติดต่อเรา",
+                "text": "{$test}",
                 "align": "center",
                 "contents": []
               }

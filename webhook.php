@@ -34,7 +34,7 @@
         $replyText["text"] = "Hello from Heroku";
     } else if ($text == "เกี่ยวกับเรา") {
         $JsonFlex = $getMe;
-          $replyText = json_decode($JsonFlex);      
+        $replyText = json_decode($JsonFlex);      
     } else {
         $replyText["type"] = "text";
         $replyText["text"] = $text;
