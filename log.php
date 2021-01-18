@@ -17,6 +17,13 @@
         <li class="li"><a href="DataTable.php">Home</a></li>
         <li style="float:right"><a class="active" href="log.php">Chat history</a></li>
     </ul>
+    <div class="container">
+        <?php if(isset($_SESSION['username'])) : ?>
+            <p>
+                Admin: <strong><?php echo $_SESSION['username']; ?></strong>&nbsp;
+                <a href="index.php?logout='1'" style="color: red;">Logout</a> 
+            </p>
+        <?php endif ?>
     <div class ="display-3 text-center">Chat History</div>
         <table class="table table-striped table-bordered table-hover">
             <thead>
