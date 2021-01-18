@@ -25,10 +25,16 @@
     return $result;
     }
 
-    $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+    // Chat history
+    // $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-    $replyText["type"] = "text";
-    $replyText["text"] = $text;
+    if ($text = "Hello") {
+        $replyText["type"] = "text";
+        $replyText["text"] = "Hello from Heroku";
+    } else {
+        $replyText["type"] = "text";
+        $replyText["text"] = $text;
+    }
 
     // $getUser = $conn->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
     // $getuserNum = $getUser->num_rows;
