@@ -32,7 +32,7 @@
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
     } else if ($text == "เมนูอาหาร") {
-        $JsonFlex = {
+        $JsonFlex = '{
             "type": "bubble",
             "direction": "ltr",
             "header": {
@@ -96,10 +96,8 @@
                 }
               ]
             }
-        }
-        $replyText = json_decode(json_encode($JsonFlex), true);
-
-          
+          }';
+          $replyText = json_decode($JsonFlex);      
     } else {
         $replyText["type"] = "text";
         $replyText["text"] = $text;
