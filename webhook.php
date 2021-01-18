@@ -46,7 +46,7 @@
               "text": "เมนูอาหาร"
             }
           ]
-        }
+        };
     } else {
         $replyText["type"] = "text";
         $replyText["text"] = $text;
