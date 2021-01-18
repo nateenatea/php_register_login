@@ -31,6 +31,49 @@
     if ($text == "Hello") {
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
+    } else if ($text == "เมนูอาหาร") {
+        $replyText[
+            "type": "flex",
+            "altText": "Flex Message",
+            "contents": {
+            "type": "bubble",
+            "direction": "ltr",
+            "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                {
+                    "type": "text",
+                    "text": "ช่องทางการรับอาหาร",
+                    "align": "center",
+                    "contents": []
+                }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                {
+                    "type": "button",
+                    "action": {
+                    "type": "uri",
+                    "label": "รับเองที่ร้าน",
+                    "uri": "https://linecorp.com"
+                    }
+                },
+                {
+                    "type": "button",
+                    "action": {
+                    "type": "uri",
+                    "label": "จัดส่งที่บ้าน",
+                    "uri": "https://linecorp.com"
+                    }
+                }
+                ]
+            }
+            }
+        ]
     } else {
         $replyText["type"] = "text";
         $replyText["text"] = $text;
