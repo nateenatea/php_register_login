@@ -32,23 +32,6 @@
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
     } else if ($text == "เมนูอาหาร") {
-        // $replyText = [
-        //     "type": "template",
-        //     "altText": "this is a buttons template",
-        //     "template": {
-        //     "type": "buttons",
-        //     "thumbnailImageUrl": "https://www.scb.co.th/content/dam/scb/personal-banking/stories-tips/thai-food/thai-food10.jpg",
-        //     "title": "ร้าน ...",
-        //     "text": "เปิดทุกวัน 10.00 - 18.00 น.",
-        //     "actions": [
-        //         {
-        //         "type": "message",
-        //         "label": "เมนูอาหาร",
-        //         "text": "เมนูอาหาร"
-        //         }
-        //     ]
-        //     }
-        // ];
         $replyText =   '
             {
                 "type": "template",
@@ -91,7 +74,8 @@
     $lineData['AccessToken'] = "uEbhTcwlpe54y5BHzyjzFpmp8IjkmYvEftYlagXn2HijGkFNv3ONRMVE72iqX5YJETG1T59BEhq4d9T+2x9Vs5QFyLNytZVsV0zbPEvpV51g7H3j7TmJuFTZ1clOB7PlzPTYE/bCXc3a2NNyRC47nAdB04t89/1O/w1cDnyilFU=";
 
     $replyJson["replyToken"] = $replyToken;
-    $replyJson["messages"][0] = $replyText;
+    // $replyJson["messages"][0] = $replyText;
+    $replyJson["messages"] = $replyText;
 
     // $replyJson = [
     //     'replyToken' => $replyToken,
