@@ -126,7 +126,7 @@
 
     $replyJson = [
         'replyToken' => $replyToken,
-        'messages' => $replyText
+        'messages' => [$replyText]
     ];
 
     $encodeJson = json_encode($replyJson);
