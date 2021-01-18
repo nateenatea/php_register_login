@@ -31,49 +31,22 @@
     if ($text == "Hello") {
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
-    } else if ($text == "เมนูอาหาร") {
-        $replyText[
-            "type": "flex",
-            "altText": "Flex Message",
-            "contents": {
-            "type": "bubble",
-            "direction": "ltr",
-            "header": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                {
-                    "type": "text",
-                    "text": "ช่องทางการรับอาหาร",
-                    "align": "center",
-                    "contents": []
-                }
-                ]
-            },
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                {
-                    "type": "button",
-                    "action": {
-                    "type": "uri",
-                    "label": "รับเองที่ร้าน",
-                    "uri": "https://linecorp.com"
-                    }
-                },
-                {
-                    "type": "button",
-                    "action": {
-                    "type": "uri",
-                    "label": "จัดส่งที่บ้าน",
-                    "uri": "https://linecorp.com"
-                    }
-                }
-                ]
+    } else if($text == "เมนูอาหาร") {
+        $replyText = "type": "template",
+        "altText": "this is a buttons template",
+        "template": {
+          "type": "buttons",
+          "thumbnailImageUrl": "https://www.scb.co.th/content/dam/scb/personal-banking/stories-tips/thai-food/thai-food10.jpg",
+          "title": "ร้าน ...",
+          "text": "เปิดทุกวัน 10.00 - 18.00 น.",
+          "actions": [
+            {
+              "type": "message",
+              "label": "เมนูอาหาร",
+              "text": "เมนูอาหาร"
             }
-            }
-        ]
+          ]
+        }
     } else {
         $replyText["type"] = "text";
         $replyText["text"] = $text;
