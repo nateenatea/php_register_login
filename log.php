@@ -15,7 +15,7 @@
 <body>
     <ul class="ul">
         <li class="li"><a href="DataTable.php">Home</a></li>
-        <li style="float:right"><a class="active" href="Log.php">Chat history</a></li>
+        <li style="float:right"><a class="active" href="log.php">Chat history</a></li>
     </ul>
     <div class ="display-3 text-center">Chat History</div>
         <table class="table table-striped table-bordered table-hover">
