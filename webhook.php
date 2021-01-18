@@ -49,9 +49,7 @@
         //     ]
         //     }
         // ];
-        $replyText = echo'
-        <script>
-        {
+        $replyText = [
             "type": "template",
             "altText": "this is a buttons template",
             "template": {
@@ -67,8 +65,7 @@
                 }
               ]
             }
-        }
-        </script>'
+        ];
     } else {
         $replyText["type"] = "text";
         $replyText["text"] = $text;
