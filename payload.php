@@ -1,6 +1,6 @@
 <?php
     $test = "ทดสอบ";
-    $getMe = "{
+    $getMe = '{
         "type": "flex",
         "altText": "Flex Message",
         "contents": {
@@ -12,7 +12,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": "{$test}",
+                "text": "'.$test.'",
                 "align": "center",
                 "contents": []
               }
@@ -68,5 +68,5 @@
             ]
           }
         }
-      }";
+      }';
 ?>
