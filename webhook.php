@@ -32,8 +32,17 @@
     if ($text == "Hello") {
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
+    } else if ($text == "เมนูหลัก") {
+        $JsonFlex = $getMain;
+        $replyText = json_decode($JsonFlex);      
+    } else if ($text == "เมนูอาหาร") {
+        $JsonFlex = $getMenu;
+        $replyText = json_decode($JsonFlex);      
     } else if ($text == "เกี่ยวกับเรา") {
         $JsonFlex = $getMe;
+        $replyText = json_decode($JsonFlex);      
+    } else if ($text == "สั่งอาหาร") {
+        $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
     } else {
         $replyText["type"] = "text";

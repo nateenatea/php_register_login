@@ -1,5 +1,6 @@
 <?php
-    $test = "ทดสอบ";
+    // $test = "เกี่ยวกับเรา";
+    // "text": "'.$test.'",
     $getMe = '{
         "type": "flex",
         "altText": "Flex Message",
@@ -12,7 +13,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": "'.$test.'",
+                "text": "เกี่ยวกับเรา",
                 "align": "center",
                 "contents": []
               }
@@ -69,4 +70,529 @@
           }
         }
       }';
+
+    $getFood = '{
+        "type": "flex",
+        "altText": "Flex Message",
+        "contents": {
+          "type": "bubble",
+          "direction": "ltr",
+          "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ช่องทางการรับอาหาร",
+                "align": "center",
+                "contents": []
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "รับเองที่ร้าน",
+                  "uri": "https://linecorp.com"
+                }
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "จัดส่งที่บ้าน",
+                  "uri": "https://linecorp.com"
+                }
+              }
+            ]
+          }
+        }
+      }';
+    $getMain = '{
+        "type": "template",
+        "altText": "this is a buttons template",
+        "template": {
+          "type": "buttons",
+          "thumbnailImageUrl": "https://www.scb.co.th/content/dam/scb/personal-banking/stories-tips/thai-food/thai-food10.jpg",
+          "title": "ร้าน ...",
+          "text": "เปิดทุกวัน 10.00 - 18.00 น.",
+          "actions": [
+            {
+              "type": "message",
+              "label": "เมนูอาหาร",
+              "text": "เมนูอาหาร"
+            }
+          ]
+        }
+      }';
+    $getMenu = '{
+        "type": "flex",
+        "altText": "Flex Message",
+        "contents": {
+          "type": "carousel",
+          "contents": [
+            {
+              "type": "bubble",
+              "direction": "ltr",
+              "hero": {
+                "type": "image",
+                "url": "https://img.wongnai.com/p/1920x0/2019/09/13/efa96879445f46b6aa780ae1a8ed64a7.jpg",
+                "size": "full",
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "action": {
+                  "type": "uri",
+                  "label": "Action",
+                  "uri": "https://linecorp.com"
+                }
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "action": {
+                  "type": "uri",
+                  "label": "Action",
+                  "uri": "https://linecorp.com"
+                },
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "กระเพราหมูสับ",
+                    "weight": "bold",
+                    "size": "xl",
+                    "contents": []
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "margin": "md",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "4.0",
+                        "size": "sm",
+                        "color": "#999999",
+                        "flex": 0,
+                        "margin": "md",
+                        "contents": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "ธรรมดา 40 บาท",
+                            "weight": "bold",
+                            "margin": "sm",
+                            "contents": []
+                          }
+                        ]
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "พิเศษ 45 บาท",
+                            "weight": "bold",
+                            "flex": 0,
+                            "margin": "sm",
+                            "contents": []
+                          }
+                        ]
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "ไข่ดาว เพิ่มอีก 5 บาท",
+                            "weight": "bold",
+                            "margin": "sm",
+                            "contents": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "spacer",
+                    "size": "xs"
+                  },
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "message",
+                      "label": "สั่งอาหาร",
+                      "text": "สั่งอาหาร"
+                    },
+                    "color": "#52E5F4FF",
+                    "style": "primary",
+                    "gravity": "top"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bubble",
+              "direction": "ltr",
+              "hero": {
+                "type": "image",
+                "url": "https://food.mthai.com/app/uploads/2019/05/Stir-Fried-Crispy-Pork-with-Red-Curry-17.jpg",
+                "size": "full",
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "action": {
+                  "type": "uri",
+                  "label": "Action",
+                  "uri": "https://linecorp.com"
+                }
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "action": {
+                  "type": "uri",
+                  "label": "Action",
+                  "uri": "https://linecorp.com"
+                },
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ผัดพริกแกงหมู",
+                    "weight": "bold",
+                    "size": "xl",
+                    "contents": []
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "margin": "md",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "3.0",
+                        "size": "sm",
+                        "color": "#999999",
+                        "flex": 0,
+                        "margin": "md",
+                        "contents": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "ธรรมดา 40 บาท",
+                            "weight": "bold",
+                            "margin": "sm",
+                            "contents": []
+                          }
+                        ]
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "พิเศษ 45 บาท",
+                            "weight": "bold",
+                            "flex": 0,
+                            "margin": "sm",
+                            "contents": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "spacer",
+                    "size": "xs"
+                  },
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "message",
+                      "label": "สั่งอาหาร",
+                      "text": "สั่งอาหาร"
+                    },
+                    "color": "#52E5F4FF",
+                    "style": "primary"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bubble",
+              "direction": "ltr",
+              "hero": {
+                "type": "image",
+                "url": "https://food.mthai.com/app/uploads/2017/12/Stir-Fried-Kale-with-Crispy-Pork.jpg",
+                "size": "full",
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "action": {
+                  "type": "uri",
+                  "label": "Action",
+                  "uri": "https://linecorp.com"
+                }
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "action": {
+                  "type": "uri",
+                  "label": "Action",
+                  "uri": "https://linecorp.com"
+                },
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "กระเพราหมูสับ",
+                    "weight": "bold",
+                    "size": "xl",
+                    "contents": []
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "margin": "md",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "5.0",
+                        "size": "sm",
+                        "color": "#999999",
+                        "flex": 0,
+                        "margin": "md",
+                        "contents": []
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "ธรรมดา 45 บาท",
+                            "weight": "bold",
+                            "margin": "sm",
+                            "contents": []
+                          }
+                        ]
+                      },
+                      {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                          {
+                            "type": "text",
+                            "text": "พิเศษ 50 บาท",
+                            "weight": "bold",
+                            "flex": 0,
+                            "margin": "sm",
+                            "contents": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "spacer",
+                    "size": "xs"
+                  },
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "message",
+                      "label": "สั่งอาหาร",
+                      "text": "สั่งอาหาร"
+                    },
+                    "color": "#52E5F4FF",
+                    "style": "primary"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "bubble",
+              "direction": "ltr",
+              "hero": {
+                "type": "image",
+                "url": "https://f.ptcdn.info/093/063/000/por9fs1msd6H30qV3s8m-o.jpg",
+                "size": "full",
+                "aspectRatio": "20:13",
+                "aspectMode": "cover",
+                "action": {
+                  "type": "uri",
+                  "label": "Action",
+                  "uri": "https://linecorp.com"
+                }
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "action": {
+                  "type": "uri",
+                  "label": "Action",
+                  "uri": "https://linecorp.com"
+                },
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "เมนูอาหารอื่นๆ",
+                    "weight": "bold",
+                    "size": "xl",
+                    "contents": []
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "spacer",
+                    "size": "xs"
+                  },
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "message",
+                      "label": "ดูเมนู",
+                      "text": "ดูเมนู"
+                    },
+                    "color": "#52E5F4FF",
+                    "style": "primary"
+                  },
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "message",
+                      "label": "สั่งอาหาร",
+                      "text": "สั่งอาหาร"
+                    },
+                    "color": "#52E5F4FF",
+                    "style": "primary"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }';   
 ?>
