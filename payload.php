@@ -17,7 +17,7 @@
     $getMenu = '{
         "type": "carousel",
         "contents": [
-          '.while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+          '.while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {.
               '{
                 "type": "bubble",
                 "direction": "ltr",
@@ -129,8 +129,8 @@
                     }
                   ]
                 }
-              },'
-          }.'
+              },
+          '.}.'
         ]
       }';
 
