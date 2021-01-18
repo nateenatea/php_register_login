@@ -30,10 +30,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul class="ul">
-        <li class="li"><a href="DataTable.php">Home</a></li>
-        <li style="float:right"><a class="active" href="log.php">Chat history</a></li>
-    </ul>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="DataTable.php">Home</a>
+            <a class="navbar-brand" href="log.php">Chat history</a>
+            <!-- <li class="li"><a href="DataTable.php">Home</a></li>
+            <li style="float:right"><a class="active" href="log.php">Chat history</a></li> -->
+        </div>
+    </nav>
     <div class="container">
         <?php if(isset($_SESSION['username'])) : ?>
             <p>
