@@ -27,10 +27,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <ul class="ul">
+        <li class="li"><a href="DataTable.php">Home</a></li>
+        <li style="float:right"><a class="active" href="Log.php">Chat history</a></li>
+    </ul>
     <div class="container">
-    <?php if(isset($_SESSION['username'])) : ?>
+        <?php if(isset($_SESSION['username'])) : ?>
             <p>
                 Admin: <strong><?php echo $_SESSION['username']; ?></strong>&nbsp;
                 <a href="index.php?logout='1'" style="color: red;">Logout</a> 
