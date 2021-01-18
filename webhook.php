@@ -31,7 +31,7 @@
     if ($text == "Hello") {
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
-    } else if($text == "เมนูอาหาร") {
+    } else if ($text == "เมนูอาหาร") {
         $replyText = [
             "type": "template",
             "altText": "this is a buttons template",
@@ -71,9 +71,13 @@
     $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
     $lineData['AccessToken'] = "uEbhTcwlpe54y5BHzyjzFpmp8IjkmYvEftYlagXn2HijGkFNv3ONRMVE72iqX5YJETG1T59BEhq4d9T+2x9Vs5QFyLNytZVsV0zbPEvpV51g7H3j7TmJuFTZ1clOB7PlzPTYE/bCXc3a2NNyRC47nAdB04t89/1O/w1cDnyilFU=";
 
-    $replyJson["replyToken"] = $replyToken;
+    // $replyJson["replyToken"] = $replyToken;
     // $replyJson["messages"][0] = $replyText;
-    $replyJson["messages"] = $replyText;
+
+    $replyJson = [
+        'replyToken' => $replyToken,
+        'messages' => [$replyText]
+    ];
 
     $encodeJson = json_encode($replyJson);
 
