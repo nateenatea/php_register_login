@@ -13,12 +13,11 @@
     // }
     // $test = "เกี่ยวกับเรา";
     // "text": "'.$test.'",
-
-    $getMenu = '{
-        "type": "carousel",
-        "contents": [
-          '.while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {.
-              '{
+    
+    $MenuArray = [];
+    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+        $MenuArray[] = [
+            {
                 "type": "bubble",
                 "direction": "ltr",
                 "hero": {
@@ -129,8 +128,14 @@
                     }
                   ]
                 }
-              },
-          '.}.'
+            },
+        ]
+    }
+
+    $getMenu = '{
+        "type": "carousel",
+        "contents": [
+            '.$MenuArray.'
         ]
       }';
 
