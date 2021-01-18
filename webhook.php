@@ -32,7 +32,7 @@
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
     } else if ($text == "เมนูอาหาร") {
-        $replyText = '[
+        $replyText = [
         {
             "type": "bubble",
             "direction": "ltr",
@@ -98,7 +98,7 @@
               ]
             }
           }
-        ]';
+        ];
     } else {
         $replyText["type"] = "text";
         $replyText["text"] = $text;
