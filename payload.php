@@ -2,15 +2,15 @@
     require_once('server.php');
     session_start();
 
-    // $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
-    // $select_stmt->execute();
+    $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
+    $select_stmt->execute();
 
-    // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-    //   $id = $row["id"];
-    //   $FoodName = $row["FoodName"];
-    //   $FoodPrice = $row["FoodPrice"];
-    //   $FoodImage = $row["FoodImage"];    
-    // }
+    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+      $id = $row["id"];
+      $FoodName = $row["FoodName"];
+      $FoodPrice = $row["FoodPrice"];
+      $FoodImage = $row["FoodImage"];    
+    }
 
     // $fetchdata = $select_stmt->fetchALL(PDO::FETCH_OBJ);
     // if ($select_stmt->rowCount() > 0) {
@@ -25,9 +25,9 @@
     //     ]
     // }
 
-    $FoodName = "กระเพราหมูสับ";
-    $FoodImage = "b1882dcea15df32ac2d0593cc3f0681e.jpg";
-    $FoodPrice = "40 บาท";
+    // $FoodName = "กระเพราหมูสับ";
+    // $FoodImage = "b1882dcea15df32ac2d0593cc3f0681e.jpg";
+    // $FoodPrice = "40 บาท";
 
     $getTest = '{
       "type": "flex",
@@ -74,23 +74,7 @@
               "type": "button",
               "action": {
                 "type": "uri",
-                "label": "Facebook",
-                "uri": "https://linecorp.com"
-              }
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "uri",
-                "label": "เบอร์โทร",
-                "uri": "https://linecorp.com"
-              }
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "uri",
-                "label": "แผนที่ร้าน",
+                "label": "ทดสอบ",
                 "uri": "https://linecorp.com"
               }
             }
