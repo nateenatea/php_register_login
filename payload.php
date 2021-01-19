@@ -5,12 +5,12 @@
     $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
     $select_stmt->execute();
 
-    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-      $id = $row["id"];
-      $FoodName = $row["FoodName"];
-      $FoodPrice = $row["FoodPrice"];
-      $FoodImage = $row["FoodImage"];    
-    }
+    // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+    //   $id = $row["id"];
+    //   $FoodName = $row["FoodName"];
+    //   $FoodPrice = $row["FoodPrice"];
+    //   $FoodImage = $row["FoodImage"];    
+    // }
 
     // $fetchdata = $select_stmt->fetchALL(PDO::FETCH_OBJ);
     // if ($select_stmt->rowCount() > 0) {
@@ -18,21 +18,16 @@
     //     $data = 
     //   }
     // }
-
-    // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-    //     $row["id"];
-    //     $row["FoodName"];
-    //     $row["FoodPrice"];
-    //     $row["FoodImage"];
-    // }
-    // $test = "เกี่ยวกับเรา";
-    // "text": "'.$test.'",
     
     // $MenuArray = [];
     // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
     //     $MenuArray[] = [
     //     ]
     // }
+
+    $FoodName = "กระเพราหมูสับ";
+    $FoodImage = "b1882dcea15df32ac2d0593cc3f0681e.jpg";
+    $FoodPrice = "40 บาท";
 
     $getTest = '{
         "type": "carousel",
