@@ -5,59 +5,6 @@
     $select_stmt = $db->prepare("SELECT * FROM FoodList");
     $select_stmt->execute();
     $fetchdata = $select_stmt->fetchALL(PDO::FETCH_OBJ);
-    if ($select_stmt->rowCount() > 0) {
-      foreach($fetchdata as $data) {
-        $data = '{
-          "type": "bubble",
-          "direction": "ltr",
-          "header": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "Header",
-                "align": "center",
-                "contents": []
-              }
-            ]
-          },
-          "hero": {
-            "type": "image",
-            "url": "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
-            "size": "full",
-            "aspectRatio": "1.51:1",
-            "aspectMode": "fit"
-          },
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "'.$data->FoodName.'",
-                "align": "center",
-                "contents": []
-              }
-            ]
-          },
-          "footer": {
-            "type": "box",
-            "layout": "horizontal",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "Button",
-                  "uri": "https://linecorp.com"
-                }
-              }
-            ]
-          }
-        },';
-      }
-    }
 
     // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
     //     $row["id"];
@@ -77,7 +24,59 @@
     $getMenu = '{
         "type": "carousel",
         "contents": [
-            '.$data.'
+            '.if ($select_stmt->rowCount() > 0) {
+              foreach($fetchdata as $data) {
+                $data = '{
+                  "type": "bubble",
+                  "direction": "ltr",
+                  "header": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "Header",
+                        "align": "center",
+                        "contents": []
+                      }
+                    ]
+                  },
+                  "hero": {
+                    "type": "image",
+                    "url": "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
+                    "size": "full",
+                    "aspectRatio": "1.51:1",
+                    "aspectMode": "fit"
+                  },
+                  "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "'.$data->FoodName.'",
+                        "align": "center",
+                        "contents": []
+                      }
+                    ]
+                  },
+                  "footer": {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "button",
+                        "action": {
+                          "type": "uri",
+                          "label": "Button",
+                          "uri": "https://linecorp.com"
+                        }
+                      }
+                    ]
+                  }
+                },';
+              }
+            }.'
         ]
       }';
 
