@@ -5,7 +5,7 @@
     $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
     $select_stmt->execute();
 
-    while($row = $select_stmt->fetch_assoc()){
+    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
       $id = $row["id"];
       $FoodName = $row["FoodName"];
       $FoodPrice = $row["FoodPrice"];
