@@ -2,8 +2,8 @@
     require_once('server.php');
     session_start();
 
-    $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
-    $select_stmt->execute();
+    // $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
+    // $select_stmt->execute();
 
     // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
     //   $id = $row["id"];
@@ -49,7 +49,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/b1882dcea15df32ac2d0593cc3f0681e.jpg",
+              "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$FoodImage.'",
               "size": "full",
               "aspectRatio": "1.51:1",
               "aspectMode": "fit"
