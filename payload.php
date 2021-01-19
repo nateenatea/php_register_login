@@ -33,58 +33,69 @@
       "type": "flex",
       "altText": "Flex Message",
       "contents": {
-        "type": "carousel",
-        "contents": [
-          {
-            "type": "bubble",
-            "direction": "ltr",
-            "header": {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "'.$FoodName.'",
-                  "align": "center",
-                  "contents": []
-                }
-              ]
-            },
-            "hero": {
-              "type": "image",
-              "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$FoodImage.'",
-              "size": "full",
-              "aspectRatio": "1.51:1",
-              "aspectMode": "fit"
-            },
-            "body": {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "'.$FoodPrice.'",
-                  "align": "center",
-                  "contents": []
-                }
-              ]
-            },
-            "footer": {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "button",
-                  "action": {
-                    "type": "uri",
-                    "label": "Button",
-                    "uri": "https://linecorp.com"
-                  }
-                }
-              ]
+        "type": "bubble",
+        "direction": "ltr",
+        "header": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "'.$FoodName.'",
+              "align": "center",
+              "contents": []
             }
-          },
-        ]
+          ]
+        },
+        "hero": {
+          "type": "image",
+          "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$FoodImage.'",
+          "size": "full",
+          "aspectRatio": "1.51:1",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "'.$FoodPrice.'",
+              "align": "center",
+              "contents": []
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "Facebook",
+                "uri": "https://linecorp.com"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "เบอร์โทร",
+                "uri": "https://linecorp.com"
+              }
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "แผนที่ร้าน",
+                "uri": "https://linecorp.com"
+              }
+            }
+          ]
+        }
       }
     }';
 
