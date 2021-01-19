@@ -41,7 +41,7 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "'.$FoodName.'",
+                  "text": "ทดสอบ",
                   "align": "center",
                   "contents": []
                 }
@@ -49,7 +49,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$FoodImage.'",
+              "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/b1882dcea15df32ac2d0593cc3f0681e.jpg",
               "size": "full",
               "aspectRatio": "1.51:1",
               "aspectMode": "fit"
@@ -60,7 +60,7 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "'.$FoodPrice.'",
+                  "text": "ทดสอบ",
                   "align": "center",
                   "contents": []
                 }
@@ -83,6 +83,61 @@
           },
         ]
       }';
+
+      // $getTest = '{
+      //   "type": "carousel",
+      //   "contents": [
+      //     {
+      //       "type": "bubble",
+      //       "direction": "ltr",
+      //       "header": {
+      //         "type": "box",
+      //         "layout": "vertical",
+      //         "contents": [
+      //           {
+      //             "type": "text",
+      //             "text": "'.$FoodName.'",
+      //             "align": "center",
+      //             "contents": []
+      //           }
+      //         ]
+      //       },
+      //       "hero": {
+      //         "type": "image",
+      //         "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$FoodImage.'",
+      //         "size": "full",
+      //         "aspectRatio": "1.51:1",
+      //         "aspectMode": "fit"
+      //       },
+      //       "body": {
+      //         "type": "box",
+      //         "layout": "vertical",
+      //         "contents": [
+      //           {
+      //             "type": "text",
+      //             "text": "'.$FoodPrice.'",
+      //             "align": "center",
+      //             "contents": []
+      //           }
+      //         ]
+      //       },
+      //       "footer": {
+      //         "type": "box",
+      //         "layout": "horizontal",
+      //         "contents": [
+      //           {
+      //             "type": "button",
+      //             "action": {
+      //               "type": "uri",
+      //               "label": "Button",
+      //               "uri": "https://linecorp.com"
+      //             }
+      //           }
+      //         ]
+      //       }
+      //     },
+      //   ]
+      // }';
 
     $getMenu = '{
       "type": "flex",
