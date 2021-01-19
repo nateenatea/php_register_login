@@ -49,7 +49,7 @@
             },
             "hero": {
               "type": "image",
-              "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$FoodImage.'",
+              "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/b1882dcea15df32ac2d0593cc3f0681e.jpg",
               "size": "full",
               "aspectRatio": "1.51:1",
               "aspectMode": "fit"
