@@ -2,14 +2,15 @@
     require_once('server.php');
     session_start();
 
-    $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
+    // $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
+    $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
 
-    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-      $id = $row["id"];
-      $FoodName = $row["FoodName"];
-      $FoodPrice = $row["FoodPrice"];
-      $FoodImage = $row["FoodImage"];    
+    while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
+      $id = $row[0]["id"];
+      $FoodName = $row[0]["FoodName"];
+      $FoodPrice = $row[0]["FoodPrice"];
+      $FoodImage = $row[0]["FoodImage"];    
     }
 
     // $fetchdata = $select_stmt->fetchALL(PDO::FETCH_OBJ);
