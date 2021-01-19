@@ -2,79 +2,84 @@
     require_once('server.php');
     session_start();
 
-    // $select_stmt = $db->prepare("SELECT * FROM FoodList");
-    // $select_stmt->execute();
+    $select_stmt = $db->prepare("SELECT * FROM FoodList");
+    $select_stmt->execute();
+    $fetchdata = $select_stmt->fetchALL(PDO::FETCH_OBJ);
+    if ($select_stmt->rowCount() > 0) {
+      foreach($fetchdata as $data) {
+        $data = {
+          "type": "bubble",
+          "direction": "ltr",
+          "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Header",
+                "align": "center",
+                "contents": []
+              }
+            ]
+          },
+          "hero": {
+            "type": "image",
+            "url": "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
+            "size": "full",
+            "aspectRatio": "1.51:1",
+            "aspectMode": "fit"
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "'.$data->FoodName.'",
+                "align": "center",
+                "contents": []
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "Button",
+                  "uri": "https://linecorp.com"
+                }
+              }
+            ]
+          }
+        },
+      }
+    }
 
-    // // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-    // //     $row["id"];
-    // //     $row["FoodName"];
-    // //     $row["FoodPrice"];
-    // //     $row["FoodImage"];
-    // // }
-    // // $test = "เกี่ยวกับเรา";
-    // // "text": "'.$test.'",
+    // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+    //     $row["id"];
+    //     $row["FoodName"];
+    //     $row["FoodPrice"];
+    //     $row["FoodImage"];
+    // }
+    // $test = "เกี่ยวกับเรา";
+    // "text": "'.$test.'",
     
     // $MenuArray = [];
     // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
     //     $MenuArray[] = [
-    //         {
-    //             "type": "bubble",
-    //             "direction": "ltr",
-    //             "header": {
-    //               "type": "box",
-    //               "layout": "vertical",
-    //               "contents": [
-    //                 {
-    //                   "type": "text",
-    //                   "text": "Header",
-    //                   "align": "center",
-    //                   "contents": []
-    //                 }
-    //               ]
-    //             },
-    //             "hero": {
-    //               "type": "image",
-    //               "url": "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
-    //               "size": "full",
-    //               "aspectRatio": "1.51:1",
-    //               "aspectMode": "fit"
-    //             },
-    //             "body": {
-    //               "type": "box",
-    //               "layout": "vertical",
-    //               "contents": [
-    //                 {
-    //                   "type": "text",
-    //                   "text": "'.$row["FoodName"].'",
-    //                   "align": "center",
-    //                   "contents": []
-    //                 }
-    //               ]
-    //             },
-    //             "footer": {
-    //               "type": "box",
-    //               "layout": "horizontal",
-    //               "contents": [
-    //                 {
-    //                   "type": "button",
-    //                   "action": {
-    //                     "type": "uri",
-    //                     "label": "Button",
-    //                     "uri": "https://linecorp.com"
-    //                   }
-    //                 }
-    //               ]
-    //             }
-    //           },
     //     ]
     // }
 
-    // $getMenu = '{
-    //     "type": "carousel",
-    //     "contents": [
-    //         '.$MenuArray.'
-    //     ]
-    //   }';
+    $getMenu = '{
+        "type": "carousel",
+        "contents": [
+            '.$data.'
+        ]
+      }';
 
     $getMe = '{
         "type": "flex",
