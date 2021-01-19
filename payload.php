@@ -7,7 +7,7 @@
     $fetchdata = $select_stmt->fetchALL(PDO::FETCH_OBJ);
     if ($select_stmt->rowCount() > 0) {
       foreach($fetchdata as $data) {
-        $data = {
+        $data = '{
           "type": "bubble",
           "direction": "ltr",
           "header": {
@@ -55,7 +55,7 @@
               }
             ]
           }
-        },
+        },';
       }
     }
 
