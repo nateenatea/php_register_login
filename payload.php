@@ -2,7 +2,7 @@
     require_once('server.php');
     session_start();
 
-    $select_stmt = $db->prepare("SELECT * FROM FoodList");
+    $select_stmt = $db->prepare("SELECT * FROM `FoodList` WHERE `ID`='1'");
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch_assoc()){
