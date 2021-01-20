@@ -7,10 +7,10 @@
     $select_stmt->execute();
 
     while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
-      $id = $row[0]["id"];
-      $FoodName = $row[0]["FoodName"];
-      $FoodPrice = $row[0]["FoodPrice"];
-      $FoodImage = $row[0]["FoodImage"];    
+      $id = $row[1]["id"];
+      $FoodName = $row[1]["FoodName"];
+      $FoodPrice = $row[1]["FoodPrice"];
+      $FoodImage = $row[1]["FoodImage"];    
     }
 
     // $fetchdata = $select_stmt->fetchALL(PDO::FETCH_OBJ);
