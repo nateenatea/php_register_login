@@ -99,6 +99,8 @@
     // $FoodName = "กระเพราหมูสับ";
     // $FoodImage = "b1882dcea15df32ac2d0593cc3f0681e.jpg";
     // $FoodPrice = "40 บาท";
+    echo $FlexArray[0];
+    echo $FlexArray[1];
 
     $getTest = '{
       "type": "flex",
