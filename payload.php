@@ -6,17 +6,23 @@
     $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
 
-    while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
-      $id = $row["id"];
-      $FoodName = $row["FoodName"];
-      $FoodPrice = $row["FoodPrice"];
-      $FoodImage = $row["FoodImage"];    
+    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+      echo $row["FoodName"] . "<br>";
+      echo $row["FoodPrice"] . "<br>";
+      echo $row["FoodImage"] . "<br>";
     }
 
-    echo $id[0] . "<br>";
-    echo $FoodName[0] . "<br>";
-    echo $FoodPrice[0] . "<br>";
-    echo $FoodImage[0] . "<br>";
+    // while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
+    //   $id = $row[1]["id"];
+    //   $FoodName = $row[1]["FoodName"];
+    //   $FoodPrice = $row[1]["FoodPrice"];
+    //   $FoodImage = $row[1]["FoodImage"];    
+    // }
+
+    // echo $id . "<br>";
+    // echo $FoodName . "<br>";
+    // echo $FoodPrice . "<br>";
+    // echo $FoodImage . "<br>";
 
     $FlexArray = [];
     while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
