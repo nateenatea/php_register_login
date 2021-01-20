@@ -106,7 +106,8 @@
       "contents": {
         "type": "carousel",
         "contents": [
-          '.$FlexArray[0], $FlexArray[1].'
+          '.$FlexArray[0].'
+          '.$FlexArray[1].'
         {
           "type": "bubble",
           "direction": "ltr",
