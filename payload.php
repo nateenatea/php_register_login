@@ -7,10 +7,74 @@
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-      echo $row["FoodName"] . "<br>";
-      echo $row["FoodPrice"] . "<br>";
-      echo $row["FoodImage"] . "<br>";
+      $array .= '{
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$row["FoodImage"].'",
+          "size": "full",
+          "aspectRatio": "20:13",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "label": "Line",
+            "uri": "https://linecorp.com/"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "'.$row["FoodName"].'",
+              "weight": "bold",
+              "size": "xl",
+              "contents": []
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "margin": "lg",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "'.$row["FoodPrice"].'",
+                  "weight": "bold",
+                  "margin": "sm",
+                  "contents": []
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 0,
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "สั่งอาหาร",
+                "text": "สั่งอาหาร"
+              },
+              "color": "#1DD9FBFF",
+              "style": "primary"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ]
+        }
+      },';
     }
+
+    echo $array . "<br>";
 
     // while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
     //   $id = $row[1]["id"];
