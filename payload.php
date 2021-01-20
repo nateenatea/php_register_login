@@ -6,12 +6,12 @@
     $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
 
-    while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
-      $id = $row[1]["id"];
-      $FoodName = $row[1]["FoodName"];
-      $FoodPrice = $row[1]["FoodPrice"];
-      $FoodImage = $row[1]["FoodImage"];    
-    }
+    // while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
+    //   $id = $row[1]["id"];
+    //   $FoodName = $row[1]["FoodName"];
+    //   $FoodPrice = $row[1]["FoodPrice"];
+    //   $FoodImage = $row[1]["FoodImage"];    
+    // }
 
     $FlexArray = [];
     while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
@@ -108,59 +108,59 @@
       }
     }';
 
-    $getTest = '{
-      "type": "flex",
-      "altText": "Flex Message",
-      "contents": {
-        "type": "bubble",
-        "direction": "ltr",
-        "header": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "text",
-              "text": "'.$FoodName.'",
-              "align": "center",
-              "contents": []
-            }
-          ]
-        },
-        "hero": {
-          "type": "image",
-          "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$FoodImage.'",
-          "size": "full",
-          "aspectRatio": "1.51:1",
-          "aspectMode": "fit"
-        },
-        "body": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "text",
-              "text": "'.$FoodPrice.'",
-              "align": "center",
-              "contents": []
-            }
-          ]
-        },
-        "footer": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "button",
-              "action": {
-                "type": "uri",
-                "label": "ทดสอบ",
-                "uri": "https://linecorp.com"
-              }
-            }
-          ]
-        }
-      }
-    }';
+    // $getTest = '{
+    //   "type": "flex",
+    //   "altText": "Flex Message",
+    //   "contents": {
+    //     "type": "bubble",
+    //     "direction": "ltr",
+    //     "header": {
+    //       "type": "box",
+    //       "layout": "vertical",
+    //       "contents": [
+    //         {
+    //           "type": "text",
+    //           "text": "'.$FoodName.'",
+    //           "align": "center",
+    //           "contents": []
+    //         }
+    //       ]
+    //     },
+    //     "hero": {
+    //       "type": "image",
+    //       "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$FoodImage.'",
+    //       "size": "full",
+    //       "aspectRatio": "1.51:1",
+    //       "aspectMode": "fit"
+    //     },
+    //     "body": {
+    //       "type": "box",
+    //       "layout": "vertical",
+    //       "contents": [
+    //         {
+    //           "type": "text",
+    //           "text": "'.$FoodPrice.'",
+    //           "align": "center",
+    //           "contents": []
+    //         }
+    //       ]
+    //     },
+    //     "footer": {
+    //       "type": "box",
+    //       "layout": "vertical",
+    //       "contents": [
+    //         {
+    //           "type": "button",
+    //           "action": {
+    //             "type": "uri",
+    //             "label": "ทดสอบ",
+    //             "uri": "https://linecorp.com"
+    //           }
+    //         }
+    //       ]
+    //     }
+    //   }
+    // }';
 
     $getMenu = '{
       "type": "flex",
