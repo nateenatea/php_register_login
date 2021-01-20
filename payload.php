@@ -6,11 +6,13 @@
     $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
 
+    $i = 0;
     while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
-      $id = $row["id"];
-      $FoodName = $row["FoodName"];
-      $FoodPrice = $row["FoodPrice"];
-      $FoodImage = $row["FoodImage"];    
+      $id = $row[$i]["id"];
+      $FoodName = $row[$i]["FoodName"];
+      $FoodPrice = $row[$i]["FoodPrice"];
+      $FoodImage = $row[$i]["FoodImage"];
+      $i++;
     }
 
     echo $FoodName[0] . "<br>";
