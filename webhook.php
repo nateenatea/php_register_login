@@ -44,27 +44,23 @@
     } else if ($text == "สั่งอาหาร") {
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
-    }  else if ($text == "Test") {
-        $JsonFlex = $getTest;
-        $replyText = json_decode($JsonFlex);      
-    } else {
-        $replyText["type"] = "text";
-        $replyText["text"] = $text;
-    }
+    }  
+    // else if ($text == "Test") {
+    //     $JsonFlex = $getTest;
+    //     $replyText = json_decode($JsonFlex);      
+    // } else {
+    //     $replyText["type"] = "text";
+    //     $replyText["text"] = $text;
+    // }
 
     // $getUser = $conn->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
     // $getuserNum = $getUser->num_rows;
-    // $replyText["type"] = "text";
-    // if ($getuserNum == "0"){
-    // $replyText["text"] = "สวัสดีคับบบบ";
-    // } else {
     // while($row = $getUser->fetch_assoc()){
     //     $Name = $row['Name'];
     //     $Surname = $row['Surname'];
     //     $CustomerID = $row['CustomerID'];
     // }
     // $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
-    // }
 
     $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
     $lineData['AccessToken'] = "uEbhTcwlpe54y5BHzyjzFpmp8IjkmYvEftYlagXn2HijGkFNv3ONRMVE72iqX5YJETG1T59BEhq4d9T+2x9Vs5QFyLNytZVsV0zbPEvpV51g7H3j7TmJuFTZ1clOB7PlzPTYE/bCXc3a2NNyRC47nAdB04t89/1O/w1cDnyilFU=";

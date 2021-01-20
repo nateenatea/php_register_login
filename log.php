@@ -16,9 +16,10 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="DataTable.php">Home</a>
-            <a class="navbar-brand" href="log.php">Chat history</a>
-            <!-- <li class="li"><a href="DataTable.php">Home</a></li>
-            <li style="float:right"><a class="active" href="log.php">Chat history</a></li> -->
+            <ul class = "bg-dark">
+                <a class="navbar-brand" href="chatbot.php">Chatbot</a>
+                <a class="navbar-brand" href="log.php">Chat history</a>
+            </ul>
         </div>
     </nav>
     <div class="container">
