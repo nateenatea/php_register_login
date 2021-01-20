@@ -13,10 +13,10 @@
       $FoodImage = $row["FoodImage"];    
     }
 
-    echo $id . "<br>";
-    echo $FoodName . "<br>";
-    echo $FoodPrice . "<br>";
-    echo $FoodImage . "<br>";
+    echo $id[0] . "<br>";
+    echo $FoodName[0] . "<br>";
+    echo $FoodPrice[0] . "<br>";
+    echo $FoodImage[0] . "<br>";
 
     $FlexArray = [];
     while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
