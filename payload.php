@@ -14,9 +14,9 @@
     // }
 
     while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
-      echo $row["FoodName"];
-      echo $row["FoodPrice"];
-      echo $row["FoodImage"];
+      echo $row->FoodName . "<br>";
+      echo $row->FoodPrice . "<br>";
+      echo $row->FoodImage . "<br>";
     }
 
     $FlexArray = [];
