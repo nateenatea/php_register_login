@@ -14,9 +14,11 @@
     // }
 
     while($row = $select_stmt->fetchALL(PDO::FETCH_ASSOC)) {
-      echo $row->FoodName . "<br>";
-      echo $row->FoodPrice . "<br>";
-      echo $row->FoodImage . "<br>";
+      foreach($row as $new) {
+        echo $new->FoodName . "<br>";
+        echo $new->FoodPrice . "<br>";
+        echo $new->FoodImage . "<br>";
+      }
     }
 
     $FlexArray = [];
