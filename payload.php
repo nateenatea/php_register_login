@@ -105,6 +105,71 @@
       "altText": "Flex Message",
       "contents": {
         '.$FlexArray.'
+        {
+          "type": "bubble",
+          "direction": "ltr",
+          "hero": {
+            "type": "image",
+            "url": "https://f.ptcdn.info/093/063/000/por9fs1msd6H30qV3s8m-o.jpg",
+            "size": "full",
+            "aspectRatio": "20:13",
+            "aspectMode": "cover",
+            "action": {
+              "type": "uri",
+              "label": "Action",
+              "uri": "https://linecorp.com"
+            }
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "md",
+            "action": {
+              "type": "uri",
+              "label": "Action",
+              "uri": "https://linecorp.com"
+            },
+            "contents": [
+              {
+                "type": "text",
+                "text": "เมนูอาหารอื่นๆ",
+                "weight": "bold",
+                "size": "xl",
+                "contents": []
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "spacer",
+                "size": "xs"
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "message",
+                  "label": "ดูเมนู",
+                  "text": "ดูเมนู"
+                },
+                "color": "#52E5F4FF",
+                "style": "primary"
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "message",
+                  "label": "สั่งอาหาร",
+                  "text": "สั่งอาหาร"
+                },
+                "color": "#52E5F4FF",
+                "style": "primary"
+              }
+            ]
+          }
+        }
       }
     }';
 
@@ -619,7 +684,7 @@
                   },
                   "color": "#52E5F4FF",
                   "style": "primary"
-                }
+                } 
               ]
             }
           }
