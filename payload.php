@@ -41,7 +41,7 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "'.$row["FoodPrice"].'",
+                  "text": "ราคา '.$row["FoodPrice"].' บาท",
                   "weight": "bold",
                   "margin": "sm",
                   "contents": []
