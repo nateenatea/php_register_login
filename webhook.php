@@ -27,7 +27,7 @@
     }
 
     // Chat history
-    // $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+    $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
     if ($text == "Hello") {
         $replyText["type"] = "text";
