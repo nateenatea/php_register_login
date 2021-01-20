@@ -104,7 +104,9 @@
       "type": "flex",
       "altText": "Flex Message",
       "contents": {
-        '.$FlexArray.'
+        "type": "carousel",
+        "contents": [
+          '.$FlexArray.'
         {
           "type": "bubble",
           "direction": "ltr",
@@ -170,7 +172,7 @@
             ]
           }
         }
-      }
+        ]
     }';
 
     // $getTest = '{
