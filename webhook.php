@@ -44,7 +44,28 @@
     } else if ($text == "สั่งอาหาร") {
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
-    }  
+    } else if {$text == "quick reply"} {
+        $JsonFlex = '
+        "quickReply": {
+            "items": [
+              {
+                "type": "action",
+                "action": {
+                  "type": "cameraRoll",
+                  "label": "Send photo"
+                }
+              },
+              {
+                "type": "action",
+                "action": {
+                  "type": "camera",
+                  "label": "Open camera"
+                }
+              }
+            ]
+          }';
+          $replyText = json_decode($JsonFlex);
+    }
     // else if ($text == "Test") {
     //     $JsonFlex = $getTest;
     //     $replyText = json_decode($JsonFlex);      
