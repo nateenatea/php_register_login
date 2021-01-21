@@ -56,7 +56,7 @@
         $replyText = json_decode($JsonFlex);      
     } else if ($text == $Question) {
         $replyText["type"] = "text";
-        $replayText["text"] = $Answer;
+        $replyText["text"] = $Answer;
     }
     // else if ($text == "quick reply") {
     //     $JsonFlex = '{
