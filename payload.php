@@ -3,13 +3,15 @@
     session_start();
 
     $getTest = '{
-      "type":"text",
-      "text":"Hello, world1"
-  },
-  {
-      "type":"text",
-      "text":"Hello, world2"
-  }';
+      {
+        "type":"text",
+        "text":"Hello, world1"
+    },
+    {
+        "type":"text",
+        "text":"Hello, world2"
+    }
+    }';
 
     $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
