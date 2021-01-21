@@ -3,6 +3,26 @@
     session_start();
 
     $getTest = '{
+      "type": "flex",
+      "altText": "This is a Flex Message",
+      "contents": {
+      "type": "bubble",
+      "body": { 
+        "type": "box", 
+        "layout": "horizontal", 
+        "contents": [ 
+          {
+            "type": "text", 
+            "text": "Hello,"
+          },
+          {
+            "type": "text", 
+            "text": "World!"
+          }
+        ]
+      }
+    },
+    {
       "type":"text",
       "text":"Hi from Test !"
     }';
