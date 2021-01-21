@@ -150,8 +150,21 @@
       }
     },
     {
-        "type": "text",
-        "text": "สนใจเมนูไหนกดสั่งได้เลยครับ"
+      "type": "bubble", 
+      "body": { 
+        "type": "box", 
+        "layout": "horizontal", 
+        "contents": [ 
+          {
+            "type": "text", 
+            "text": "Hello,"
+          },
+          {
+            "type": "text", 
+            "text": "World!"
+          }
+        ]
+      }
     }';
 
     $getMe = '{
