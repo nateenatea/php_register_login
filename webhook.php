@@ -45,11 +45,7 @@
         $JsonFlex = $getMain;
         $replyText = json_decode($JsonFlex);      
     } else if ($text == "เมนูอาหาร") {
-        $JsonFlex = $getMenu . ',
-        {
-            "type": "text",
-            "text": "สนใจเมนูไหนกดสั่งได้เลยครับ"
-        }';
+        $JsonFlex = $getMenu;
         $replyText = json_decode($JsonFlex);      
     } else if ($text == "เกี่ยวกับเรา") {
         $JsonFlex = $getMe;
