@@ -34,6 +34,10 @@
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
         $Question = $row['Question'];
         $Answer = $row['Answer'];
+        if ($text == $Question) {
+            $replyText["type"] = "text";
+            $replyText["text"] = $Answer;
+        }
     }
 
     echo $Question . "<br>";
@@ -54,9 +58,6 @@
     } else if ($text == "สั่งอาหาร") {
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
-    } else if ($text == $Question) {
-        $replyText["type"] = "text";
-        $replyText["text"] = $Answer;
     }
     // else if ($text == "quick reply") {
     //     $JsonFlex = '{
