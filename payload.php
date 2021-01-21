@@ -2,6 +2,24 @@
     require_once('server.php');
     session_start();
 
+    $getTest = '{
+      "type": "bubble",
+      "body": { 
+        "type": "box", 
+        "layout": "horizontal", 
+        "contents": [ 
+          {
+            "type": "text", 
+            "text": "Hello,"
+          },
+          {
+            "type": "text", 
+            "text": "World!"
+          }
+        ]
+      }
+    }';
+
     $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
 
@@ -146,23 +164,6 @@
             ]
           }
         }
-        ]
-      }
-    },
-    {
-      "type": "bubble", 
-      "body": { 
-        "type": "box", 
-        "layout": "horizontal", 
-        "contents": [ 
-          {
-            "type": "text", 
-            "text": "Hello,"
-          },
-          {
-            "type": "text", 
-            "text": "World!"
-          }
         ]
       }
     }';

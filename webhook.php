@@ -53,6 +53,9 @@
     } else if ($text == "สั่งอาหาร") {
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
+    } else if ($text == "Test") {
+        $JsonFlex = $getTest;
+        $replyText = json_decode($JsonFlex);
     }
     // else if ($text == "quick reply") {
     //     $JsonFlex = '{
