@@ -27,7 +27,7 @@
     }
 
     // Chat history
-    $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+    // $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
     if ($text == "Hello") {
         $replyText["type"] = "text";
@@ -44,9 +44,6 @@
     } else if ($text == "สั่งอาหาร") {
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
-    } else if {$text == "quick reply"} {
-        // $JsonFlex = '';
-        // $replyText = json_decode($JsonFlex);
     }
     // else if ($text == "Test") {
     //     $JsonFlex = $getTest;
