@@ -29,6 +29,13 @@
     // Chat history
     // $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
+    $select_stmt = $db->prepare("SELECT * FROM `chatbot` WHERE ID='1'");
+    $select_stmt->execute();
+    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+        $Question = $row['Question'];
+        $Answer = $row['Answer'];
+    }
+
     if ($text == "Hello") {
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
@@ -44,95 +51,30 @@
     } else if ($text == "สั่งอาหาร") {
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
-    } else if ($text == "quick reply") {
-        $JsonFlex = '{
-            "type": "flex",
-        "altText": "Flex Message",
-        "contents": {
-          "type": "bubble",
-          "direction": "ltr",
-          "header": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "เกี่ยวกับเรา",
-                "align": "center",
-                "contents": []
-              }
-            ]
-          },
-          "hero": {
-            "type": "image",
-            "url": "https://amarinacademy.com/app/uploads/2017/06/petr-sevcovic-594807-unsplash.jpg",
-            "size": "full",
-            "aspectRatio": "1.51:1",
-            "aspectMode": "fit"
-          },
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "เปิดทำการเวลา 10.00 - 18.00 น.",
-                "align": "center",
-                "contents": []
-              }
-            ]
-          },
-          "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "Facebook",
-                  "uri": "https://linecorp.com"
-                }
-              },
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "เบอร์โทร",
-                  "uri": "https://linecorp.com"
-                }
-              },
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "แผนที่ร้าน",
-                  "uri": "https://linecorp.com"
-                }
-              }
-            ]
-          }
-        },
-            "quickReply": {
-              "items": [
-                {
-                  "type": "action",
-                  "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-                  "action": {
-                    "type": "message",
-                    "label": "Message",
-                    "text": "เมนูอาหาร"
-                  }
-                  }
-              ]
-            }
-          }';
-        $replyText = json_decode($JsonFlex);
+    } else if ($text == $Question) {
+        $replyText["type"] = "text";
+        $replayText["text"] = $Answer;
     }
-    // else if ($text == "Test") {
-    //     $JsonFlex = $getTest;
-    //     $replyText = json_decode($JsonFlex);      
-    // } else {
+    // else if ($text == "quick reply") {
+    //     $JsonFlex = '{
+    //        **flex message**,
+    //         "quickReply": {
+    //           "items": [
+    //             {
+    //               "type": "action",
+    //               "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+    //               "action": {
+    //                 "type": "message",
+    //                 "label": "Message",
+    //                 "text": "เมนูอาหาร"
+    //               }
+    //               }
+    //           ]
+    //         }
+    //       }';
+    //     $replyText = json_decode($JsonFlex);
+    // }
+    // else {
     //     $replyText["type"] = "text";
     //     $replyText["text"] = $text;
     // }
