@@ -32,17 +32,12 @@
     $select_stmt = $db->prepare("SELECT * FROM `chatbot` WHERE ID='1'");
     $select_stmt->execute();
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-        $Question = $row['Question'];
-        $Answer = $row['Answer'];
-        if ($text == $Question) {
+        if ($text == $row['Question'] {
             $replyText["type"] = "text";
-            $replyText["text"] = $Answer;
+            $replyText["text"] = $row['Answer'];
         }
     }
-
-    echo $Question . "<br>";
-    echo $Answer . "<br>";
-
+    
     if ($text == "Hello") {
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
