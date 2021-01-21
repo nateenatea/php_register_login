@@ -45,25 +45,22 @@
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
     } else if {$text == "quick reply"} {
-        $JsonFlex = '
-        "quickReply": {
-            "items": [
+        $JsonFlex = '{
+            "type": "text",
+            "text": "Hello Quick Reply!",
+            "quickReply": {
+             "items": [
               {
-                "type": "action",
-                "action": {
-                  "type": "cameraRoll",
-                  "label": "Send photo"
-                }
-              },
-              {
-                "type": "action",
-                "action": {
-                  "type": "camera",
-                  "label": "Open camera"
-                }
+               "type": "action",
+               "action": {
+                "type":"message",
+                "label":"Message",
+                "text":"Hello World!"
+               }
               }
-            ]
-          }';
+             ]
+            }
+           }';
           $replyText = json_decode($JsonFlex);
     }
     // else if ($text == "Test") {
