@@ -4,16 +4,12 @@
 
     $getTest = '{
       "type":"text",
-      "text":"Hi bubble 1"
-    },
-    {
+      "text":"Hello, world1"
+  },
+  {
       "type":"text",
-      "text":"Hi bubble 2"
-    },
-    {
-      "type":"text",
-      "text":"Hi bubble 3"
-    }';
+      "text":"Hello, world2"
+  }';
 
     $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
