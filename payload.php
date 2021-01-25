@@ -244,7 +244,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": "เกี่ยวกับเรา",
+                "text": "ติดต่อเรา",
                 "align": "center",
                 "contents": []
               }
@@ -278,15 +278,15 @@
                 "action": {
                   "type": "uri",
                   "label": "Facebook",
-                  "uri": "https://linecorp.com"
+                  "uri": "https://www.facebook.com/LOVENINTENDO/"
                 }
               },
               {
                 "type": "button",
                 "action": {
-                  "type": "uri",
+                  "type": "message",
                   "label": "เบอร์โทร",
-                  "uri": "https://linecorp.com"
+                  "text": "999999999"
                 }
               },
               {
@@ -294,7 +294,7 @@
                 "action": {
                   "type": "uri",
                   "label": "แผนที่ร้าน",
-                  "uri": "https://linecorp.com"
+                  "uri": "https://www.google.com/maps/place/หมูสองชั้น/@18.7874033,98.9325755,13z/data=!4m8!1m2!2m1!1z4Lir4Lih4Li54Liq4Lit4LiH4LiK4Lix4LmJ4LiZ!3m4!1s0x30da31baf8146447:0x379f1f18a6673df0!8m2!3d18.7769425!4d98.9810842"
                 }
               }
             ]
