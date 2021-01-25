@@ -4,12 +4,12 @@
 
     $getTest = '
     {
-      "type":"text",
-      "text":"Hello, user"
+      "type": "text",
+      "text": "Hello"
     },
     {
-      "type":"text",
-      "text":"May I help you?"
+      "type": "text",
+      "text": "Hello2"
     }
     ';
 
