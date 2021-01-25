@@ -2,16 +2,61 @@
     require_once('server.php');
     session_start();
 
-    $getTest = '
-    {
-      "type": "text",
-      "text": "Hello"
-    },
-    {
-      "type": "text",
-      "text": "Hello2"
-    }
-    ';
+    $getTest = '{
+      "type" :"flex",
+      "altText" : "Flex message",
+      "content" : {
+        {
+          "type": "bubble",
+          "direction": "ltr",
+          "header": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Header",
+                "align": "center",
+                "contents": []
+              }
+            ]
+          },
+          "hero": {
+            "type": "image",
+            "url": "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
+            "size": "full",
+            "aspectRatio": "1.51:1",
+            "aspectMode": "fit"
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Body",
+                "align": "center",
+                "contents": []
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "Button",
+                  "uri": "https://linecorp.com"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }';
 
     $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
