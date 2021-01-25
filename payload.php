@@ -5,11 +5,11 @@
     $getTest = '
     {
       "type":"text",
-      "text":"Hello, world1"
+      "text":"Hello, user"
     },
     {
       "type":"text",
-      "text":"Hello, world2"
+      "text":"May I help you?"
     }
     ';
 
