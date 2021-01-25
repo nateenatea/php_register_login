@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Nunito', sans-serif;
+  font-size:100%;
+}
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:hsl(210, 38%, 95%);
+}
+
+.form{
+  background:#fff;
+  padding:30px 34px;
+  margin:24px 0 0;
+  min-width:400px;
+  min-height:273px;
+  border-radius:5px;
+  line-height: 24px;
+  box-shadow:3px 1px 8px rgba(255,255,255,.5),3px 2px 8px rgba(0,0,0,.1)
+}
+.input-field{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  width:100%;
+  margin-bottom:15px;
+}
+input[type="email"],input[type="password"]{
+  padding:15px;
+  border-radius:5px;
+  border:1px solid transparent;
+  background:hsl(210, 38%, 95%);
+  line-height: 24px;
+  outline:none;
+}
+input[type="email"]:focus,input[type="password"]:focus{
+  border-bottom:1px solid orange;
+/*   border-radius:5px; */
+}
+input[type="checkbox"]{
+  margin-right:10px;
+}
+
+.action {
+  align-items:center;
+  border-color: hsl(214, 32%, 91%);
+  color: hsl(220, 26%, 14%);
+  display:flex;
+  gap: normal;
+  justify-content: flex-end;
+  line-height: 24px;
+  margin: 16px 0px 0px;
+}
+.action a{
+  border-color:hsl(214, 32%, 91%);
+  color:hsl(220, 26%, 14%);
+  font-family:Nunito;
+  font-size:14px;
+  gap:normal;
+  line-height:21px;
+  text-transform:capitalize;
+}
+
+.btn {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background: lightskyblue;
+  border: none;
+  border-radius: 5px;
+}
