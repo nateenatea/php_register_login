@@ -329,7 +329,7 @@
                 "action": {
                   "type": "uri",
                   "label": "รับเองที่ร้าน",
-                  "uri": "https://linecorp.com"
+                  "uri": "https://line-chatbot-icute-interns-php.herokuapp.com/order_home.php"
                 }
               },
               {
@@ -337,7 +337,7 @@
                 "action": {
                   "type": "uri",
                   "label": "จัดส่งที่บ้าน",
-                  "uri": "https://linecorp.com"
+                  "uri": "https://line-chatbot-icute-interns-php.herokuapp.com/order_res.php"
                 }
               }
             ]
