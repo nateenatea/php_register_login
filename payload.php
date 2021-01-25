@@ -71,12 +71,16 @@
         }
       },
       "quickReply" : {
-        "type": "action",
-        "action": {
-          "type": "message",
-          "label": "สั่งอาหาร",
-          "text" : "สั่งอาหาร"
-        }
+        "items" : [
+          {
+            "type": "action",
+            "action": {
+              "type": "message",
+              "label": "สั่งอาหาร",
+              "text" : "สั่งอาหาร"
+            }
+          }
+        ]
       }
     }';
 
