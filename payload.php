@@ -6,10 +6,6 @@
       {
         "type":"text",
         "text":"Hello, world1"
-      },
-      {
-        "type":"text",
-        "text":"Hello, world2"
       }
     }';
 
