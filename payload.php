@@ -3,9 +3,9 @@
     session_start();
 
     $getTest = '{
-      "type" :"flex",
-      "altText" : "Flex message",
-      "content" : {
+      "type": "flex",
+      "altText": "Flex Message",
+      "contents": {
         "type": "bubble",
         "direction": "ltr",
         "header": {
