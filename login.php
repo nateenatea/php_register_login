@@ -39,7 +39,7 @@
         <div class="input-group">
             <button type="submit" name="login_user" class="btn">Login</button>
         </div>
-        <p>Not yet a member ? <a href="Register.php">Sign Up</a></p>
+        <p>Not yet a member ? <a href="register.php">Sign Up</a></p>
     </form>
 </body>
 </html>

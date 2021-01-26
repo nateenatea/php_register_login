@@ -1,3 +1,10 @@
+<?php
+    require_once('server.php');
+    session_start();
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
