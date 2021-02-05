@@ -4,14 +4,15 @@
 
     if(isset($_REQUEST['delete_id'])) {
         $id = $_REQUEST['delete_id'];
+        $uid = $_SESSION['uid'];
 
-        $select_stmt = $db->prepare("SELECT * FROM chatbot WHERE id = :id");
+        $select_stmt = $db->prepare("SELECT * FROM chatbot_$uid WHERE id = :id");
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
         $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
 
         // delete an original record from database
-        $delete_stmt = $db->prepare("DELETE FROM chatbot WHERE id = :id");
+        $delete_stmt = $db->prepare("DELETE FROM chatbot_$uid WHERE id = :id");
         $delete_stmt->bindParam(':id', $id);
         $delete_stmt->execute();
 
@@ -59,7 +60,8 @@
 
             <tbody>
                 <?php
-                    $select_stmt = $db->prepare("SELECT * FROM chatbot");
+                    $uid = $_SESSION['uid'];
+                    $select_stmt = $db->prepare("SELECT * FROM chatbot_$uid");
                     $select_stmt->execute();
 
                     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {                

@@ -1,5 +1,6 @@
 <?php
     require_once('server.php');
+    session_start();
 
     if (isset($_REQUEST['btn_insert'])) {
         $Question = $_REQUEST['txt_question'];
@@ -12,7 +13,8 @@
         } else {
             try {
                 if(!isset($errorMsg)) {
-                    $insert_stmt = $db->prepare("INSERT INTO chatbot(Question, Answer) VALUES (:que, :ans)");
+                    $uid = $_SESSION['uid'];
+                    $insert_stmt = $db->prepare("INSERT INTO chatbot_$uid(Question, Answer) VALUES (:que, :ans)");
                     $insert_stmt->bindParam(':que', $Question);
                     $insert_stmt->bindParam(':ans',$Answer);
     

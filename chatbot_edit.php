@@ -1,10 +1,13 @@
 <?php
     require_once('server.php');
+    session_start();
+    
+    $uid = $_SESSION['uid'];
 
     if(isset($_REQUEST['update_id'])) {
         try {
             $id = $_REQUEST['update_id'];
-            $select_stmt = $db->prepare("SELECT * FROM chatbot WHERE id = :id");
+            $select_stmt = $db->prepare("SELECT * FROM chatbot_$uid WHERE id = :id");
             $select_stmt->bindParam(':id', $id);
             $select_stmt->execute();
             $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
@@ -26,7 +29,7 @@
         } else {
             try {
                 if(!isset($errorMsg)) {
-                    $update_stmt = $db->prepare("UPDATE chatbot SET Question = :que_up, Answer = :ans_up WHERE id = :id");
+                    $update_stmt = $db->prepare("UPDATE chatbot_$uid SET Question = :que_up, Answer = :ans_up WHERE id = :id");
                     $update_stmt->bindParam(':que_up', $Question);
                     $update_stmt->bindParam(':ans_up', $Answer);
                     $update_stmt->bindParam(':id', $id);

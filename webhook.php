@@ -2,6 +2,9 @@
 
     include('server.php');
     include('payload.php');
+    session_start();
+
+    $uid = $_SESSION['uid'];
 
     $LINEData = file_get_contents('php://input');
     $jsonData = json_decode($LINEData,true);
@@ -29,7 +32,7 @@
     // Chat history
     // $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-    $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
+    $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
     $select_stmt->execute();
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
         if ($text == $row['Question']) {
