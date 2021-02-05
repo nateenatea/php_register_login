@@ -4,15 +4,16 @@
 
     if(isset($_REQUEST['delete_id'])) {
         $id = $_REQUEST['delete_id'];
+        $uid = $_SESSION['uid'];
 
-        $select_stmt = $db->prepare("SELECT * FROM foodlist WHERE id = :id");
+        $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid WHERE id = :id");
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
         $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
         unlink("upload/".$row['FoodImage']); //unlink function permanently remove your file
 
         // delete an original record from database
-        $delete_stmt = $db->prepare("DELETE FROM foodlist WHERE id = :id");
+        $delete_stmt = $db->prepare("DELETE FROM foodlist_$uid WHERE id = :id");
         $delete_stmt->bindParam(':id', $id);
         $delete_stmt->execute();
 
@@ -47,6 +48,7 @@
             </p>
         <?php endif ?>
     <div class="display-3 text-center">Food List</div>
+    <?php echo $_SESSION['uid']?>
     <a href="add.php" class="btn btn-success mb-3">Add</a>
         <table class="table table-striped table-bordered table-hover">
             <thead>
@@ -61,7 +63,8 @@
 
             <tbody>
                 <?php
-                    $select_stmt = $db->prepare("SELECT * FROM foodlist");
+                    $uid = $_SESSION['uid'];
+                    $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
                     $select_stmt->execute();
 
                     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {                

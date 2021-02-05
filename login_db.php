@@ -25,6 +25,7 @@
 
         if (mysqli_num_rows($result) == 1) {
             $_SESSION['username'] = $username;
+            $_SESSION['uid'] = md5($username);
             $_SESSION['success'] = "You are now logged in";
             header("location: index.php");
         } else {

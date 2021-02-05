@@ -53,7 +53,8 @@
         }
         try {
             if(!isset($errorMsg)) {
-                $update_stmt = $db->prepare("UPDATE foodlist SET FoodName = :fname_up, FoodPrice = :fprice_up, FoodImage = :fimage_up WHERE id = :id");
+                $uid = $_SESSION['uid'];
+                $update_stmt = $db->prepare("UPDATE foodlist_$uid SET FoodName = :fname_up, FoodPrice = :fprice_up, FoodImage = :fimage_up WHERE id = :id");
                 $update_stmt->bindParam(':fname_up', $FoodName);
                 $update_stmt->bindParam(':fprice_up', $FoodPrice);
                 $update_stmt->bindParam(':fimage_up', $FoodImg);

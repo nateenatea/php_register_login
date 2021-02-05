@@ -46,6 +46,14 @@
             <input type="password" name="password_2">
         </div>
         <div class="input-group">
+            <label for="accesstokenlineoa">Access Token (Line OA)</label>
+            <input type="accesstoken" name="accesstokenlineoa">
+        </div>
+        <div class="input-group">
+            <label for="accesstokennotify">Access Token (Line Notify)</label>
+            <input type="accesstoken" name="accesstokennotify">
+        </div>
+        <div class="input-group">
             <button type="submit" name="reg_user" class="btn">Register</button>
         </div>
         <p>Already a member ? <a href="login.php">Sign in</a></p>

@@ -32,7 +32,8 @@
         } 
         try {
             if(!isset($errorMsg)) {
-                $insert_stmt = $db->prepare("INSERT INTO foodlist(FoodName, FoodPrice, FoodImage) VALUES (:fname, :fprice, :fimage)");
+                $uid = $_SESSION['uid'];
+                $insert_stmt = $db->prepare("INSERT INTO foodlist_$uid(FoodName, FoodPrice, FoodImage) VALUES (:fname, :fprice, :fimage)");
                 $insert_stmt->bindParam(':fname', $FoodName);
                 $insert_stmt->bindParam(':fprice',$FoodPrice);
                 $insert_stmt->bindParam(':fimage',$FoodImg);
