@@ -101,7 +101,7 @@
 
     // echo $AccessToken;
 
-    $getAccessToken = $db->prepare("SELECT * FROM `chatbot_$uid`");
+    $getAccessToken = $db->prepare("SELECT * FROM `users`");
     $getAccessToken->execute();
     while($getAccessTokenNum = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
         $AccessToken = $getAccessTokenNum['uid'];
@@ -109,6 +109,7 @@
 
     if(!empty($AccessToken)) {
         echo "WORK !!";
+        echo $AccessToken;
     }
     else {
         echo "NOT WORK !!";
