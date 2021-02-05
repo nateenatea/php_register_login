@@ -25,7 +25,9 @@
         $size = $_FILES['file_foodimg']['size'];
         $temp = $_FILES['file_foodimg']['tmp_name'];
 
-        $path = "upload/".$FoodImg;
+        $uid = $_SESSION['uid'];
+
+        $path = "upload/$uid/" . $FoodImg;
         $directory = "upload/"; // set upload folder path for update time previous file remove and new file upload and new file upload for next use
         
         if(empty($FoodName)) {
@@ -53,7 +55,6 @@
         }
         try {
             if(!isset($errorMsg)) {
-                $uid = $_SESSION['uid'];
                 $update_stmt = $db->prepare("UPDATE foodlist_$uid SET FoodName = :fname_up, FoodPrice = :fprice_up, FoodImage = :fimage_up WHERE id = :id");
                 $update_stmt->bindParam(':fname_up', $FoodName);
                 $update_stmt->bindParam(':fprice_up', $FoodPrice);

@@ -9,7 +9,9 @@
         $size = $_FILES['file_foodimg']['size'];
         $temp = $_FILES['file_foodimg']['tmp_name'];
 
-        $path = "upload/" . $FoodImg; // set upload folder path
+        $uid = $_SESSION['uid'];
+
+        $path = "upload/$uid/" . $FoodImg; // set upload folder path
 
         if(empty($FoodName)) {
             $errorMsg = "Please enter Food Name";
@@ -32,7 +34,6 @@
         } 
         try {
             if(!isset($errorMsg)) {
-                $uid = $_SESSION['uid'];
                 $insert_stmt = $db->prepare("INSERT INTO foodlist_$uid(FoodName, FoodPrice, FoodImage) VALUES (:fname, :fprice, :fimage)");
                 $insert_stmt->bindParam(':fname', $FoodName);
                 $insert_stmt->bindParam(':fprice',$FoodPrice);
