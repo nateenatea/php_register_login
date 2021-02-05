@@ -1,5 +1,6 @@
 <?php
     require_once('server.php');
+    session_start();
 
     if (isset($_REQUEST['btn_insert'])) {
         $FoodName = $_REQUEST['txt_foodname'];

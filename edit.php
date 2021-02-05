@@ -1,10 +1,13 @@
 <?php
     require_once('server.php');
+    session_start();
+
+    $uid = $_SESSION['uid'];
 
     if(isset($_REQUEST['update_id'])) {
         try {
             $id = $_REQUEST['update_id'];
-            $select_stmt = $db->prepare("SELECT * FROM foodlist WHERE id = :id");
+            $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid WHERE id = :id");
             $select_stmt->bindParam(':id', $id);
             $select_stmt->execute();
             $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
@@ -25,10 +28,8 @@
         $size = $_FILES['file_foodimg']['size'];
         $temp = $_FILES['file_foodimg']['tmp_name'];
 
-        $uid = $_SESSION['uid'];
-
         $path = "upload/$uid/" . $FoodImg;
-        $directory = "upload/"; // set upload folder path for update time previous file remove and new file upload and new file upload for next use
+        $directory = "upload/$uid/"; // set upload folder path for update time previous file remove and new file upload and new file upload for next use
         
         if(empty($FoodName)) {
             $errorMsg = "Please enter Food Name";
