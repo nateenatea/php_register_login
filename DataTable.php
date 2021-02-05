@@ -10,7 +10,7 @@
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
         $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
-        unlink("upload/".$row['FoodImage']); //unlink function permanently remove your file
+        unlink("upload/$uid/".$row['FoodImage']); //unlink function permanently remove your file
 
         // delete an original record from database
         $delete_stmt = $db->prepare("DELETE FROM foodlist_$uid WHERE id = :id");
@@ -48,7 +48,6 @@
             </p>
         <?php endif ?>
     <div class="display-3 text-center">Food List</div>
-    <?php echo $_SESSION['uid']?>
     <a href="add.php" class="btn btn-success mb-3">Add</a>
         <table class="table table-striped table-bordered table-hover">
             <thead>

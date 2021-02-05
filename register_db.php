@@ -73,7 +73,7 @@
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
             mysqli_query($conn, $sql);
 
-            mkdir("upload/$uid");
+            mkdir("upload/$uid/");
 
             $_SESSION['username'] = $username;
             $_SESSION['uid'] = $uid;
