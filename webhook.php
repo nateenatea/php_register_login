@@ -111,7 +111,7 @@
         echo "WORK !!";
     }
     else {
-        echo "NOT WORK !!"
+        echo "NOT WORK !!";
     }
 
     $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
