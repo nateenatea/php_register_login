@@ -93,13 +93,13 @@
     // }
     // $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
 
-    $getAccessToken = $conn->query("SELECT * FROM `users` WHERE `uid` = $uid");
-    $getAccesTokenNum = $getAccessToken->num_rows;
-    while($row = $getAccesTokenNum->fetch_assoc()){
-        $AccessToken = $row['uid'];
-    }
+    // $getAccessToken = $conn->query("SELECT * FROM `users` WHERE `uid` = $uid");
+    // $getAccesTokenNum = $getAccessToken->num_rows;
+    // while($row = $getAccesTokenNum->fetch_assoc()){
+    //     $AccessToken = $row['uid'];
+    // }
 
-    echo $AccessToken;
+    // echo $AccessToken;
 
     $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
     $lineData['AccessToken'] = "uEbhTcwlpe54y5BHzyjzFpmp8IjkmYvEftYlagXn2HijGkFNv3ONRMVE72iqX5YJETG1T59BEhq4d9T+2x9Vs5QFyLNytZVsV0zbPEvpV51g7H3j7TmJuFTZ1clOB7PlzPTYE/bCXc3a2NNyRC47nAdB04t89/1O/w1cDnyilFU=";
