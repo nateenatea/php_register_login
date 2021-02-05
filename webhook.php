@@ -30,9 +30,9 @@
     }
 
     // Chat history
-    // $conn->query("INSERT INTO `LOG`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+    $conn->query("INSERT INTO `LOG_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-    $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
+    $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
     $select_stmt->execute();
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
         if ($text == $row['Question']) {
