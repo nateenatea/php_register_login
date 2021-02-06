@@ -31,8 +31,6 @@
 
     if(!empty($uid) && $uid == md5($_SESSION['username'])) {
         echo "Hello !";
-        // Chat history
-        $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         // $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
         // $select_stmt->execute();
         // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -42,6 +40,9 @@
         //     }
         // }
     }
+
+    // Chat history
+    $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
     if(!empty($uid)) {
         echo $uid;
