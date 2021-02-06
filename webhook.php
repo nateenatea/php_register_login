@@ -29,9 +29,8 @@
     return $result;
     }
 
-    $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
-
     if(!empty($uid)) {
+        $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         // $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
