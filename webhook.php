@@ -42,6 +42,10 @@
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
             }
+            if ($text == "ทดสอบจ้า") {
+                $replyText["type"] = "text";
+                $replyText["text"] = "ใช้ได้จ้า";
+            } 
         }
     }
 
