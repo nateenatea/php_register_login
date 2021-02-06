@@ -41,7 +41,7 @@
             <tbody>
                 <?php
                     $uid = $_SESSION['uid'];
-                    $select_stmt = $db->prepare("SELECT * FROM log");
+                    $select_stmt = $db->prepare("SELECT * FROM log_$uid");
                     $select_stmt->execute();
 
                     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
