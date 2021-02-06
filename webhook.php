@@ -30,6 +30,7 @@
     }
 
     if(!empty($uid) && $uid == md5($_SESSION['username'])) {
+        echo "Hello !";
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         // $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
