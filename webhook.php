@@ -36,10 +36,11 @@
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
         $select_stmt->execute();
         while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo $row['Question'];
+            echo $row['Answer'];
             if ($text == $row['Question']) {
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
-                echo "HERE !!!";
             }
         }
     }
