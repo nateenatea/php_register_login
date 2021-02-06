@@ -29,24 +29,25 @@
     return $result;
     }
 
+    $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+
     if(!empty($uid)) {
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
-
-        $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
-        $select_stmt->execute();
-        while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo $row['Question'];
-            echo $row['Answer'];
-            if ($text == $row['Question']) {
-                $replyText["type"] = "text";
-                $replyText["text"] = $row['Answer'];
-            }
-            if ($text == "ทดสอบจ้า") {
-                $replyText["type"] = "text";
-                $replyText["text"] = "ใช้ได้จ้า";
-            } 
-        }
+        // $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
+        // $select_stmt->execute();
+        // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+        //     echo $row['Question'];
+        //     echo $row['Answer'];
+        //     if ($text == $row['Question']) {
+        //         $replyText["type"] = "text";
+        //         $replyText["text"] = $row['Answer'];
+        //     }
+        //     if ($text == "ทดสอบจ้า") {
+        //         $replyText["type"] = "text";
+        //         $replyText["text"] = "ใช้ได้จ้า";
+        //     } 
+        // }
     }
 
     if(!empty($uid)) {
