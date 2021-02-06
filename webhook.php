@@ -29,9 +29,9 @@
     return $result;
     }
 
-    // Chat history
     if(!empty($uid)) {
-        $conn->query("INSERT INTO `LOG_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+        // Chat history
+        $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
         $select_stmt->execute();
@@ -45,6 +45,8 @@
 
     if(!empty($uid)) {
         echo $uid;
+        echo $replyText["type"];
+        echo $replyText["text"];
     }
     else {
         echo "Nothing here";
