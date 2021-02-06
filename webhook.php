@@ -39,14 +39,13 @@
             if ($text == $row['Question']) {
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
+                echo "HERE !!!";
             }
         }
     }
 
     if(!empty($uid)) {
         echo $uid;
-        echo $replyText["type"];
-        echo $replyText["text"];
     }
     else {
         echo "Nothing here";
