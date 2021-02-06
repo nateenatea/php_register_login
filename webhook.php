@@ -43,6 +43,13 @@
         }
     }
 
+    if(!empty($uid)) {
+        echo $uid;
+    }
+    else {
+        echo "Nothing here";
+    }
+
     if ($text == "Hello") {
         $replyText["type"] = "text";
         $replyText["text"] = "Hello from Heroku";
