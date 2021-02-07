@@ -86,7 +86,12 @@
 
     $uid = $_SESSION['uid'];
 
-    $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
+    if(!empty($uid)) {
+      $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
+    }
+    else {
+      $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
+    }
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {

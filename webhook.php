@@ -29,17 +29,28 @@
     return $result;
     }
 
-    if(!empty($uid) && $uid == md5($_SESSION['username'])) {
+    if(!empty($uid)) {
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
-        // $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
-        // $select_stmt->execute();
-        // while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-        //     if ($text == $row['Question']) {
-        //         $replyText["type"] = "text";
-        //         $replyText["text"] = $row['Answer'];
-        //     }
-        // }
+        $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
+        $select_stmt->execute();
+        while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($text == $row['Question']) {
+                $replyText["type"] = "text";
+                $replyText["text"] = $row['Answer'];
+            }
+        }
+    }
+    else {
+        $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+        $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
+        $select_stmt->execute();
+        while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($text == $row['Question']) {
+                $replyText["type"] = "text";
+                $replyText["text"] = $row['Answer'];
+            }
+        }
     }
 
     if(!empty($uid)) {
