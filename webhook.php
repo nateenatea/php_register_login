@@ -1,7 +1,7 @@
 <?php
 
-    include('server.php');
-    include('payload.php');
+    require_once('server.php');
+    require('payload.php');
     session_start();
 
     $uid = $_SESSION['uid'];
@@ -30,6 +30,7 @@
     }
 
     if(!empty($uid)) {
+        echo "$uid";
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
@@ -42,6 +43,7 @@
         }
     }
     else {
+        echo "Nothing Here!";
         $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
         $select_stmt->execute();
@@ -51,13 +53,6 @@
                 $replyText["text"] = $row['Answer'];
             }
         }
-    }
-
-    if(!empty($uid)) {
-        echo $uid;
-    }
-    else {
-        echo "Nothing here";
     }
 
     if ($text == "Hello") {
