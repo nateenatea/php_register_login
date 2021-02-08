@@ -86,6 +86,8 @@
 
     $uid = $_SESSION['uid'];
 
+    print_r($_SESSION);
+
     if(isset($_SESSION['id'])) {
       echo "1";
       $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
