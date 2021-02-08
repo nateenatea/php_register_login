@@ -101,7 +101,6 @@
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-      print_r($row);
       $FlexArray .= '
       {
         "type": "bubble",
