@@ -100,6 +100,8 @@
     }
     $select_stmt->execute();
 
+    print_r($select_stmt);
+
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
       $FlexArray .= '
       {
