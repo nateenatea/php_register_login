@@ -30,7 +30,7 @@
     }
 
     if(!empty($uid)) {
-        echo "$uid";
+        // echo "$uid";
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
@@ -43,7 +43,7 @@
         }
     }
     else {
-        echo "Nothing Here!";
+        // echo "Nothing Here!";
         $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
         $select_stmt->execute();
