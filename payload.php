@@ -91,9 +91,11 @@
     echo "isset = " . isset($_SESSION['uid']);
 
     if(isset($_SESSION['uid'])) {
+      echo "1";
       $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
     }
     else {
+      echo "2";
       $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     }
     $select_stmt->execute();
