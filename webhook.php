@@ -118,7 +118,11 @@
     // }
 
     if(isset($_GET["u_id"])){
-        $AccessToken = $_GET["u_id"];
+        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = {$_GET["u_id"]}");
+        $getAccessToken->execute();
+        while($getAccessTokenNum = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+            $AccessToken = $getAccessTokenNum['accesstoken_lineoa'];
+        }
     }
 
     $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
