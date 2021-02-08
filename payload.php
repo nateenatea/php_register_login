@@ -94,10 +94,10 @@
       echo "1";
       $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
     }
-    // else {
-    //   echo "2";
-    //   $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
-    // }
+    else {
+      echo "2";
+      $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
+    }
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
