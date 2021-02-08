@@ -91,7 +91,7 @@
       $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
     }
     else {
-      echo "0;"
+      echo "0";
       $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     }
     $select_stmt->execute();
