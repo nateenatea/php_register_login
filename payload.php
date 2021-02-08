@@ -101,7 +101,7 @@
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-      $row["Foodname"] = null;
+      $row["FoodName"] = null;
       $row["FoodImage"] = null;
       $row["FoodPrice"] = null;
       $FlexArray .= '
