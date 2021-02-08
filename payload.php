@@ -101,7 +101,9 @@
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-      print_r($row);
+      $row["Foodname"] = null;
+      $row["FoodImage"] = null;
+      $row["FoodImage"] = null;
       $FlexArray .= '
       {
         "type": "bubble",
