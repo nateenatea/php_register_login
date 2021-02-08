@@ -9,8 +9,6 @@
     $LINEData = file_get_contents('php://input');
     $jsonData = json_decode($LINEData,true);
 
-    print_r($jsonData);
-
     $replyToken = $jsonData["events"][0]["replyToken"];
     $userID = $jsonData["events"][0]["source"]["userId"];
     $text = $jsonData["events"][0]["message"]["text"];
@@ -29,6 +27,10 @@
             $result = curl_exec($ch);
             curl_close($ch);
     return $result;
+    }
+
+    if(isset($_GET["u_id"])) {
+        echo $_GET["u_id"];
     }
 
     if(!empty($uid)) {
