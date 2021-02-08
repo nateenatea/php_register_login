@@ -90,7 +90,7 @@
 
     echo "isset = " . isset($_SESSION['uid']);
 
-    if(isset($_SESSION['id'])) {
+    if(isset($_SESSION['uid'])) {
       $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
     }
     else {
