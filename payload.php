@@ -92,11 +92,11 @@
 
     if(isset($_SESSION['uid'])) {
       echo "1";
-      $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
+      $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     }
     else {
       echo "2";
-      $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
+      $select_stmt = $db->prepare("SELECT * FROM `foodlist_797fa4003a0b269d3b69152bf46f3136`");
     }
     $select_stmt->execute();
 
