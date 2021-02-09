@@ -5,6 +5,7 @@
     // session_start();
 
     // $uid = $_SESSION['uid'];
+    $uid = $_GET["u_id"];
 
     $LINEData = file_get_contents('php://input');
     $jsonData = json_decode($LINEData,true);
@@ -29,20 +30,19 @@
     return $result;
     }
 
-    if(isset($_GET["u_id"])) {
-        $uid = $_GET["u_id"];
-        // Chat history
-        $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+    // if(isset($_GET["u_id"])) {
+    //     // Chat history
+    //     $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
-        $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
-        $select_stmt->execute();
-        while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-            if ($text == $row['Question']) {
-                $replyText["type"] = "text";
-                $replyText["text"] = $row['Answer'];
-            }
-        }
-    }
+    //     $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
+    //     $select_stmt->execute();
+    //     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+    //         if ($text == $row['Question']) {
+    //             $replyText["type"] = "text";
+    //             $replyText["text"] = $row['Answer'];
+    //         }
+    //     }
+    // }
 
     if ($text == "Hello") {
         $replyText["type"] = "text";
@@ -97,7 +97,6 @@
     // $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
 
     if(isset($_GET["u_id"])){
-        $uid = $_GET["u_id"];
 
         $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
         $getAccessToken->execute();
