@@ -5,6 +5,7 @@
     // session_start();
 
     // $uid = $_SESSION['uid'];
+    $uid = $_GET['u_id'];
 
     $LINEData = file_get_contents('php://input');
     $jsonData = json_decode($LINEData,true);
@@ -30,7 +31,6 @@
     }
 
     if(isset($_GET['u_id'])) {
-        $uid = $_GET['u_id'];
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
 
@@ -45,7 +45,7 @@
         }
 
         //Get Access Token
-        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$u_id'");
+        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
         $getAccessToken->execute();
 
         while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
