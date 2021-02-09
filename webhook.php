@@ -126,6 +126,7 @@
 
         while($getAccessTokenNum = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
             $AccessToken = $getAccessTokenNum['accesstoken_lineoa'];
+            echo print_r($getAccessTokenNum);
         }
         echo "Access Token = " . $AccessToken;
     }
