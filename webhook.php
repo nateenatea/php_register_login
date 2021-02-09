@@ -114,7 +114,6 @@
     // }
 
     if(isset($_GET["u_id"])){
-        print_r($_GET["u_id"]);
         // $u_id = $_GET["u_id"];
         // $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = `$u_id`");
         // $getAccessToken->execute();
