@@ -1,6 +1,7 @@
 <?php
     require_once('server.php');
-    session_start();
+    require('webhook.php');
+    // session_start();
 
     $getTest = '{
       "type": "flex",
@@ -84,20 +85,7 @@
       }
     }';
 
-    $uid = $_SESSION['uid'];
-
-    // print_r($_SESSION);
-
-    // echo "isset = " . isset($_SESSION['uid']);
-
-    if(isset($_SESSION['uid'])) {
-      // echo "1";
-      $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
-    }
-    else {
-      // echo "2";
-      $select_stmt = $db->prepare("SELECT * FROM `foodlist_797fa4003a0b269d3b69152bf46f3136`");
-    }
+    $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {

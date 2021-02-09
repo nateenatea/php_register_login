@@ -2,9 +2,10 @@
 
     require_once('server.php');
     require('payload.php');
-    session_start();
+    // session_start();
 
-    $uid = $_SESSION['uid'];
+    // $uid = $_SESSION['uid'];
+    $uid = $_GET["u_id"];
 
     $LINEData = file_get_contents('php://input');
     $jsonData = json_decode($LINEData,true);
@@ -29,23 +30,10 @@
     return $result;
     }
 
-    if(!empty($uid)) {
-        // echo "$uid";
+    if(isset($_GET["u_id"])) {
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
-        $select_stmt->execute();
-        while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-            if ($text == $row['Question']) {
-                $replyText["type"] = "text";
-                $replyText["text"] = $row['Answer'];
-            }
-        }
-    }
-    else {
-        // echo "Nothing Here!";
-        $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
-        $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
         $select_stmt->execute();
         while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
             if ($text == $row['Question']) {
@@ -108,9 +96,8 @@
     // $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
 
     if(isset($_GET["u_id"])){
-        $u_id = $_GET["u_id"];
 
-        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$u_id'");
+        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
         $getAccessToken->execute();
 
         while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
