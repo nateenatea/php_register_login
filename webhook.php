@@ -107,12 +107,6 @@
     // }
     // $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
 
-    // $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = $uid");
-    // $getAccessToken->execute();
-    // while($getAccessTokenNum = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-    //     $AccessToken = $getAccessTokenNum['accesstoken_lineoa'];
-    // }
-
     if(isset($_GET["u_id"])){
         // $u_id = $_GET["u_id"];
         // $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = `$u_id`");
@@ -124,9 +118,9 @@
         $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$u_id'");
         $getAccessToken->execute();
 
-        while($getAccessTokenNum = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-            $AccessToken = $getAccessTokenNum['accesstoken_lineoa'];
-            echo print_r($getAccessTokenNum);
+        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+            print_r($row);
+            $AccessToken = $row['accesstoken_lineoa'];
         }
         echo "Access Token = " . $AccessToken;
     }
