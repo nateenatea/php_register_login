@@ -2,6 +2,11 @@
     require_once('server.php');
     session_start();
 
+    if(!isset($_SESSION['username'])) {
+        $_SESSION['msg'] = "You must login first";
+        header('location: login.php');
+    }
+
     if(isset($_REQUEST['delete_id'])) {
         $id = $_REQUEST['delete_id'];
         $uid = $_SESSION['uid'];
