@@ -2,7 +2,7 @@
 
     require_once('server.php');
     require('payload.php');
-    // session_start();
+    session_start();
 
     // $uid = $_SESSION['uid'];
     $uid = $_GET["u_id"];
@@ -33,6 +33,7 @@
     if(isset($_GET["u_id"])) {
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
         $select_stmt->execute();
         while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
