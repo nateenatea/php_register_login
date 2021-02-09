@@ -85,7 +85,12 @@
       }
     }';
 
-    $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
+    if(isset($uid)) {
+      echo "TRUE!";
+      $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
+    } else {
+      echo "WRONG!";
+    }
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
