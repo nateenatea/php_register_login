@@ -121,6 +121,14 @@
         // while($getAccessTokenNum = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
         //     $AccessToken = $getAccessTokenNum['accesstoken_lineoa'];
         // }
+
+        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = `$u_id`");
+        $getAccessToken->execute();
+
+        while($getAccessTokenNum = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+            $AccessToken = $getAccessTokenNum['accesstoken_lineoa'];
+        }
+        echo $AccessToken;
     }
 
     // echo $AccessToken;
