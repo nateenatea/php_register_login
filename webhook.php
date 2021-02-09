@@ -29,7 +29,8 @@
     return $result;
     }
 
-    if(!empty($uid)) {
+    if(isset($_GET['u_id'])) {
+        $uid = $_GET['u_id'];
         // echo "$uid";
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
@@ -42,18 +43,18 @@
             }
         }
     }
-    else {
-        // echo "Nothing Here!";
-        $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
-        $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
-        $select_stmt->execute();
-        while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-            if ($text == $row['Question']) {
-                $replyText["type"] = "text";
-                $replyText["text"] = $row['Answer'];
-            }
-        }
-    }
+    // else {
+    //     // echo "Nothing Here!";
+    //     $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+    //     $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
+    //     $select_stmt->execute();
+    //     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+    //         if ($text == $row['Question']) {
+    //             $replyText["type"] = "text";
+    //             $replyText["text"] = $row['Answer'];
+    //         }
+    //     }
+    // }
 
     if ($text == "Hello") {
         $replyText["type"] = "text";
