@@ -1,11 +1,12 @@
 <?php
 
     require_once('server.php');
+
+    $uid = $_GET['u_id'];
     require('payload.php');
     // session_start();
 
     // $uid = $_SESSION['uid'];
-    $uid = $_GET['u_id'];
 
     $LINEData = file_get_contents('php://input');
     $jsonData = json_decode($LINEData,true);

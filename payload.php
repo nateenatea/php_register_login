@@ -1,6 +1,5 @@
 <?php
     require_once('server.php');
-    include('webhook.php');
     // session_start();
 
     $getTest = '{
@@ -85,11 +84,9 @@
       }
     }';
 
-    if(!empty($uid)) {
-      $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
-    } else {
-      $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
-    }
+    echo "uid = " . $uid;
+
+    $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
       $FlexArray .= '
