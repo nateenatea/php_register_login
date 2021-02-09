@@ -1,6 +1,5 @@
 <?php
     require_once('server.php');
-    require('webhook.php');
     // session_start();
 
     $getTest = '{
