@@ -1,6 +1,5 @@
 <?php
     require_once('server.php');
-    require('webhook.php');
     // session_start();
 
     $getTest = '{
@@ -85,7 +84,7 @@
       }
     }';
 
-    $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
+    $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
     $select_stmt->execute();
 
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
