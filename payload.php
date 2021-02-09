@@ -84,9 +84,7 @@
       }
     }';
 
-    echo "uid = " . $uid;
-
-    $select_stmt = $db->prepare("SELECT * FROM `FoodList`");
+    $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
     $select_stmt->execute();
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
       $FlexArray .= '

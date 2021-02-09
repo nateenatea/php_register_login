@@ -3,6 +3,7 @@
     require_once('server.php');
 
     $uid = $_GET['u_id'];
+    
     require('payload.php');
     // session_start();
 
