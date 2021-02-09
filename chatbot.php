@@ -43,6 +43,7 @@
         <?php if(isset($_SESSION['username'])) : ?>
             <p>
                 Admin: <strong><?php echo $_SESSION['username']; ?></strong>&nbsp;
+                UID: <strong><?php echo $_SESSION['uid']; ?></strong>&nbsp;
                 <a href="index.php?logout='1'" style="color: red;">Logout</a> 
             </p>
         <?php endif ?>
