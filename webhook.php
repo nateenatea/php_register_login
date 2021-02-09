@@ -5,6 +5,7 @@
     // session_start();
 
     // $uid = $_SESSION['uid'];
+    $uid = $_GET['u_id'];
 
     $LINEData = file_get_contents('php://input');
     $jsonData = json_decode($LINEData,true);
@@ -30,32 +31,27 @@
     }
 
     if(isset($_GET['u_id'])) {
-        $uid = $_GET['u_id'];
-        echo "$uid";
         // Chat history
         $conn->query("INSERT INTO `log_$uid`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
+
+        //Chatbot Q&A
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
         $select_stmt->execute();
         while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-            print_r($row);
             if ($text == $row['Question']) {
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
             }
         }
+
+        //Get Access Token
+        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$u_id'");
+        $getAccessToken->execute();
+
+        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+            $AccessToken = $row['accesstoken_lineoa'];
+        }
     }
-    // else {
-    //     // echo "Nothing Here!";
-    //     $conn->query("INSERT INTO `log`(`UserID`, `Text`, `Timestamp`) VALUES ('$userID','$text','$timestamp')");
-    //     $select_stmt = $db->prepare("SELECT * FROM `chatbot`");
-    //     $select_stmt->execute();
-    //     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-    //         if ($text == $row['Question']) {
-    //             $replyText["type"] = "text";
-    //             $replyText["text"] = $row['Answer'];
-    //         }
-    //     }
-    // }
 
     if ($text == "Hello") {
         $replyText["type"] = "text";
@@ -108,17 +104,6 @@
     //     $CustomerID = $row['CustomerID'];
     // }
     // $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
-
-    if(isset($_GET["u_id"])){
-        $u_id = $_GET["u_id"];
-
-        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$u_id'");
-        $getAccessToken->execute();
-
-        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-            $AccessToken = $row['accesstoken_lineoa'];
-        }
-    }
 
     $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
     // $lineData['AccessToken'] = "uEbhTcwlpe54y5BHzyjzFpmp8IjkmYvEftYlagXn2HijGkFNv3ONRMVE72iqX5YJETG1T59BEhq4d9T+2x9Vs5QFyLNytZVsV0zbPEvpV51g7H3j7TmJuFTZ1clOB7PlzPTYE/bCXc3a2NNyRC47nAdB04t89/1O/w1cDnyilFU=";
