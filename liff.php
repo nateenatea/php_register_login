@@ -38,6 +38,9 @@
         async function main() {
             await liff.init({ liffId: "1655607383-lza4vpZb" })
             document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+            if(liff.isInCilent()) {
+                document.getElementById("btnLogOut").style.display = "none"
+            }
             if(liff.isLoggedIn()) {
                 getUserProfile()
             } else {
