@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
     <img id="pictureUrl">
     <p id="userId"><b>userId:</b></p>
     <p id="statusMessage"><b>statusMessage:</b></p>
@@ -28,6 +29,7 @@
         }
         async function main() {
             await liff.init({ liffId: "1655607383-lza4vpZb" })
+            document.getElementById("isLoggedIn").append(liff.isLoggedIn())
             if(liff.isLoggedIn()) {
                 getUserProfile()
             } else {
