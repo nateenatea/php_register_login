@@ -8,11 +8,7 @@
 </head>
 <body>
     <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
-    <img id="pictureUrl">
     <p id="userId"><b>userId:</b></p>
-    <p id="statusMessage"><b>statusMessage:</b></p>
-    <p id="displayName"><b>displayName:</b></p>
-    <p id="decodedIDToken"><b>email:</b></p>
     <button id="btnLogOut" onclick="logOut()">Log Out</button>
 
     <!-- <script src="https://static.line-scdn.net/liff/edge/2.1/liff.js"></script> -->
@@ -28,11 +24,7 @@
 
         async function getUserProfile() {
             const profile = await liff.getProfile()
-            document.getElementById("pictureUrl").src = profile.pictureUrl
             document.getElementById("userId").append(profile.userId)
-            document.getElementById("statusMessage").append(profile.statusMessage)
-            document.getElementById("displayName").append(profile.displayName)
-            document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
             
         }
         async function main() {
