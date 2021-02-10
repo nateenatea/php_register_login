@@ -13,10 +13,17 @@
     <p id="statusMessage"><b>statusMessage:</b></p>
     <p id="displayName"><b>displayName:</b></p>
     <p id="decodedIDToken"><b>email:</b></p>
+    <button id="btnLogOut" onclick="logOut()">Log Out</button>
 
     <script src="https://static.line-scdn.net/liff/edge/2.1/liff.js"></script>
 
     <script>
+
+        function logOut() {
+            liff.logout()
+            window.location.reload()
+        }
+
 
         async function getUserProfile() {
             const profile = await liff.getProfile()
