@@ -2,7 +2,9 @@
     require_once('server.php');
     session_start();
 
-    
+    if($_POST['userID'] == 'Show_1') {
+        echo 'POST Send...';
+    }
 ?>
 
 <!DOCTYPE html>
