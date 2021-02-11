@@ -38,6 +38,7 @@
                 dataType: 'json',
                 data: Data,
                 cache: false,
+                contentType: false,
                 processData: false,
                 succuss: function (res) {
 
