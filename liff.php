@@ -28,8 +28,8 @@
             document.getElementById("userId").append(profile.userId)
             // var userID = document.getElementById("userId").append(profile.userId);
             
-            const uid = document.getElementById('userId').value;
-            document.write(uid);
+            var uid = "";
+            uid = document.getElementById('userId').value;
             var Data = new FormData();
 
             Data.append('userID', uid);
