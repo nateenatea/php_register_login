@@ -29,7 +29,7 @@
             // var userID = document.getElementById("userId").append(profile.userId);
             
             const uid = document.getElementById('userId').value;
-            print(uid);
+            document.write(uid);
             var Data = new FormData();
 
             Data.append('userID', uid);
