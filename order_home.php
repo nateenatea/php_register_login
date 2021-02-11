@@ -34,7 +34,6 @@
     </script>
     <div class="container">
     <div class="form">
-    <p id="userId"><b>userId:</b></p>
         <p style="font-size:25px">สั่งอาหาร (รับที่ร้าน)</p><br>
         <div class="input-field">
             <label for="name">ชื่อลูกค้า</label>
@@ -61,6 +60,7 @@
             </label>
         </div>
         <div class="action">
+        <p id="userId"><b>UID: </b></p>
         <button class="btn" onclick="location.href='order_success.php'">ยืนยัน</button>
         </div>
     </div>
