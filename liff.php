@@ -28,9 +28,10 @@
             document.getElementById("userId").append(profile.userId)
             // var userID = document.getElementById("userId").append(profile.userId);
             
+            const uid = document.getElementById('userId').value;
             var Data = new FormData();
 
-            Data.append('userID', document.getElementById("userId").append(profile.userId));
+            Data.append('userID', uid);
 
             $.ajax({
                 url: 'https://line-chatbot-icute-interns-php.herokuapp.com/order_home.php',
