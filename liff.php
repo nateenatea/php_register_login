@@ -33,9 +33,12 @@
             Data.append('userID', 'Show_1');
 
             $.ajax({
-                url: './order_home.php/',
+                url: 'https://line-chatbot-icute-interns-php.herokuapp.com/order_home.php',
                 type: 'POST',
+                dataType: 'json',
                 data: Data,
+                cache: false,
+                processData: false
                 succuss: function (res) {
 
                 }
