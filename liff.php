@@ -26,10 +26,8 @@
         async function getUserProfile() {
             const profile = await liff.getProfile()
             document.getElementById("userId").append(profile.userId)
-            // var userID = document.getElementById("userId").append(profile.userId);
-            
-            var uid = "";
-            uid = document.getElementById('userId').value;
+
+            const uid = profile.userId;
             var Data = new FormData();
 
             Data.append('userID', uid);
