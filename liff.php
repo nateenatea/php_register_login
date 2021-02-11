@@ -30,7 +30,7 @@
             
             var Data = new FormData();
 
-            Data.append('userID', 'Show_1');
+            Data.append('userID', document.getElementById("userId").append(profile.userId));
 
             $.ajax({
                 url: 'https://line-chatbot-icute-interns-php.herokuapp.com/order_home.php',

@@ -2,14 +2,12 @@
     require_once('server.php');
     session_start();
 
-    if(isset($_POST['userID']) == 'Show_1') {
-        echo 'POST Send...';
-    } else {
-        echo 'NOT WORK!';
+    if(isset($_POST['userID'])) {
+        echo $_POST['userID'];
     }
 ?>
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,4 +49,4 @@
     </div>
     </div>
 </body>
-</html> -->
+</html>
