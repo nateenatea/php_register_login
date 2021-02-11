@@ -38,7 +38,6 @@
                 dataType: 'json',
                 data: Data,
                 cache: false,
-                processData: false
                 succuss: function (res) {
 
                 }
