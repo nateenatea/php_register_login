@@ -41,7 +41,7 @@
                 contentType: false,
                 processData: false,
                 succuss: function (res) {
-                    
+                    location.href = "order_home.php";
                 }
             });
             
