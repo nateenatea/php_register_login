@@ -33,6 +33,7 @@
         }, err => console.error(err.code, error.message));
     </script>
     <div class="container">
+    <p id="userId"><b>UID: </b></p>
     <div class="form">
         <p style="font-size:25px">สั่งอาหาร (รับที่ร้าน)</p><br>
         <div class="input-field">
@@ -60,7 +61,6 @@
             </label>
         </div>
         <div class="action">
-        <p id="userId"><b>UID: </b></p>
         <button class="btn" onclick="location.href='order_success.php'">ยืนยัน</button>
         </div>
     </div>
