@@ -41,7 +41,7 @@
                 contentType: false,
                 processData: false,
                 succuss: function (res) {
-
+                    window.location = "https://line-chatbot-icute-interns-php.herokuapp.com/order_home.php",
                 }
             });
             
