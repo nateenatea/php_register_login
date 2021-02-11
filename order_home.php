@@ -16,8 +16,25 @@
     <link rel="stylesheet" href="order.css">
 </head>
 <body>
+
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.7.1/sdk.js"></script>
+
+    <script>
+        liff.init({ liffId: "1655607383-lza4vpZb" }, () => {
+            if(liff.isLoggedIn()) {
+                liff.getProfile().then(profile => {
+                    document.getElementById("userId").append(profile.userId)
+                    const uid = profile.userId;
+                    console.log(uid);
+                })
+            } else {
+                liff.login();
+            }
+        }, err => console.error(err.code, error.message));
+    </script>
     <div class="container">
     <div class="form">
+    <p id="userId"><b>userId:</b></p>
         <p style="font-size:25px">สั่งอาหาร (รับที่ร้าน)</p><br>
         <div class="input-field">
             <label for="name">ชื่อลูกค้า</label>
