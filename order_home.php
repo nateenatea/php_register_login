@@ -1,3 +1,41 @@
+<script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+<script>
+
+async function getUserProfile() {
+    const profile = await liff.getProfile()
+    document.getElementById("userId").append(profile.userId)
+
+    const uid = profile.userId;
+    var Data = new FormData();
+
+    Data.append('userID', uid);
+
+    $.ajax({
+        url: 'https://line-chatbot-icute-interns-php.herokuapp.com/order_home.php',
+        type: 'POST',
+        dataType: 'json',
+        data: Data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        succuss: function (res) {
+            
+        }
+    });
+    
+}
+async function main() {
+    await liff.init({ liffId: "1655607383-lza4vpZb" })
+    document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+    if(liff.isLoggedIn()) {
+        getUserProfile()
+    } else {
+        liff.login()
+    }
+}
+main()
+</script>
+
 <?php
     require_once('server.php');
     session_start();
