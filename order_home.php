@@ -2,8 +2,10 @@
     require_once('server.php');
     session_start();
 
-    if($_POST['userID'] == 'Show_1') {
+    if(isset($_POST['userID']) == 'Show_1') {
         echo 'POST Send...';
+    } else {
+        echo 'NOT WORK!';
     }
 ?>
 
