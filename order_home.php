@@ -10,6 +10,36 @@
         $uid = $_GET['u_id'];
     }
 
+    function sendlinemesg() {
+        //Get Line Notify Token
+        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
+        $getAccessToken->execute();
+
+        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+            $AccessToken = $row['accesstoken_notify'];
+        }
+        define('LINE_API',"https://notify-api.line.me/api/notify");
+        define('LINE_TOKEN',$AccessToken);
+    
+        function notify_message($message) {
+            $queryData = array('message' => $message);
+            $queryData = http_build_query($queryData,'','&');
+            $headerOptions = array(
+                'http' => array(
+                    'method' => 'POST',
+                    'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
+                                ."Authorization: Bearer ".LINE_TOKEN."\r\n"
+                                ."Content-Length: ".strlen($queryData)."\r\n",
+                    'content' => $queryData
+                )
+            );
+            $context = stream_context_create($headerOptions);
+            $result = file_get_contents(LINE_API, FALSE, $context);
+            $res = json_decode($result);
+            return $res;
+        }
+    }
+
     if(isset($_REQUEST['btn_order'])) {
         $Name = $_REQUEST['txt_name'];
         $Phone = $_REQUEST['txt_phone'];
@@ -64,36 +94,6 @@
                             "\n". "เวลารับอาหาร: " . $Time .
                             "\n". "อาหารที่สั่ง: " . $Food . 
                             "\n". "สถานะ: " . $Status;
-
-                    function sendlinemesg() {
-                        //Get Line Notify Token
-                        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
-                        $getAccessToken->execute();
-
-                        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-                            $AccessToken = $row['accesstoken_notify'];
-                        }
-                        define('LINE_API',"https://notify-api.line.me/api/notify");
-                        define('LINE_TOKEN',$AccessToken);
-                    
-                        function notify_message($message) {
-                            $queryData = array('message' => $message);
-                            $queryData = http_build_query($queryData,'','&');
-                            $headerOptions = array(
-                                'http' => array(
-                                    'method' => 'POST',
-                                    'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
-                                                ."Authorization: Bearer ".LINE_TOKEN."\r\n"
-                                                ."Content-Length: ".strlen($queryData)."\r\n",
-                                    'content' => $queryData
-                                )
-                            );
-                            $context = stream_context_create($headerOptions);
-                            $result = file_get_contents(LINE_API, FALSE, $context);
-                            $res = json_decode($result);
-                            return $res;
-                        }
-                    }
 
                     sendlinemesg();
                     $res = notify_message($message);
