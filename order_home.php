@@ -36,7 +36,7 @@
         } 
         try {
             if(!isset($errorMsg) && isset($_GET['u_id'])) {
-                $insert_stmt = $db->prepare("INSERT INTO customer_order_$uid(Name, Phone, Time, Food, Status) VALUES (:fname, :fphone, :ftime, :ffood, :fstatus)");
+                $insert_stmt = $db->prepare("INSERT INTO `customer_order_$uid`(Name, Phone, Time, Food, Status) VALUES (:fname, :fphone, :ftime, :ffood, :fstatus)");
                 $insert_stmt->bindParam(':fname', $Name);
                 $insert_stmt->bindParam(':fphone', $Phone);
                 $insert_stmt->bindParam(':ftime', $Time);
