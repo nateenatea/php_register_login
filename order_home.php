@@ -41,7 +41,8 @@
                 $insert_stmt->bindParam(':fphone', $Phone);
                 $insert_stmt->bindParam(':ftime', $Time);
                 $insert_stmt->bindParam(':ffood', $Foodsum);
-                $insert_stmt->bindParam(':fstatus', 'รอการอนุมัติ');
+                $status = 'รอการอนุมัติ';
+                $insert_stmt->bindParam(':fstatus', $status);
 
                 if($insert_stmt->execute()) {
                     $insertMsg = "Insert Successfully...";
