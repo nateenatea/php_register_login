@@ -6,7 +6,9 @@
     //     echo $_POST['userID'];
     // }
 
-    $uid = $_GET['u_id'];
+    if(isset($_GET['u_id'])) {
+        $uid = $_GET['u_id'];
+    }
 
     if(isset($_REQUEST['btn_order'])) {
         $Name = $_REQUEST['txt_name'];
@@ -33,12 +35,13 @@
             $errorMsg = "Please select your menu";
         } 
         try {
-            if(!isset($errorMsg)) {
-                $insert_stmt = $db->prepare("INSERT INTO customer_order(Name, Phone, Time, Food) VALUES (:fname, :fphone, :ftime, :ffood)");
+            if(!isset($errorMsg) && isset($_GET['u_id'])) {
+                $insert_stmt = $db->prepare("INSERT INTO customer_order_$uid(Name, Phone, Time, Food, Status) VALUES (:fname, :fphone, :ftime, :ffood, :fstatus)");
                 $insert_stmt->bindParam(':fname', $Name);
                 $insert_stmt->bindParam(':fphone', $Phone);
                 $insert_stmt->bindParam(':ftime', $Time);
                 $insert_stmt->bindParam(':ffood', $Foodsum);
+                $insert_stmt->bindParam(':fstatus', 'รอการอนุมัติ');
 
                 if($insert_stmt->execute()) {
                     $insertMsg = "Insert Successfully...";
