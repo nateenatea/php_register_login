@@ -19,7 +19,8 @@
             $AccessToken = $row['accesstoken_notify'];
         }
         define('LINE_API',"https://notify-api.line.me/api/notify");
-        define('LINE_TOKEN',$AccessToken);
+        define('LINE_TOKEN',"dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K");
+        // define('LINE_TOKEN',$AccessToken);
     
         function notify_message($message) {
             $queryData = array('message' => $message);
