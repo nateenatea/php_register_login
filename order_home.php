@@ -8,14 +8,6 @@
 
     if(isset($_GET['u_id'])) {
         $uid = $_GET['u_id'];
-
-        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
-                        $getAccessToken->execute();
-
-                        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-                            $AccessToken = $row['accesstoken_notify'];
-                        }
-        echo $AccessToken;
     }
 
     if(isset($_REQUEST['btn_order'])) {
@@ -82,7 +74,7 @@
                             $AccessToken = $row['accesstoken_notify'];
                         }
                         define('LINE_API',"https://notify-api.line.me/api/notify");
-                        define('LINE_TOKEN',$AccessToken);
+                        define('LINE_TOKEN',"$AccessToken");
                     
                         function notify_message($message) {
                             $queryData = array('message' => $message);
