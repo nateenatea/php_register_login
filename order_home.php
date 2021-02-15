@@ -78,7 +78,7 @@
 
     <div class="container">
     <!-- <p id="userId"><b>UID: </b></p> -->
-    <p><b>UID: <?php $uid ?></b></p>
+    <p><b>UID: <?php echo $uid ?></b></p>
     <form method="post" class="form-horizontal mt-5" enctype="multipart/form-data">
         <p style="font-size:25px">สั่งอาหาร (รับที่ร้าน)</p><br>
         <div class="input-field">
