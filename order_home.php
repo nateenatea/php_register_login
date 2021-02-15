@@ -10,6 +10,8 @@
         $uid = $_GET['u_id'];
     }
 
+    include('order_success.php');
+
     if(isset($_REQUEST['btn_order'])) {
         $Name = $_REQUEST['txt_name'];
         $Phone = $_REQUEST['txt_phone'];
