@@ -8,29 +8,34 @@
     if(isset($_REQUEST['btn_order'])) {
         $Name = $_REQUEST['txt_name'];
         $Phone = $_REQUEST['txt_phone'];
-        // $Time = $_REQUEST['txt_time'];
-        // $Food1 = $_REQUEST['txt_menu1'];
-        // $Food2 = $_REQUEST['txt_menu2'];
-        // $Food3 = $_REQUEST['txt_menu3'];
+        $Time = $_REQUEST['txt_time'];
+        $Foodsum = '';
+        if(isset($_REQUEST['txt_menu1'])) {
+            $Foodsum .= $_REQUEST['txt_menu1'] . ' ';
+        }
+        if(isset($_REQUEST['txt_menu2'])) {
+            $Foodsum .= $_REQUEST['txt_menu2'] . ' ';
+        }
+        if(isset($_REQUEST['txt_menu3'])) {
+            $Foodsum .= $_REQUEST['txt_menu3'] . ' ';
+        } 
 
         if(empty($Name)){
             $errorMsg = "Please enter your name";
         } else if(empty($Phone)) {
             $errorMsg = "Please enter your phone number";
+        } else if(empty($Time)) {
+            $errorMsg = "Please insert times";
+        } else if(empty($Foodsum)) {
+            $errorMsg = "Please select your menu";
         } 
-        // else if(empty($Time)) {
-        //     $errorMsg = "Please insert times";
-        // }
-        // } else if(empty($Food1) && empty($Food2) && empty($Food3)) {
-        //     $errorMsg = "Please select your menu";
-        // } 
         try {
             if(!isset($errorMsg)) {
-                $insert_stmt = $db->prepare("INSERT INTO customer_order(Name, Phone) VALUES (:fname, :fphone)");
+                $insert_stmt = $db->prepare("INSERT INTO customer_order(Name, Phone, Time, Food) VALUES (:fname, :fphone, :ftime, :ffood)");
                 $insert_stmt->bindParam(':fname', $Name);
-                $insert_stmt->bindParam(':fphone',$Phone);
-                // $insert_stmt->bindParam(':ftime',$Time);
-                // $insert_stmt->bindParam(':ffood', $Food1 . $Food2 . $Food3);
+                $insert_stmt->bindParam(':fphone', $Phone);
+                $insert_stmt->bindParam(':ftime', $Time);
+                $insert_stmt->bindParam(':ffood', $Foodsum);
 
                 if($insert_stmt->execute()) {
                     $insertMsg = "Insert Successfully...";
@@ -70,7 +75,7 @@
 
     <div class="container">
     <p id="userId"><b>UID: </b></p>
-    <div class="form">
+    <form method="post" class="form-horizontal mt-5" enctype="multipart/form-data">
         <p style="font-size:25px">สั่งอาหาร (รับที่ร้าน)</p><br>
         <div class="input-field">
             <label for="name">ชื่อลูกค้า</label>
@@ -87,20 +92,20 @@
         <div class="input-field">
             <label for="menu">กรุณาเลือกเมนูที่ต้องการ</label>
             <label for="menu1">
-                <input type="checkbox" name="txt_menu1">กระเพราหมูสับ
+                <input type="checkbox" name="txt_menu1" value="กระเพราหมูสับ">กระเพราหมูสับ
             </label>
             <label for="menu2">
-                <input type="checkbox" name="txt_menu2">คะน้าหมูกรอบ
+                <input type="checkbox" name="txt_menu2" value="คะน้าหมูกรอบ">คะน้าหมูกรอบ
             </label>
             <label for="menu3">
-                <input type="checkbox" name="txt_menu3">ข้าวผัดไก่
+                <input type="checkbox" name="txt_menu3" value="ข้าวมันไก่">ข้าวผัดไก่
             </label>
         </div>
         <div class="action">
         <input type="submit" name="btn_order" class="btn btn-success" value="ยืนยัน">
         <!-- <button class="btn" onclick="location.href='order_success.php'">ยืนยัน</button> -->
         </div>
-    </div>
+    </form>
     </div>
     <script src="js/bundle.js"></script>
 </body>
