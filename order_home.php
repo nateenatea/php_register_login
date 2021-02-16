@@ -8,12 +8,6 @@
 
     if(isset($_GET['u_id'])) {
         $uid = $_GET['u_id'];
-        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
-        $getAccessToken->execute();
-        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-            $AccessToken = $row['accesstoken_notify'];
-        }
-        echo $AccessToken;
     }
 
     if(isset($_REQUEST['btn_order'])) {
@@ -73,12 +67,12 @@
 
                     function notify_message($message) {
                         //Get Line Notify Token
-                        // $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
-                        // $getAccessToken->execute();
-                        // while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-                        //     $AccessToken = $row['accesstoken_notify'];
-                        // }
-                        $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
+                        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
+                        $getAccessToken->execute();
+                        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+                            $AccessToken = $row['accesstoken_notify'];
+                        }
+                        // $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
                         $queryData = array('message' => $message);
                         $queryData = http_build_query($queryData,'','&');
                         $headerOptions = array(
