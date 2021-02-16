@@ -85,7 +85,7 @@
                                     'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
                                                 // ."Authorization: Bearer ".LINE_TOKEN."\r\n"
                                                 // ."Authorization: Bearer ".$LINE_TOKEN."\r\n"
-                                                ."Authorization: Bearer '.$LINE_TOKEN.'\r\n"
+                                                ."Authorization: Bearer {$LINE_TOKEN}\r\n"
                                                 ."Content-Length: ".strlen($queryData)."\r\n",
                                     'content' => $queryData
                                 )
