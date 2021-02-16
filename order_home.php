@@ -85,8 +85,8 @@
                                     'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
                                                 // ."Authorization: Bearer ".LINE_TOKEN."\r\n"
                                                 // ."Authorization: Bearer dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K\r\n"
-                                                ."Authorization: Bearer ".$LINE_TOKEN."\r\n"
-                                                // ."Authorization: Bearer {$LINE_TOKEN}\r\n"
+                                                // ."Authorization: Bearer ".$LINE_TOKEN."\r\n"
+                                                ."Authorization: Bearer {$LINE_TOKEN}\r\n"
                                                 ."Content-Length: ".strlen($queryData)."\r\n",
                                     'content' => $queryData
                                 )
@@ -95,7 +95,7 @@
                             $context = stream_context_create($headerOptions);
                             $result = file_get_contents("https://notify-api.line.me/api/notify", FALSE, $context);
                             $res = json_decode($result);
-                            // return $res;
+                            return $res;
                         }
                     }
 
@@ -139,6 +139,7 @@
     <div class="container">
     <!-- <p id="userId"><b>UID: </b></p> -->
     <p><b>UID: <?php echo $uid ?></b></p>
+    <p><?php phpinfo(); ?></p>
     <form method="post" class="form-horizontal mt-5" enctype="multipart/form-data">
         <p style="font-size:25px">สั่งอาหาร (รับที่ร้าน)</p><br>
         <div class="input-field">
