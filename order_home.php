@@ -69,6 +69,7 @@
                         //Get Line Notify Token
                         $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
                         $getAccessToken->execute();
+
                         while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
                             $AccessToken = $row['accesstoken_notify'];
                         }
