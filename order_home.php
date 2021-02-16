@@ -72,7 +72,6 @@
                         while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
                             $AccessToken = $row['accesstoken_notify'];
                         }
-                        $LINE_TOKEN = $AccessToken;
                         // $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
                         $queryData = array('message' => $message);
                         $queryData = http_build_query($queryData,'','&');
@@ -80,20 +79,22 @@
                             'http' => array(
                                 'method' => 'POST',
                                 'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
-                                            ."Authorization: Bearer ".$LINE_TOKEN."\r\n"
+                                            ."Authorization: Bearer ".$AccessToken."\r\n"
                                             ."Content-Length: ".strlen($queryData)."\r\n",
                                 'content' => $queryData
                             )
                         );
-                        $context = stream_context_create($headerOptions);
-                        $result = file_get_contents("https://notify-api.line.me/api/notify", FALSE, $context);
-                        $res = json_decode($result);
-                        return $res;
+
+                        print_r($headerOptions);
+                        // $context = stream_context_create($headerOptions);
+                        // $result = file_get_contents("https://notify-api.line.me/api/notify", FALSE, $context);
+                        // $res = json_decode($result);
+                        // return $res;
                     }
 
                     $res = notify_message($message);
 
-                    header("refresh:2;order_success.php");
+                    // header("refresh:2;order_success.php");
                 }
             }
         } catch (PDOException $e) {
