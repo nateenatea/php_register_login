@@ -67,12 +67,11 @@
 
                     function notify_message($message) {
                         //Get Line Notify Token
-                        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
-                        $getAccessToken->execute();
-                        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-                            print_r($row);
-                            // $AccessToken = $row['accesstoken_notify'];
-                        }
+                        // $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
+                        // $getAccessToken->execute();
+                        // while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+                        //     $AccessToken = $row['accesstoken_notify'];
+                        // }
                         $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
                         $queryData = array('message' => $message);
                         $queryData = http_build_query($queryData,'','&');
