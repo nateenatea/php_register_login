@@ -65,9 +65,8 @@
                             "\n". "อาหารที่สั่ง: " . $Food . 
                             "\n". "สถานะ: " . $Status;
 
-                    function notify_message($message) {
+                    function notify_message($message, $uid) {
                         //Get Line Notify Token
-                        $uid = $_GET['u_id'];
                         $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
                         $getAccessToken->execute();
 
@@ -93,7 +92,7 @@
                         return $res;
                     }
 
-                    $res = notify_message($message);
+                    $res = notify_message($message, $uid);
 
                     header("refresh:2;order_success.php");
                 }
