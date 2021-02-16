@@ -8,6 +8,12 @@
 
     if(isset($_GET['u_id'])) {
         $uid = $_GET['u_id'];
+        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
+        $getAccessToken->execute();
+        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+            $AccessToken = $row['accesstoken_notify'];
+        }
+        echo $AccessToken;
     }
 
     if(isset($_REQUEST['btn_order'])) {
