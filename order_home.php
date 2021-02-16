@@ -8,6 +8,14 @@
 
     if(isset($_GET['u_id'])) {
         $uid = $_GET['u_id'];
+
+        //Get Line Notify Token
+        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
+        $getAccessToken->execute();
+
+        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+            $AccessToken = $row['accesstoken_notify'];
+        }
     }
 
     if(isset($_REQUEST['btn_order'])) {
@@ -66,15 +74,7 @@
                             "\n". "สถานะ: " . $Status;
 
                     function notify_message($message) {
-                        global $uid;
-
-                        //Get Line Notify Token
-                        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
-                        $getAccessToken->execute();
-
-                        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-                            $AccessToken = $row['accesstoken_notify'];
-                        }
+                        global $AccessToken;
 
                         echo $AccessToken;
                         // $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
