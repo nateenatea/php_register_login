@@ -95,7 +95,7 @@
                             $context = stream_context_create($headerOptions);
                             $result = file_get_contents("https://notify-api.line.me/api/notify", FALSE, $context);
                             $res = json_decode($result);
-                            return $res;
+                            // return $res;
                         }
                     }
 
