@@ -68,15 +68,16 @@
                     function notify_message($message) {
                         global $uid;
 
-                        echo $uid;
                         //Get Line Notify Token
-                        // $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
-                        // $getAccessToken->execute();
+                        $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
+                        $getAccessToken->execute();
 
-                        // while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-                        //     $AccessToken = $row['accesstoken_notify'];
-                        // }
-                        // // $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
+                        while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
+                            $AccessToken = $row['accesstoken_notify'];
+                        }
+
+                        echo $AccessToken;
+                        // $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
                         // $queryData = array('message' => $message);
                         // $queryData = http_build_query($queryData,'','&');
                         // $headerOptions = array(
@@ -97,7 +98,7 @@
 
                     $res = notify_message($message);
 
-                    header("refresh:2;order_success.php");
+                    // header("refresh:2;order_success.php");
                 }
             }
         } catch (PDOException $e) {
