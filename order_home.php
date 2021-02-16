@@ -73,19 +73,20 @@
                         // while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
                         //     $AccessToken = $row['accesstoken_notify'];
                         // }
-                        define('LINE_TOKEN',"dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K");
+                        // define('LINE_TOKEN',"dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K");
                         // $LINE_TOKEN = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
                     
                         function notify_message($message) {
+                            $LINE_TOKEN = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
                             $queryData = array('message' => $message);
                             $queryData = http_build_query($queryData,'','&');
                             $headerOptions = array(
                                 'http' => array(
                                     'method' => 'POST',
                                     'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
-                                                ."Authorization: Bearer ".LINE_TOKEN."\r\n"
+                                                // ."Authorization: Bearer ".LINE_TOKEN."\r\n"
                                                 // ."Authorization: Bearer dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K\r\n"
-                                                // ."Authorization: Bearer ".$LINE_TOKEN."\r\n"
+                                                ."Authorization: Bearer ".$LINE_TOKEN."\r\n"
                                                 // ."Authorization: Bearer $LINE_TOKEN\r\n"
                                                 ."Content-Length: ".strlen($queryData)."\r\n",
                                     'content' => $queryData
