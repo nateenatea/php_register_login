@@ -70,9 +70,10 @@
                         $getAccessToken = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
                         $getAccessToken->execute();
                         while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
-                            $AccessToken = $row['accesstoken_notify'];
+                            print_r($row);
+                            // $AccessToken = $row['accesstoken_notify'];
                         }
-                        // $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
+                        $AccessToken = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
                         $queryData = array('message' => $message);
                         $queryData = http_build_query($queryData,'','&');
                         $headerOptions = array(
