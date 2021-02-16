@@ -73,9 +73,7 @@
                         // while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
                         //     $AccessToken = $row['accesstoken_notify'];
                         // }
-                        // define('LINE_API',"https://notify-api.line.me/api/notify");
                         define('LINE_TOKEN',"dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K");
-                        // $LINE_API = "https://notify-api.line.me/api/notify";
                         // $LINE_TOKEN = "dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K";
                     
                         function notify_message($message) {
@@ -85,14 +83,14 @@
                                 'http' => array(
                                     'method' => 'POST',
                                     'header' => "Content-Type: application/x-www-form-urlencoded\r\n"
-                                                ."Authorization: Bearer ".LINE_TOKEN."\r\n"
+                                                // ."Authorization: Bearer ".LINE_TOKEN."\r\n"
                                                 // ."Authorization: Bearer ".$LINE_TOKEN."\r\n"
+                                                ."Authorization: Bearer dKWHuVc0nU8e786i0TP9eWa650ZADeGKlergcwFmQ8K\r\n"
                                                 ."Content-Length: ".strlen($queryData)."\r\n",
                                     'content' => $queryData
                                 )
                             );
                             $context = stream_context_create($headerOptions);
-                            // $result = file_get_contents(LINE_API, FALSE, $context);
                             $result = file_get_contents("https://notify-api.line.me/api/notify", FALSE, $context);
                             $res = json_decode($result);
                             return $res;
