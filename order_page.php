@@ -65,6 +65,7 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
+                    <th>Shipment</th>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Time</th>
@@ -84,6 +85,7 @@
                     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {                
                 ?>
                     <tr>
+                        <td><?php echo $row["Shipment"]; ?></td>
                         <td><?php echo $row["Name"]; ?></td>
                         <td><?php echo $row["Phone"]; ?></td>
                         <td><?php echo $row["Time"]; ?></td>
@@ -100,6 +102,7 @@
                     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {                
                 ?>
                     <tr>
+                        <td><?php echo $row["Shipment"]; ?></td>
                         <td><?php echo $row["Name"]; ?></td>
                         <td><?php echo $row["Phone"]; ?></td>
                         <td><?php echo $row["Time"]; ?></td>

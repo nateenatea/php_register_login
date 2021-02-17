@@ -81,7 +81,8 @@
                 `Food` varchar(255) NOT NULL,
                 `Price` varchar(255) NOT NULL,
                 `Address` varchar(255) NOT NULL,
-                `Status` varchar(255) NOT NULL
+                `Status` varchar(255) NOT NULL,
+                `Shipment` varchar(255) NOT NULL
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
             mysqli_query($conn, $sql);
 

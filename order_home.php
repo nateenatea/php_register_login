@@ -35,12 +35,12 @@
             $errorMsg = "Please enter your phone number";
         } else if(empty($Address)) {
             $errorMsg = "Please insert your address";
-        } else if(empty($Foodsum)) {
+        } else if($Foodsum == '') {
             $errorMsg = "Please select your menu";
         }
         try {
             if(!isset($errorMsg) && isset($_GET['u_id'])) {
-                $insert_stmt = $db->prepare("INSERT INTO `customer_order_$uid`(Name, Phone, Address, Food, Price, Status) VALUES (:fname, :fphone, :faddress, :ffood, :fprice, :fstatus)");
+                $insert_stmt = $db->prepare("INSERT INTO `customer_order_$uid`(Name, Phone, Address, Food, Price, Status, Shipment) VALUES (:fname, :fphone, :faddress, :ffood, :fprice, :fstatus, :fshipment)");
                 $insert_stmt->bindParam(':fname', $Name);
                 $insert_stmt->bindParam(':fphone', $Phone);
                 $insert_stmt->bindParam(':faddress', $Address);
@@ -48,6 +48,8 @@
                 $insert_stmt->bindParam(':fprice', $FoodPrice);
                 $status = 'รอการอนุมัติ';
                 $insert_stmt->bindParam(':fstatus', $status);
+                $Shipment = 'จัดส่งถึงบ้าน';
+                $insert_stmt->bindParam(':fshipment', $Shipment);
 
                 if($insert_stmt->execute()) {
                     $insertMsg = "Insert Successfully...";
@@ -61,11 +63,12 @@
                         $Food = $row['Food'];
                         $Price = $row['Price'];
                         $Status = $row['Status'];
+                        $Shipment = $row['Shipment'];
                     }
 
                     $header = "Order จาก UID : " . $uid;
                     $message = $header.
-                            "\n". "**จัดส่งถึงบ้าน**" .
+                            "\n". "**" . $Shipment . "**" .
                             "\n". "ชื่อ: " . $Name .
                             "\n". "เบอร์โทร: " . $Phone .
                             "\n". "ที่อยู่ในการจัดส่ง: " . $Address .
