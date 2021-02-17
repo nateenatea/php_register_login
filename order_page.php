@@ -6,6 +6,17 @@
         $_SESSION['msg'] = "You must login first";
         header('location: login.php');
     }
+
+    if(isset($_REQUEST['confirm_id'])) {
+        $id = $_REQUEST['confirm_id'];
+        $uid = $_SESSION['uid'];
+
+        $select_stmt = $db->prepare("UPDATE customer_order_$uid SET Status = 'คำสั่งซื้อเสร็จสิ้น' WHERE id = :id");
+        $select_stmt->bindParam(':id', $id);
+        $select_stmt->execute();
+
+        header('Location:DataTable.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +77,7 @@
                         <td><?php echo $row["Food"]; ?></td>
                         <td><?php echo $row["Price"]; ?></td>
                         <td><?php echo $row["Status"]; ?></td>
+                        <td><a href="?confirm_id=<?php echo $row["id"]; ?>" class="btn btn-warning"><?php echo $row["Status"]; ?></a></td>
                     </tr>
                 <?php } ?> 
             </tbody>
