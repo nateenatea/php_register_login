@@ -141,6 +141,7 @@
                     <input type="checkbox" name="txt_menu<?php echo $row["id"]; ?>" value="<?php echo $row["FoodName"]; ?>"><?php echo $row["FoodName"]; ?>
             </label>
             <?php } ?>
+        </div>
         <div class="action">
         <input type="submit" name="btn_order" class="btn btn-success" value="ยืนยัน">
         <!-- <button class="btn" onclick="location.href='order_success.php'">ยืนยัน</button> -->
