@@ -6,37 +6,19 @@
         $_SESSION['msg'] = "You must login first";
         header('location: login.php');
     }
-
-    if(isset($_REQUEST['delete_id'])) {
-        $id = $_REQUEST['delete_id'];
-        $uid = $_SESSION['uid'];
-
-        $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid WHERE id = :id");
-        $select_stmt->bindParam(':id', $id);
-        $select_stmt->execute();
-        $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
-        unlink("upload/$uid/".$row['FoodImage']); //unlink function permanently remove your file
-
-        // delete an original record from database
-        $delete_stmt = $db->prepare("DELETE FROM foodlist_$uid WHERE id = :id");
-        $delete_stmt->bindParam(':id', $id);
-        $delete_stmt->execute();
-
-        header('Location:DataTable.php');
-    }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="DataTable.php">Home</a>
             <ul class = "bg-dark">
@@ -59,34 +41,38 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Food Name</th>
-                    <th>Food Price</th>
-                    <th>Food Image</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Time</th>
+                    <th>Address</th>
+                    <th>Food</th>
+                    <th>Price</th>
+                    <th>Status</th>
                 </tr>
             </thead>
 
             <tbody>
                 <?php
                     $uid = $_SESSION['uid'];
-                    $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
+                    $select_stmt = $db->prepare("SELECT * FROM customer_order_$uid");
                     $select_stmt->execute();
 
                     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {                
                 ?>
                     <tr>
-                        <td><?php echo $row["FoodName"]; ?></td>
-                        <td><?php echo $row["FoodPrice"]; ?></td>
-                        <td><img src="upload/<?php echo $row['FoodImage'];?>" width="100px" height="100px" alt=""></td>
-                        <td><a href="edit.php?update_id=<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
-                        <td><a href="?delete_id=<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
+                        <td><?php echo $row["Name"]; ?></td>
+                        <td><?php echo $row["Phone"]; ?></td>
+                        <td><?php echo $row["Time"]; ?></td>
+                        <td><?php echo $row["Address"]; ?></td>
+                        <td><?php echo $row["Food"]; ?></td>
+                        <td><?php echo $row["Price"]; ?></td>
+                        <td><?php echo $row["Status"]; ?></td>
                     </tr>
                 <?php } ?> 
             </tbody>
         </table>
     </div>
-    
+
     <script src="js/bundle.js"></script>
 </body>
 </html>
