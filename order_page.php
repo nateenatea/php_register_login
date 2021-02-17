@@ -76,7 +76,6 @@
                         <td><?php echo $row["Address"]; ?></td>
                         <td><?php echo $row["Food"]; ?></td>
                         <td><?php echo $row["Price"]; ?></td>
-                        <td><?php echo $row["Status"]; ?></td>
                         <td><a href="?confirm_id=<?php echo $row["id"]; ?>" class="btn btn-warning"><?php echo $row["Status"]; ?></a></td>
                     </tr>
                 <?php } ?> 
