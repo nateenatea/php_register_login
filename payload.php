@@ -328,7 +328,7 @@
                 "action": {
                   "type": "uri",
                   "label": "รับเองที่ร้าน",
-                  "uri": "https://line-chatbot-icute-interns-php.herokuapp.com/order_home.php?u_id='.$uid.'"
+                  "uri": "https://line-chatbot-icute-interns-php.herokuapp.com/order_res.php?u_id='.$uid.'"
                 }
               },
               {
@@ -336,7 +336,7 @@
                 "action": {
                   "type": "uri",
                   "label": "จัดส่งที่บ้าน",
-                  "uri": "https://line-chatbot-icute-interns-php.herokuapp.com/order_res.php?u_id='.$uid.'"
+                  "uri": "https://line-chatbot-icute-interns-php.herokuapp.com/order_home.php?u_id='.$uid.'"
                 }
               }
             ]

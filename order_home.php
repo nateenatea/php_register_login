@@ -1,11 +1,6 @@
 <?php
     require_once('server.php');
-    // session_start();
-
-    // if(isset($_POST['userID'])) {
-    //     echo $_POST['userID'];
-    // }
-
+    
     if(isset($_GET['u_id'])) {
         $uid = $_GET['u_id'];
 
@@ -21,17 +16,8 @@
     if(isset($_REQUEST['btn_order'])) {
         $Name = $_REQUEST['txt_name'];
         $Phone = $_REQUEST['txt_phone'];
-        $Time = $_REQUEST['txt_time'];
+        $Address = $_REQUEST['txt_address'];
         $Foodsum = '';
-        // if(isset($_REQUEST['txt_menu1'])) {
-        //     $Foodsum .= $_REQUEST['txt_menu1'] . ' ';
-        // }
-        // if(isset($_REQUEST['txt_menu2'])) {
-        //     $Foodsum .= $_REQUEST['txt_menu2'] . ' ';
-        // }
-        // if(isset($_REQUEST['txt_menu3'])) {
-        //     $Foodsum .= $_REQUEST['txt_menu3'] . ' ';
-        // } 
 
         $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
         $select_stmt->execute();
@@ -47,17 +33,17 @@
             $errorMsg = "Please enter your name";
         } else if(empty($Phone)) {
             $errorMsg = "Please enter your phone number";
-        } else if(empty($Time)) {
-            $errorMsg = "Please insert times";
+        } else if(empty($Address)) {
+            $errorMsg = "Please insert your address";
         } else if(empty($Foodsum)) {
             $errorMsg = "Please select your menu";
-        } 
+        }
         try {
             if(!isset($errorMsg) && isset($_GET['u_id'])) {
-                $insert_stmt = $db->prepare("INSERT INTO `customer_order_$uid`(Name, Phone, Time, Food, Price, Status) VALUES (:fname, :fphone, :ftime, :ffood, :fprice, :fstatus)");
+                $insert_stmt = $db->prepare("INSERT INTO `customer_order_$uid`(Name, Phone, Address, Food, Price, Status) VALUES (:fname, :fphone, :faddress, :ffood, :fprice, :fstatus)");
                 $insert_stmt->bindParam(':fname', $Name);
                 $insert_stmt->bindParam(':fphone', $Phone);
-                $insert_stmt->bindParam(':ftime', $Time);
+                $insert_stmt->bindParam(':faddress', $Address);
                 $insert_stmt->bindParam(':ffood', $Foodsum);
                 $insert_stmt->bindParam(':fprice', $FoodPrice);
                 $status = 'รอการอนุมัติ';
@@ -71,7 +57,7 @@
                     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
                         $Name = $row['Name'];
                         $Phone = $row['Phone'];
-                        $Time = $row['Time'];
+                        $Address = $row['Address'];
                         $Food = $row['Food'];
                         $Price = $row['Price'];
                         $Status = $row['Status'];
@@ -81,7 +67,7 @@
                     $message = $header.
                             "\n". "ชื่อ: " . $Name .
                             "\n". "เบอร์โทร: " . $Phone .
-                            "\n". "เวลารับอาหาร: " . $Time .
+                            "\n". "ที่อยู่ในการจัดส่ง: " . $Address .
                             "\n". "อาหารที่สั่ง: " . $Food . 
                             "\n". "ราคารวมทั้งหมด: " . $Price . " บาท" .
                             "\n". "สถานะ: " . $Status;
@@ -114,7 +100,11 @@
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
-        }
+        } 
+
+    
+
+
     }
 ?>
 
@@ -127,27 +117,10 @@
     <link rel="stylesheet" href="order.css">
 </head>
 <body>
-
-    <!-- <script src="https://static.line-scdn.net/liff/edge/versions/2.7.1/sdk.js"></script>
-
-    <script>
-        liff.init({ liffId: "1655607383-lza4vpZb" }, () => {
-            if(liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
-                    document.getElementById("userId").append(profile.userId)
-                    const uid = profile.userId;
-                })
-            } else {
-                liff.login();
-            }
-        }, err => console.error(err.code, error.message));
-    </script> -->
-
     <div class="container">
-    <!-- <p id="userId"><b>UID: </b></p> -->
     <p><b>UID: <?php echo $uid ?></b></p>
     <form method="post" class="form-horizontal mt-5" enctype="multipart/form-data">
-        <p style="font-size:25px">สั่งอาหาร (รับที่ร้าน)</p><br>
+        <p style="font-size:25px">สั่งอาหาร (ส่งที่บ้าน)</p><br>
         <div class="input-field">
             <label for="name">ชื่อลูกค้า</label>
             <input type="name" name="txt_name" placeholder="ชื่อ - นามสกุล">
@@ -157,32 +130,21 @@
             <input type="phone" name="txt_phone" placeholder="เบอร์โทรศัพท์">
         </div>
         <div class="input-field">
-            <label for="time">เวลารับอาหาร</label>
-            <input type="time" name="txt_time" placeholder="เวลา">
+            <label for="address">ที่อยู่ในการจัดส่งอาหาร</label>
+            <input type="address" name="txt_address" placeholder="ที่อยู่">
         </div>
         <div class="input-field">
             <label for="menu">กรุณาเลือกเมนูที่ต้องการ</label>
-            <!-- <label for="menu1">
-                <input type="checkbox" name="txt_menu1" value="กระเพราหมูสับ">กระเพราหมูสับ
-            </label>
-            <label for="menu2">
-                <input type="checkbox" name="txt_menu2" value="คะน้าหมูกรอบ">คะน้าหมูกรอบ
-            </label>
-            <label for="menu3">
-                <input type="checkbox" name="txt_menu3" value="ข้าวมันไก่">ข้าวผัดไก่
-            </label> -->
-
             <?php
-                $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
+                $select_stmt = $db-prepare("SELECT * FROM foodlist_$uid");
                 $select_stmt->execute();
 
-                while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+                while($row = $select->fetch(PDO::FETCH_ASSOC)) {
             ?>
             <label for="menu<?php echo $row["id"]; ?>">
                     <input type="checkbox" name="txt_menu<?php echo $row["id"]; ?>" value="<?php echo $row["FoodName"]; ?>"><?php echo $row["FoodName"]; ?>
             </label>
             <?php } ?>
-        </div>
         <div class="action">
         <input type="submit" name="btn_order" class="btn btn-success" value="ยืนยัน">
         <!-- <button class="btn" onclick="location.href='order_success.php'">ยืนยัน</button> -->
