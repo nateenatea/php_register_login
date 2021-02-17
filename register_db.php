@@ -79,6 +79,7 @@
                 `Phone` varchar(255) NOT NULL,
                 `Time` varchar(255) NOT NULL,
                 `Food` varchar(255) NOT NULL,
+                `Price` varchar(255) NOT NULL,
                 `Status` varchar(255) NOT NULL
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
             mysqli_query($conn, $sql);

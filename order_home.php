@@ -39,6 +39,7 @@
         while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
             if(isset($_REQUEST['txt_menu'.$row["id"]])) {
                 $Foodsum .= $_REQUEST['txt_menu'.$row["id"]] . ' ';
+                $FoodPrice = $FoodPrice + $row["FoodPrice"];
             }
         }
 
@@ -53,11 +54,12 @@
         } 
         try {
             if(!isset($errorMsg) && isset($_GET['u_id'])) {
-                $insert_stmt = $db->prepare("INSERT INTO `customer_order_$uid`(Name, Phone, Time, Food, Status) VALUES (:fname, :fphone, :ftime, :ffood, :fstatus)");
+                $insert_stmt = $db->prepare("INSERT INTO `customer_order_$uid`(Name, Phone, Time, Food, Price, Status) VALUES (:fname, :fphone, :ftime, :ffood, :fprice, :fstatus)");
                 $insert_stmt->bindParam(':fname', $Name);
                 $insert_stmt->bindParam(':fphone', $Phone);
                 $insert_stmt->bindParam(':ftime', $Time);
                 $insert_stmt->bindParam(':ffood', $Foodsum);
+                $insert_stmt->bindParam(':fprice', $FoodPrice);
                 $status = 'รอการอนุมัติ';
                 $insert_stmt->bindParam(':fstatus', $status);
 
@@ -71,6 +73,7 @@
                         $Phone = $row['Phone'];
                         $Time = $row['Time'];
                         $Food = $row['Food'];
+                        $Price = $row['Price'];
                         $Status = $row['Status'];
                     }
 
@@ -80,6 +83,7 @@
                             "\n". "เบอร์โทร: " . $Phone .
                             "\n". "เวลารับอาหาร: " . $Time .
                             "\n". "อาหารที่สั่ง: " . $Food . 
+                            "\n". "ราคารวมทั้งหมด: " . $Price .
                             "\n". "สถานะ: " . $Status;
 
                     function notify_message($message) {
