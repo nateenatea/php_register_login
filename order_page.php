@@ -20,7 +20,7 @@
             $Status = $row['Status'];
         }
 
-        if($Status = 'คำสั่งซื้อเสร็จสิ้น') {
+        if($Status == 'คำสั่งซื้อเสร็จสิ้น') {
             $select_stmt = $db->prepare("UPDATE customer_order_$uid SET Status = 'รอการอนุมัติ' WHERE id = :id");
             $select_stmt->bindParam(':id', $id);
             $select_stmt->execute();
