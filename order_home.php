@@ -1,6 +1,6 @@
 <?php
     require_once('server.php');
-    session_start();
+    // session_start();
 
     // if(isset($_POST['userID'])) {
     //     echo $_POST['userID'];
@@ -109,7 +109,7 @@
 
                     $res = notify_message($message);
 
-                    header("refresh:2;order_success.php");
+                    header("refresh:0;order_success.php");
                 }
             }
         } catch (PDOException $e) {
