@@ -132,10 +132,10 @@
         <div class="input-field">
             <label for="menu">กรุณาเลือกเมนูที่ต้องการ</label>
             <?php
-                $select_stmt = $db-prepare("SELECT * FROM foodlist_$uid");
+                $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
                 $select_stmt->execute();
 
-                while($row = $select->fetch(PDO::FETCH_ASSOC)) {
+                while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
             ?>
             <label for="menu<?php echo $row["id"]; ?>">
                     <input type="checkbox" name="txt_menu<?php echo $row["id"]; ?>" value="<?php echo $row["FoodName"]; ?>"><?php echo $row["FoodName"]; ?>
