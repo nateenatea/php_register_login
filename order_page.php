@@ -78,7 +78,23 @@
             <tbody>
                 <?php
                     $uid = $_SESSION['uid'];
-                    $select_stmt = $db->prepare("SELECT * FROM customer_order_$uid");
+                    $select_stmt = $db->prepare("SELECT * FROM customer_order_$uid WHERE Status = 'รอการอนุมัติ'");
+                    $select_stmt->execute();
+
+                    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {                
+                ?>
+                    <tr>
+                        <td><?php echo $row["Name"]; ?></td>
+                        <td><?php echo $row["Phone"]; ?></td>
+                        <td><?php echo $row["Time"]; ?></td>
+                        <td><?php echo $row["Address"]; ?></td>
+                        <td><?php echo $row["Food"]; ?></td>
+                        <td><?php echo $row["Price"]; ?></td>
+                        <td><a href="?confirm_id=<?php echo $row["id"]; ?>" class="btn btn-warning"><?php echo $row["Status"]; ?></a></td>
+                    </tr>
+                <?php } ?> 
+                <?php
+                    $select_stmt = $db->prepare("SELECT * FROM customer_order_$uid WHERE Status = 'คำสั่งซื้อเสร็จสิ้น'");
                     $select_stmt->execute();
 
                     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {                
