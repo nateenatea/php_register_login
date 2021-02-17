@@ -65,6 +65,7 @@
 
                     $header = "Order จาก UID : " . $uid;
                     $message = $header.
+                            "\n". "**รับที่ร้าน**" .
                             "\n". "ชื่อ: " . $Name .
                             "\n". "เบอร์โทร: " . $Phone .
                             "\n". "ที่อยู่ในการจัดส่ง: " . $Address .
