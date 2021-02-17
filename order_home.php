@@ -23,15 +23,24 @@
         $Phone = $_REQUEST['txt_phone'];
         $Time = $_REQUEST['txt_time'];
         $Foodsum = '';
-        if(isset($_REQUEST['txt_menu1'])) {
-            $Foodsum .= $_REQUEST['txt_menu1'] . ' ';
+        // if(isset($_REQUEST['txt_menu1'])) {
+        //     $Foodsum .= $_REQUEST['txt_menu1'] . ' ';
+        // }
+        // if(isset($_REQUEST['txt_menu2'])) {
+        //     $Foodsum .= $_REQUEST['txt_menu2'] . ' ';
+        // }
+        // if(isset($_REQUEST['txt_menu3'])) {
+        //     $Foodsum .= $_REQUEST['txt_menu3'] . ' ';
+        // } 
+
+        $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
+        $select_stmt->execute();
+
+        while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+            if(isset($_REQUEST['txt_menu'.$row["id"]])) {
+                $Foodsum .= $_REQUEST['txt_menu'.$row["id"]] . ' ';
+            }
         }
-        if(isset($_REQUEST['txt_menu2'])) {
-            $Foodsum .= $_REQUEST['txt_menu2'] . ' ';
-        }
-        if(isset($_REQUEST['txt_menu3'])) {
-            $Foodsum .= $_REQUEST['txt_menu3'] . ' ';
-        } 
 
         if(empty($Name)){
             $errorMsg = "Please enter your name";
@@ -149,7 +158,7 @@
         </div>
         <div class="input-field">
             <label for="menu">กรุณาเลือกเมนูที่ต้องการ</label>
-            <label for="menu1">
+            <!-- <label for="menu1">
                 <input type="checkbox" name="txt_menu1" value="กระเพราหมูสับ">กระเพราหมูสับ
             </label>
             <label for="menu2">
@@ -157,7 +166,18 @@
             </label>
             <label for="menu3">
                 <input type="checkbox" name="txt_menu3" value="ข้าวมันไก่">ข้าวผัดไก่
+            </label> -->
+
+            <?php
+                $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
+                $select_stmt->execute();
+
+                while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+            <label for="menu<?php echo $row["id"]; ?>">
+                    <input type="checkbox" name="txt_menu<?php echo $row["id"]; ?>" value="<?php echo $row["FoodName"]; ?>"><?php echo $row["FoodName"]; ?>
             </label>
+            <?php } ?>
         </div>
         <div class="action">
         <input type="submit" name="btn_order" class="btn btn-success" value="ยืนยัน">

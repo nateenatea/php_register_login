@@ -336,7 +336,7 @@
                 "action": {
                   "type": "uri",
                   "label": "จัดส่งที่บ้าน",
-                  "uri": "https://line-chatbot-icute-interns-php.herokuapp.com/order_res.php"
+                  "uri": "https://line-chatbot-icute-interns-php.herokuapp.com/order_res.php?u_id='.$uid.'"
                 }
               }
             ]
