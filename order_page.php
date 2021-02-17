@@ -7,15 +7,29 @@
         header('location: login.php');
     }
 
+
     if(isset($_REQUEST['confirm_id'])) {
         $id = $_REQUEST['confirm_id'];
         $uid = $_SESSION['uid'];
 
-        $select_stmt = $db->prepare("UPDATE customer_order_$uid SET Status = 'คำสั่งซื้อเสร็จสิ้น' WHERE id = :id");
+        $select_stmt = $db->prepare("SELECT * FROM customer_order_$uid WHERE id = :id");
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
 
-        header('Location:DataTable.php');
+        while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+            $Status = $row['Status'];
+        }
+
+        if($Status = 'คำสั่งซื้อเสร็จสิ้น') {
+            $select_stmt = $db->prepare("UPDATE customer_order_$uid SET Status = 'รอการอนุมัติ' WHERE id = :id");
+            $select_stmt->bindParam(':id', $id);
+            $select_stmt->execute();
+        } else {
+            $select_stmt = $db->prepare("UPDATE customer_order_$uid SET Status = 'คำสั่งซื้อเสร็จสิ้น' WHERE id = :id");
+            $select_stmt->bindParam(':id', $id);
+            $select_stmt->execute();
+        }
+        header('Location:order_page.php');
     }
 ?>
 
