@@ -6,6 +6,10 @@
         $_SESSION['msg'] = "You must login first";
         header('location: login.php');
     }
+
+    $uid = $_SESSION['uid'];
+    $select_stmt = $db->prepare("DELETE FROM log_$uid WHERE Text = ''");
+    $select_stmt->execute();
 ?>
 
 <!DOCTYPE html>

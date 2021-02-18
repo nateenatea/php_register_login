@@ -28,7 +28,7 @@
         $pos = strpos($accesstokenlineoa, $findword);
         if(empty($accesstokenlineoa)) {
             array_push($errors, "Access Token for Line OA is required");
-        } else if($pos !== TRUE) {
+        } else if($pos === false) {
             array_push($errors, "Access Token for Line OA is wrong");
         }
         if(empty($accesstokennotify)) {
