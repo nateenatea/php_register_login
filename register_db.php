@@ -24,11 +24,17 @@
         if($password_1 != $password_2) {
             array_push($errors, "Passwords do not match");
         }
+        $findword = "/1O/w1cDnyilFU=";
+        $pos = strpos($accesstokenlineoa, $findword);
         if(empty($accesstokenlineoa)) {
             array_push($errors, "Access Token for Line OA is required");
+        } else if($pos !== TRUE) {
+            array_push($errors, "Access Token for Line OA is wrong");
         }
         if(empty($accesstokennotify)) {
             array_push($errors, "Access Token for Line Notify is required");
+        } else if(strlen($accesstokennotify) < 43) {
+            array_push($errors, "Access Token for Line Notify is wrong");
         }
 
         $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
@@ -91,10 +97,9 @@
             $_SESSION['username'] = $username;
             $_SESSION['uid'] = $uid;
             $_SESSION['success'] = "You are now logged in";
-            header('location: index.php');
+            header('location: Add_webhook.php');
         } else {
-            array_push($errors, "Username or Email already exist");
-            $_SESSION['error'] = "Username or Email already exist";
+            $_SESSION['error'] = $errors;
             header("location: register.php");
         }
     }
