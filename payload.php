@@ -344,7 +344,7 @@
         }
       }';
 
-    $select_stmt = $db->prepare("SELECT * FROM users WHERE uid = '$uid'");
+    $select_stmt = $db->prepare("SELECT * FROM users WHERE `uid` = '$uid'");
     $select_stmt->execute();
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
       $ResName = $row['RestaurantName'];
