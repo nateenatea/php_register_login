@@ -82,19 +82,6 @@
         $JsonFlex = '{
             "type": "text",
             "text": "test จ้าา",
-            "quickReply": {
-                "items": [
-                  {
-                    "type": "action",
-                    "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-                    "action": {
-                      "type": "message",
-                      "label": "เมนูหลัก",
-                      "text": "เมนูหลัก"
-                    }
-                    }
-                ]
-              }
         }';
         // $JsonFlex = '{
         //    "type": "text",
