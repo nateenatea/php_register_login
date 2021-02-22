@@ -379,7 +379,7 @@
           "contents": [
             {
               "type": "text",
-              "text": "'.$ResName.'",
+              "text": "Test",
               "weight": "bold",
               "size": "xl",
               "contents": []
@@ -405,7 +405,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "'.$ResAddress.'",
+                      "text": "Test",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
@@ -429,7 +429,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "'.$ResTime.'",
+                      "text": "Test",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
@@ -465,5 +465,116 @@
           ]
         }
       }
-    }';   
+    }'; 
+
+    // $getMain = '{
+    //   "type": "flex",
+    //   "altText": "Flex Message",
+    //   "contents": {
+    //     "type": "bubble",
+    //     "hero": {
+    //       "type": "image",
+    //       "url": "https://www.scb.co.th/content/dam/scb/personal-banking/stories-tips/thai-food/thai-food10.jpg",
+    //       "size": "full",
+    //       "aspectRatio": "20:13",
+    //       "aspectMode": "cover",
+    //       "action": {
+    //         "type": "uri",
+    //         "label": "Line",
+    //         "uri": "https://linecorp.com/"
+    //       }
+    //     },
+    //     "body": {
+    //       "type": "box",
+    //       "layout": "vertical",
+    //       "contents": [
+    //         {
+    //           "type": "text",
+    //           "text": "'.$ResName.'",
+    //           "weight": "bold",
+    //           "size": "xl",
+    //           "contents": []
+    //         },
+    //         {
+    //           "type": "box",
+    //           "layout": "vertical",
+    //           "spacing": "sm",
+    //           "margin": "lg",
+    //           "contents": [
+    //             {
+    //               "type": "box",
+    //               "layout": "baseline",
+    //               "spacing": "sm",
+    //               "contents": [
+    //                 {
+    //                   "type": "text",
+    //                   "text": "ที่ตั้งร้าน",
+    //                   "size": "sm",
+    //                   "color": "#AAAAAA",
+    //                   "flex": 1,
+    //                   "contents": []
+    //                 },
+    //                 {
+    //                   "type": "text",
+    //                   "text": "'.$ResAddress.'",
+    //                   "size": "sm",
+    //                   "color": "#666666",
+    //                   "flex": 5,
+    //                   "wrap": true,
+    //                   "contents": []
+    //                 }
+    //               ]
+    //             },
+    //             {
+    //               "type": "box",
+    //               "layout": "baseline",
+    //               "spacing": "sm",
+    //               "contents": [
+    //                 {
+    //                   "type": "text",
+    //                   "text": "เวลา",
+    //                   "size": "sm",
+    //                   "color": "#AAAAAA",
+    //                   "flex": 1,
+    //                   "contents": []
+    //                 },
+    //                 {
+    //                   "type": "text",
+    //                   "text": "'.$ResTime.'",
+    //                   "size": "sm",
+    //                   "color": "#666666",
+    //                   "flex": 5,
+    //                   "wrap": true,
+    //                   "contents": []
+    //                 }
+    //               ]
+    //             }
+    //           ]
+    //         }
+    //       ]
+    //     },
+    //     "footer": {
+    //       "type": "box",
+    //       "layout": "vertical",
+    //       "flex": 0,
+    //       "spacing": "sm",
+    //       "contents": [
+    //         {
+    //           "type": "button",
+    //           "action": {
+    //             "type": "message",
+    //             "label": "เมนูอาหาร",
+    //             "text": "เมนูอาหาร"
+    //           },
+    //           "height": "sm",
+    //           "style": "link"
+    //         },
+    //         {
+    //           "type": "spacer",
+    //           "size": "sm"
+    //         }
+    //       ]
+    //     }
+    //   }
+    // }';   
 ?>
