@@ -78,6 +78,7 @@
         while($row = $getName->fetch(PDO::FETCH_ASSOC)) {
             $ResName = $row['RestaurantName'];
         }
+        echo $ResName;
         $JsonFlex = '{
             "type": "text",
             "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่"เมนูหลัก"ได้เลยครับ/ค่ะ",
@@ -95,6 +96,7 @@
                 ]
               }
         }';
+        echo $JsonFlex;
         $replyText = json_decode($JsonFlex);  
     }
     // else if ($text == "quick reply") {
