@@ -37,7 +37,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-        <   a class="navbar-brand" href="Home.php">Home</a>
+            <a class="navbar-brand" href="Home.php">Home</a>
             <ul class = "bg-dark">
                 <a class="navbar-brand" href="DataTable.php">Food List</a>
                 <a class="navbar-brand" href="order_page.php">Orders</a>

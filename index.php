@@ -43,7 +43,7 @@
         <!-- login information -->
         <?php if(isset($_SESSION['username'])) : ?>
             <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-            <?php header("refresh:3;DataTable.php"); ?>
+            <?php header("refresh:3;Home.php"); ?>
         <?php endif ?>
     </div>
 </body>
