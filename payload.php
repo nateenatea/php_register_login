@@ -349,7 +349,7 @@
     while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
       $ResName = $row['RestaurantName'];
       $ResAddress = $row['RestaurantAddress'];
-      $ResTime = $row['RetaurantTime'];
+      $ResTime = $row['RestaurantTime'];
     }
 
     $getMain = '{
