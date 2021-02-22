@@ -401,7 +401,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "ที่อยู่",
+                      "text": "'.$ResAddress.'",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
