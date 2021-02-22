@@ -81,7 +81,7 @@
     } else {
         $JsonFlex = '{
             "type": "text",
-            "text": "Hello Quick Reply!",
+            "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่"เมนูหลัก"ได้เลยครับ/ค่ะ",
             "quickReply": {
               "items": [
                 {
