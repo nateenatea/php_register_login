@@ -401,7 +401,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "Test",
+                      "text": "ที่อยู่",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
@@ -425,7 +425,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "'.$ResTime.'",
+                      "text": "เวลา",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
