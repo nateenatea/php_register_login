@@ -94,7 +94,7 @@
                     }
                     }
                 ]
-            }
+              }
         }';
         $replyText = json_decode($JsonFlex);  
     }
