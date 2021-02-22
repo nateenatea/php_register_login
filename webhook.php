@@ -70,9 +70,24 @@
     } else if ($text == "สั่งอาหาร") {
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
-    } else if ($text == "Test") {
-        $JsonFlex = $getTest;
-        $replyText = json_decode($JsonFlex);
+    } else {
+        $JsonFlex = '{
+           '.$getMain.',
+            "quickReply": {
+              "items": [
+                {
+                  "type": "action",
+                  "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+                  "action": {
+                    "type": "message",
+                    "label": "เมนูหลัก",
+                    "text": "เมนูหลัก"
+                  }
+                  }
+              ]
+            }
+          }';
+        $replyText = json_decode($JsonFlex);  
     }
     // else if ($text == "quick reply") {
     //     $JsonFlex = '{
