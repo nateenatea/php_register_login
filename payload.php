@@ -352,6 +352,10 @@
       $ResTime = $row['RetaurantTime'];
     }
 
+    echo $ResName;
+    echo $ResAddress;
+    echo $ResTime;
+
     $getMain = '{
       "type": "flex",
       "altText": "Flex Message",
