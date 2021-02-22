@@ -81,7 +81,7 @@
     } else {
         $JsonFlex = '{
             "type": "text",
-            "text": "test จ้าา"
+            "text": "test จ้าา",
             "quickReply": {
                 "items": [
                   {
