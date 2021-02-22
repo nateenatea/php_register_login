@@ -53,6 +53,14 @@
         while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
             $AccessToken = $row['accesstoken_lineoa'];
         }
+
+        //Get Restaurant Name
+        $getName = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
+        $getName->execute();
+
+        while($row = $getName->fetch(PDO::FETCH_ASSOC)) {
+            $ResName = $row['RestaurantName'];
+        }
     }
 
     if ($text == "Hello") {
@@ -72,7 +80,8 @@
         $replyText = json_decode($JsonFlex);      
     } else {
         $JsonFlex = '{
-           '.$getMain.',
+           "type": "text",
+           "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่"เมนูหลัก"ได้เลยครับ/ค่ะ",
             "quickReply": {
               "items": [
                 {
