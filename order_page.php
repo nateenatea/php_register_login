@@ -45,8 +45,9 @@
 <body>
 <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="DataTable.php">Home</a>
+            <a class="navbar-brand" href="Home.php">Home</a>
             <ul class = "bg-dark">
+                <a class="navbar-brand" href="DataTable.php">Food List</a>
                 <a class="navbar-brand" href="order_page.php">Orders</a>
                 <a class="navbar-brand" href="chatbot.php">Chatbot</a>
                 <a class="navbar-brand" href="log.php">Chat history</a>

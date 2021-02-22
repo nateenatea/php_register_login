@@ -9,6 +9,9 @@
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
         $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
+        $ResName = mysqli_real_escape_string($conn, $_POST['Res_Name']);
+        $ResAddress = mysqli_real_escape_string($conn, $_POST['Res_Address']);
+        $ResTime = mysqli_real_escape_string($conn, $_POST['Res_Time']);
         $accesstokenlineoa = mysqli_real_escape_string($conn, $_POST['accesstokenlineoa']);
         $accesstokennotify = mysqli_real_escape_string($conn, $_POST['accesstokennotify']);
 
@@ -23,6 +26,15 @@
         }
         if($password_1 != $password_2) {
             array_push($errors, "Passwords do not match");
+        }
+        if(empty($ResName)) {
+            array_push($errors, "Restaurant Name is required");
+        }
+        if(empty($ResAddress)) {
+            array_push($errors, "Restaurant Address is required");
+        }
+        if(empty($ResTime)) {
+            array_push($errors, "Restaurant Open-Close Time is required");
         }
         $findword = "/1O/w1cDnyilFU=";
         $pos = strpos($accesstokenlineoa, $findword);
@@ -54,7 +66,7 @@
             $password = md5($password_1);
             $uid = md5($username);
 
-            $sql = "INSERT INTO users (username, email, password, accesstoken_lineoa, accesstoken_notify, uid) VALUES ('$username', '$email', '$password', '$accesstokenlineoa', '$accesstokennotify', '$uid')";
+            $sql = "INSERT INTO users (username, email, password, accesstoken_lineoa, accesstoken_notify, uid, RestaurantName, RestaurantAddress, RestaurantTime) VALUES ('$username', '$email', '$password', '$accesstokenlineoa', '$accesstokennotify', '$uid', '$ResName', '$ResAddress', '$ResTime')";
             mysqli_query($conn, $sql);
 
             $sql = "CREATE TABLE `foodlist_$uid` (

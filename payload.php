@@ -344,6 +344,14 @@
         }
       }';
 
+    $select_stmt = $db->prepare("SELECT * FROM users WHERE uid = '$uid'");
+    $select_stmt->execute();
+    while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+      $ResName = $row['RestaurantName'];
+      $ResAddress = $row['RestaurantAddress'];
+      $ResTime = $row['RetaurantTime'];
+    }
+
     $getMain = '{
       "type": "flex",
       "altText": "Flex Message",
@@ -367,7 +375,7 @@
           "contents": [
             {
               "type": "text",
-              "text": "ร้าน Yummy",
+              "text": "'.$ResName.'",
               "weight": "bold",
               "size": "xl",
               "contents": []
@@ -385,7 +393,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "Place",
+                      "text": "ที่ตั้งร้าน",
                       "size": "sm",
                       "color": "#AAAAAA",
                       "flex": 1,
@@ -393,7 +401,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "ที่ตั้งร้าน",
+                      "text": "'.$ResAddress.'",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
@@ -417,7 +425,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "10:00 - 18:00",
+                      "text": "'.$ResTime.'",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
