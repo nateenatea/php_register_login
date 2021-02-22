@@ -401,7 +401,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "'.$ResAddress.'",
+                      "text": "Test",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
