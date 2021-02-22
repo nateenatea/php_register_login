@@ -425,7 +425,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "เวลา",
+                      "text": "'.$ResTime.'",
                       "size": "sm",
                       "color": "#666666",
                       "flex": 5,
