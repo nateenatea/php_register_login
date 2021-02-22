@@ -61,7 +61,6 @@
         while($row = $getName->fetch(PDO::FETCH_ASSOC)) {
             $ResName = $row['RestaurantName'];
         }
-        echo $ResName;
     }
 
     if ($text == "Hello") {
