@@ -53,6 +53,14 @@
         while($row = $getAccessToken->fetch(PDO::FETCH_ASSOC)) {
             $AccessToken = $row['accesstoken_lineoa'];
         }
+
+        //Get Restaurant Name
+        $getName = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
+        $getName->execute();
+
+        while($row = $getName->fetch(PDO::FETCH_ASSOC)) {
+            $ResName = $row['RestaurantName'];
+        }
     }
 
     if ($text == "Hello") {
@@ -71,30 +79,40 @@
         $JsonFlex = $getFood;
         $replyText = json_decode($JsonFlex);      
     } else {
-        //Get Restaurant Name
-        $getName = $db->prepare("SELECT * FROM `users` WHERE `uid` = '$uid'");
-        $getName->execute();
-
-        while($row = $getName->fetch(PDO::FETCH_ASSOC)) {
-            $ResName = $row['RestaurantName'];
-        }
         $JsonFlex = '{
             "type": "text",
-            "text": "test จ้า",
+            "text": "test จ้าา"
             "quickReply": {
-                "items": [
-                  {
-                    "type": "action",
-                    "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-                    "action": {
-                      "type": "message",
-                      "label": "เมนูหลัก",
-                      "text": "เมนูหลัก"
-                    }
-                    }
-                ]
-              }
+              "items": [
+                {
+                  "type": "action",
+                  "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+                  "action": {
+                    "type": "message",
+                    "label": "เมนูหลัก",
+                    "text": "เมนูหลัก"
+                  }
+                  }
+              ]
+            }
         }';
+        // $JsonFlex = '{
+        //    "type": "text",
+        //    "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่"เมนูหลัก"ได้เลยครับ/ค่ะ",
+        //     "quickReply": {
+        //       "items": [
+        //         {
+        //           "type": "action",
+        //           "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+        //           "action": {
+        //             "type": "message",
+        //             "label": "เมนูหลัก",
+        //             "text": "เมนูหลัก"
+        //           }
+        //           }
+        //       ]
+        //     }
+        //   }';
         $replyText = json_decode($JsonFlex);  
     }
     // else if ($text == "quick reply") {
