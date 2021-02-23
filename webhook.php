@@ -80,42 +80,42 @@
         $replyText = json_decode($JsonFlex);      
     } else {
         // "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่"เมนูหลัก"ได้เลยครับ/ค่ะ",
-        $JsonFlex = ' {
+        $JsonFlex = '{
             "type": "text",
-            "text": "สวัสดีครับ/ค่ะ ร้าน ... ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่"เมนูหลัก"ได้เลยครับ/ค่ะ",
-            "quickReply": {
-              "items": [
-                {
-                  "type": "action",
-                  "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-                  "action": {
-                    "type": "message",
-                    "label": "เมนูหลัก",
-                    "text": "เมนูหลัก"
-                  }
-                  }
-              ]
-            }
-          }';
+            "text": "สวัสดีครับ/ค่ะ ร้าน ... ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่"เมนูหลัก"ได้เลยครับ/ค่ะ"
+             "quickReply": {
+               "items": [
+                 {
+                   "type": "action",
+                   "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+                   "action": {
+                     "type": "message",
+                     "label": "เมนูหลัก",
+                     "text": "เมนูหลัก"
+                   }
+                   }
+               ]
+             }
+           }';
         $replyText = json_decode($JsonFlex);  
     }
     // else if ($text == "quick reply") {
-    //     $JsonFlex = '{
-    //        **flex message**,
-    //         "quickReply": {
-    //           "items": [
-    //             {
-    //               "type": "action",
-    //               "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-    //               "action": {
-    //                 "type": "message",
-    //                 "label": "Message",
-    //                 "text": "เมนูอาหาร"
-    //               }
-    //               }
-    //           ]
-    //         }
-    //       }';
+        // $JsonFlex = '{
+        //    **flex message**,
+        //     "quickReply": {
+        //       "items": [
+        //         {
+        //           "type": "action",
+        //           "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+        //           "action": {
+        //             "type": "message",
+        //             "label": "Message",
+        //             "text": "เมนูอาหาร"
+        //           }
+        //           }
+        //       ]
+        //     }
+        //   }';
     //     $replyText = json_decode($JsonFlex);
     // }
     // else {
