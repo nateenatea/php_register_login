@@ -12,6 +12,11 @@
         $ResName = mysqli_real_escape_string($conn, $_POST['Res_Name']);
         $ResAddress = mysqli_real_escape_string($conn, $_POST['Res_Address']);
         $ResTime = mysqli_real_escape_string($conn, $_POST['Res_Time']);
+        $ResImg = $_FILES['Res_Img']['name'];
+        $type= $_FILES['Res_Img']['type'];
+        $size = $_FILES['Res_Img']['size'];
+        $temp = $_FILES['Res_Img']['tmp_name'];
+        $path = "upload/" . $ResImg;
         $accesstokenlineoa = mysqli_real_escape_string($conn, $_POST['accesstokenlineoa']);
         $accesstokennotify = mysqli_real_escape_string($conn, $_POST['accesstokennotify']);
 
@@ -35,6 +40,22 @@
         }
         if(empty($ResTime)) {
             array_push($errors, "Restaurant Open-Close Time is required");
+        }
+        if(empty($ResImg)) {
+            array_push($errors, "Please upload Restaurant Image");
+        } 
+        else if($type == "image/jpg" || $type == "image/jpeg" || $type == "image/png" || $type == "image/gif") {
+            if(!file_exists($path)) { // check file not exist in your upload folder path
+                if ($size < 5000000) { // check file size 5MB
+                    move_uploaded_file($temp, 'upload/'.$ResImg); // move upload file temperory directory to your upload folder
+                } else {
+                    array_push($errors, "Your file too large please upload 5MB size"); // error message file size larger then 5MB
+                }
+            } else {
+                array_push($errors, "File already exists... Check upload folder"); // error message file not exists your upload folder
+            }
+        } else {
+            array_push($errors, "Upload JPG, JPEG, PNG & GIF file format...");
         }
         $findword = "/1O/w1cDnyilFU=";
         $pos = strpos($accesstokenlineoa, $findword);
@@ -66,7 +87,7 @@
             $password = md5($password_1);
             $uid = md5($username);
 
-            $sql = "INSERT INTO users (username, email, password, accesstoken_lineoa, accesstoken_notify, uid, RestaurantName, RestaurantAddress, RestaurantTime) VALUES ('$username', '$email', '$password', '$accesstokenlineoa', '$accesstokennotify', '$uid', '$ResName', '$ResAddress', '$ResTime')";
+            $sql = "INSERT INTO users (username, email, password, accesstoken_lineoa, accesstoken_notify, uid, RestaurantName, RestaurantAddress, RestaurantTime, RestaurantImage) VALUES ('$username', '$email', '$password', '$accesstokenlineoa', '$accesstokennotify', '$uid', '$ResName', '$ResAddress', '$ResTime', '$ResImg')";
             mysqli_query($conn, $sql);
 
             $sql = "CREATE TABLE `foodlist_$uid` (

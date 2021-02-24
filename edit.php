@@ -41,7 +41,7 @@
                 if(!file_exists($path)) { // check file not exist in your upload folder path
                     if ($size < 5000000) { // check file size 5MB
                         unlink($directory.$row['FoodImage']); // uplink function remove previous file
-                        move_uploaded_file($temp, 'upload/'.$FoodImg); // move upload file temperory directory to your upload folder
+                        move_uploaded_file($temp, 'upload/'.$uid.''.$FoodImg); // move upload file temperory directory to your upload folder
                     } else {
                         $errorMsg = "Your file too large please upload 5MB size"; // error message file size larger then 5MB
                     }

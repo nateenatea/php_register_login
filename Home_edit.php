@@ -22,6 +22,13 @@
         $RestaurantName = $_REQUEST['txt_resname'];
         $RestaurantAddress = $_REQUEST['txt_resaddress'];
         $RestaurantTime = $_REQUEST['txt_restime'];
+        $ResImg = $_FILES['file_resimg']['name'];
+        $type= $_FILES['file_resimg']['type'];
+        $size = $_FILES['file_resimg']['size'];
+        $temp = $_FILES['file_resimg']['tmp_name'];
+
+        $path = "upload/" . $ResImg;
+        $directory = "upload/"; // set upload folder path for update time previous file remove and new file upload and new file upload for next use
 
         if(empty($RestaurantName)) {
             $errorMsg = "Please enter your Restaurant Name";
@@ -32,12 +39,31 @@
         if(empty($RestaurantTime)) {
             $errorMsg = "Please enter Restaurant Time";
         } 
+        if($ResImg) {
+            if($type == "image/jpg" || $type == "image/jpeg" || $type == "image/png" || $type == "image/gif") {
+                if(!file_exists($path)) { // check file not exist in your upload folder path
+                    if ($size < 5000000) { // check file size 5MB
+                        unlink($directory.$row['RestaurantImage']); // uplink function remove previous file
+                        move_uploaded_file($temp, 'upload/'.$ResImg); // move upload file temperory directory to your upload folder
+                    } else {
+                        $errorMsg = "Your file too large please upload 5MB size"; // error message file size larger then 5MB
+                    }
+                } else {
+                    $errorMsg = "File already exists... Check upload folder"; // error message file not exists your upload folder
+                }
+            } else {
+                $errorMsg = "Upload JPG, JPEG, PNG & GIF file format...";
+            }
+        } else {
+            $ResImg = $row['RestaurantImage'];
+        }
         try {
             if(!isset($errorMsg)) {
-                $update_stmt = $db->prepare("UPDATE users SET RestaurantName = :fresname, RestaurantAddress = :fresaddress, RestaurantTime = :frestime WHERE id = :id");
+                $update_stmt = $db->prepare("UPDATE users SET RestaurantName = :fresname, RestaurantAddress = :fresaddress, RestaurantTime = :frestime, RestaurantImage = :fresimg WHERE id = :id");
                 $update_stmt->bindParam(':fresname', $RestaurantName);
                 $update_stmt->bindParam(':fresaddress', $RestaurantAddress);
                 $update_stmt->bindParam(':frestime', $RestaurantTime);
+                $update_stmt->bindParam(':fresimg', $ResImg);
                 $update_stmt->bindParam(':id', $id);
 
                 if($update_stmt->execute()) {
@@ -101,6 +127,17 @@
                     <label for="ResTime" class="col-sm-3 control-label">Restaurant Open-Close Time</label>
                     <div class="col-sm-6">
                         <input type="text" name="txt_restime" class="form-control" value="<?php echo $RestaurantTime ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-center mt-2">
+                <div class="row">
+                    <label for="ResImg" class="col-sm-3 control-label">Restaurant Image</label>
+                    <div class="col-sm-6">
+                        <input type="file" name="file_resimg" class="form-control" value="<?php echo $RestaurantImage ?>">
+                        <p>
+                            <img src="upload/<?php echo $RestaurantImage ?>" height=100px width=100px alt="">
+                        </p>
                     </div>
                 </div>
             </div>

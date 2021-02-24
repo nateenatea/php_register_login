@@ -17,7 +17,7 @@
         <h2>Register</h2>
     </div>
     
-    <form action="register_db.php" method="post">
+    <form action="register_db.php" method="post" enctype="multipart/form-data">
         <?php include('errors.php'); ?>
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
@@ -48,16 +48,20 @@
             <input type="password" name="password_2">
         </div>
         <div class="input-group">
-            <label for="Res_Name">Restaurant Name (You can change it later.)</label>
+            <label for="Res_Name">Restaurant Name</label>
             <input type="text" name="Res_Name">
         </div>
         <div class="input-group">
-            <label for="Res_Address">Restaurant Address (You can change it later.)</label>
+            <label for="Res_Address">Restaurant Address</label>
             <input type="text" name="Res_Address">
         </div>
         <div class="input-group">
-            <label for="Res_Time">Open-Close Time (You can change it later.)</label>
+            <label for="Res_Time">Open-Close Time</label>
             <input type="text" name="Res_Time">
+        </div>
+        <div class="input-group">
+            <label for="Res_Img">Restaurant Image (or logo)</label>
+            <input type="file" name="Res_Img" class="form-control" placeholder="Upload Restaurant Image...">
         </div>
         <div class="input-group">
             <label for="accesstokenlineoa">Access Token (Line OA)</label>

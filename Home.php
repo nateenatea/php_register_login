@@ -60,7 +60,7 @@
                         <td><?php echo $row["RestaurantName"]; ?></td>
                         <td><?php echo $row["RestaurantAddress"]; ?></td>
                         <td><?php echo $row["RestaurantTime"]; ?></td>
-                        <!-- <td><img src="upload/<?php echo $row['FoodImage'];?>" width="100px" height="100px" alt=""></td> -->
+                        <td><img src="upload/<?php echo $row['RestaurantImage'];?>" width="100px" height="100px" alt=""></td>
                         <td><a href="Home_edit.php?update_id=<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
                     </tr>
                 <?php } ?> 
