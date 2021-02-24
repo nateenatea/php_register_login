@@ -10,7 +10,7 @@
         "type": "bubble",
         "hero": {
           "type": "image",
-          "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$row["FoodImage"].'",
+          "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$uid.'/'.$row["FoodImage"].'",
           "size": "full",
           "aspectRatio": "20:13",
           "aspectMode": "cover",
@@ -268,6 +268,7 @@
       $ResName = $row['RestaurantName'];
       $ResAddress = $row['RestaurantAddress'];
       $ResTime = $row['RestaurantTime'];
+      $ResImg = $row['RestaurantImage'];
     }
 
     $getMain = '{
@@ -277,7 +278,7 @@
         "type": "bubble",
         "hero": {
           "type": "image",
-          "url": "https://www.scb.co.th/content/dam/scb/personal-banking/stories-tips/thai-food/thai-food10.jpg",
+          "url": "https://line-chatbot-icute-interns-php.herokuapp.com/upload/'.$ResImg.'",
           "size": "full",
           "aspectRatio": "20:13",
           "aspectMode": "cover",

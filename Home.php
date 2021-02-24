@@ -44,6 +44,7 @@
                     <th>Restaurant Name</th>
                     <th>Restaurant Address</th>
                     <th>Open-Close Time</th>
+                    <th>Restaurant Image</th>
                     <th>Edit</th>
                 </tr>
             </thead>
