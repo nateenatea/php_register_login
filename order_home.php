@@ -113,7 +113,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>สั่งอาหาร - ส่งที่บ้าน</title>
     <link rel="stylesheet" href="order.css">
 </head>
 <body>
