@@ -43,6 +43,37 @@
             if ($text == $row['Question']) {
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
+            } else if ($text == "เมนูหลัก") {
+                $JsonFlex = $getMain;
+                $replyText = json_decode($JsonFlex);      
+            } else if ($text == "เมนูอาหาร") {
+                $JsonFlex = $getMenu;
+                $replyText = json_decode($JsonFlex);      
+            } else if ($text == "เกี่ยวกับเรา") {
+                $JsonFlex = $getMe;
+                $replyText = json_decode($JsonFlex);      
+            } else if ($text == "สั่งอาหาร") {
+                $JsonFlex = $getFood;
+                $replyText = json_decode($JsonFlex);      
+            } else {
+                $JsonFlex = '{
+                    "type": "text",
+                    "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
+                    "quickReply": {
+                      "items": [
+                        {
+                          "type": "action",
+                          "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+                          "action": {
+                            "type": "message",
+                            "label": "เมนูหลัก",
+                            "text": "เมนูหลัก"
+                          }
+                        }
+                      ]
+                    }
+                  }';
+                $replyText = json_decode($JsonFlex);  
             }
         }
 
@@ -63,41 +94,6 @@
         }
     }
 
-    if ($text == "Hello") {
-        $replyText["type"] = "text";
-        $replyText["text"] = "Hello from Heroku";
-    } else if ($text == "เมนูหลัก") {
-        $JsonFlex = $getMain;
-        $replyText = json_decode($JsonFlex);      
-    } else if ($text == "เมนูอาหาร") {
-        $JsonFlex = $getMenu;
-        $replyText = json_decode($JsonFlex);      
-    } else if ($text == "เกี่ยวกับเรา") {
-        $JsonFlex = $getMe;
-        $replyText = json_decode($JsonFlex);      
-    } else if ($text == "สั่งอาหาร") {
-        $JsonFlex = $getFood;
-        $replyText = json_decode($JsonFlex);      
-    } else {
-        $JsonFlex = '{
-            "type": "text",
-            "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
-            "quickReply": {
-              "items": [
-                {
-                  "type": "action",
-                  "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-                  "action": {
-                    "type": "message",
-                    "label": "เมนูหลัก",
-                    "text": "เมนูหลัก"
-                  }
-                }
-              ]
-            }
-          }';
-        $replyText = json_decode($JsonFlex);  
-    }
     // else if ($text == "quick reply") {
         // $JsonFlex = '{
         //    **flex message**,
