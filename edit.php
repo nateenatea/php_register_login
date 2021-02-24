@@ -126,7 +126,7 @@
                     <div class="col-sm-6">
                         <input type="file" name="file_foodimg" class="form-control" value="<?php echo $FoodImage ?>">
                         <p>
-                            <img src="upload/<?php echo $FoodImage ?>" height=100px width=100px alt="">
+                            <img src="upload/<?php echo $uid ?>/<?php echo $FoodImage ?>" height=100px width=100px alt="">
                         </p>
                     </div>
                 </div>

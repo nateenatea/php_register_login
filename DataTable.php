@@ -79,7 +79,7 @@
                     <tr>
                         <td><?php echo $row["FoodName"]; ?></td>
                         <td><?php echo $row["FoodPrice"]; ?></td>
-                        <td><img src="upload/<?php echo $row['FoodImage'];?>" width="100px" height="100px" alt=""></td>
+                        <td><img src="upload/<?php echo $uid ?>/<?php echo $row['FoodImage'];?>" width="100px" height="100px" alt=""></td>
                         <td><a href="edit.php?update_id=<?php echo $row["id"]; ?>" class="btn btn-warning">Edit</a></td>
                         <td><a href="?delete_id=<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
                     </tr>
