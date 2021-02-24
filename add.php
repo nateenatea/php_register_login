@@ -11,6 +11,7 @@
         $temp = $_FILES['file_foodimg']['tmp_name'];
 
         $uid = $_SESSION['uid'];
+        $createfolder = mkdir("upload/$uid/");
 
         $path = "upload/$uid/" . $FoodImg; // set upload folder path
 
