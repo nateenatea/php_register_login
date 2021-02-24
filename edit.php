@@ -18,8 +18,6 @@
     }
 
     if(isset($_REQUEST['btn_update'])) {
-        // $FoodName_up = $_REQUEST['txt_foodname'];
-        // $FoodPrice_up = $_REQUEST['txt_foodprice'];
 
         $FoodName = $_REQUEST['txt_foodname'];
         $FoodPrice = $_REQUEST['txt_foodprice'];

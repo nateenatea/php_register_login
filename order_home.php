@@ -148,7 +148,6 @@
         </div>
         <div class="action">
         <input type="submit" name="btn_order" class="btn btn-success" value="ยืนยัน">
-        <!-- <button class="btn" onclick="location.href='order_success.php'">ยืนยัน</button> -->
         </div>
     </form>
     </div>

@@ -1,11 +1,5 @@
 <?php
     require_once('server.php');
-    // session_start();
-
-    // if(isset($_POST['userID'])) {
-    //     echo $_POST['userID'];
-    // }
-
     if(isset($_GET['u_id'])) {
         $uid = $_GET['u_id'];
 
@@ -23,15 +17,6 @@
         $Phone = $_REQUEST['txt_phone'];
         $Time = $_REQUEST['txt_time'];
         $Foodsum = '';
-        // if(isset($_REQUEST['txt_menu1'])) {
-        //     $Foodsum .= $_REQUEST['txt_menu1'] . ' ';
-        // }
-        // if(isset($_REQUEST['txt_menu2'])) {
-        //     $Foodsum .= $_REQUEST['txt_menu2'] . ' ';
-        // }
-        // if(isset($_REQUEST['txt_menu3'])) {
-        //     $Foodsum .= $_REQUEST['txt_menu3'] . ' ';
-        // } 
 
         $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
         $select_stmt->execute();
@@ -131,24 +116,7 @@
     <link rel="stylesheet" href="order.css">
 </head>
 <body>
-
-    <!-- <script src="https://static.line-scdn.net/liff/edge/versions/2.7.1/sdk.js"></script>
-
-    <script>
-        liff.init({ liffId: "1655607383-lza4vpZb" }, () => {
-            if(liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
-                    document.getElementById("userId").append(profile.userId)
-                    const uid = profile.userId;
-                })
-            } else {
-                liff.login();
-            }
-        }, err => console.error(err.code, error.message));
-    </script> -->
-
     <div class="container">
-    <!-- <p id="userId"><b>UID: </b></p> -->
     <p><b>UID: <?php echo $uid ?></b></p>
     <form method="post" class="form-horizontal mt-5" enctype="multipart/form-data">
         <p style="font-size:25px">สั่งอาหาร (รับที่ร้าน)</p><br>
@@ -166,16 +134,6 @@
         </div>
         <div class="input-field">
             <label for="menu">กรุณาเลือกเมนูที่ต้องการ</label>
-            <!-- <label for="menu1">
-                <input type="checkbox" name="txt_menu1" value="กระเพราหมูสับ">กระเพราหมูสับ
-            </label>
-            <label for="menu2">
-                <input type="checkbox" name="txt_menu2" value="คะน้าหมูกรอบ">คะน้าหมูกรอบ
-            </label>
-            <label for="menu3">
-                <input type="checkbox" name="txt_menu3" value="ข้าวมันไก่">ข้าวผัดไก่
-            </label> -->
-
             <?php
                 $select_stmt = $db->prepare("SELECT * FROM foodlist_$uid");
                 $select_stmt->execute();
@@ -189,7 +147,6 @@
         </div>
         <div class="action">
         <input type="submit" name="btn_order" class="btn btn-success" value="ยืนยัน">
-        <!-- <button class="btn" onclick="location.href='order_success.php'">ยืนยัน</button> -->
         </div>
     </form>
     </div>

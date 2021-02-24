@@ -1,11 +1,5 @@
 <?php
 
-    // $servername = "localhost";
-    // $username = "root";
-    // $password = "";
-    // $dbname = "register_db";
-    // $dbname2 = "pdo_crud_db";
-
     $servername = "us-cdbr-east-03.cleardb.com";
     $username = "b4979cf2d0482c";
     $password = "3f255760";

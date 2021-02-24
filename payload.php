@@ -1,6 +1,5 @@
 <?php
     require_once('server.php');
-    // session_start();
 
     $select_stmt = $db->prepare("SELECT * FROM `FoodList_$uid`");
     $select_stmt->execute();

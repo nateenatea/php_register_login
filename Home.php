@@ -37,7 +37,6 @@
                 <a href="index.php?logout='1'" style="color: red;">Logout</a> 
             </p>
         <?php endif ?>
-    <!-- <div class="display-3 text-center">Admin</div> -->
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>

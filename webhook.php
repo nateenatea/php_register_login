@@ -5,9 +5,6 @@
     $uid = $_GET['u_id'];
     
     require('payload.php');
-    // session_start();
-
-    // $uid = $_SESSION['uid'];
 
     $LINEData = file_get_contents('php://input');
     $jsonData = json_decode($LINEData,true);
@@ -94,41 +91,7 @@
         }
     }
 
-    // else if ($text == "quick reply") {
-        // $JsonFlex = '{
-        //    **flex message**,
-        //     "quickReply": {
-        //       "items": [
-        //         {
-        //           "type": "action",
-        //           "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-        //           "action": {
-        //             "type": "message",
-        //             "label": "Message",
-        //             "text": "เมนูอาหาร"
-        //           }
-        //           }
-        //       ]
-        //     }
-        //   }';
-    //     $replyText = json_decode($JsonFlex);
-    // }
-    // else {
-    //     $replyText["type"] = "text";
-    //     $replyText["text"] = $text;
-    // }
-
-    // $getUser = $conn->query("SELECT * FROM `Customer` WHERE `UserID`='$userID'");
-    // $getuserNum = $getUser->num_rows;
-    // while($row = $getUser->fetch_assoc()){
-    //     $Name = $row['Name'];
-    //     $Surname = $row['Surname'];
-    //     $CustomerID = $row['CustomerID'];
-    // }
-    // $replyText["text"] = "สวัสดีคุณ $Name $Surname (#$CustomerID)";
-
     $lineData['URL'] = "https://api.line.me/v2/bot/message/reply";
-    // $lineData['AccessToken'] = "uEbhTcwlpe54y5BHzyjzFpmp8IjkmYvEftYlagXn2HijGkFNv3ONRMVE72iqX5YJETG1T59BEhq4d9T+2x9Vs5QFyLNytZVsV0zbPEvpV51g7H3j7TmJuFTZ1clOB7PlzPTYE/bCXc3a2NNyRC47nAdB04t89/1O/w1cDnyilFU=";
     $lineData['AccessToken'] = $AccessToken;
 
     $replyJson["replyToken"] = $replyToken;
