@@ -40,6 +40,9 @@
             if ($text == $row['Question']) {
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
+            } else if($text == "Hello") {
+                $replyText["type"] = "text";
+                $replyText["text"] = "Hello from heroku";
             } else if ($text == "เมนูหลัก") {
                 $JsonFlex = $getMain;
                 $replyText = json_decode($JsonFlex);      
