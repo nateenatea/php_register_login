@@ -40,9 +40,6 @@
             if ($text == $row['Question']) {
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
-            } else if($text == "Hello") {
-                $replyText["type"] = "text";
-                $replyText["text"] = "Hello from heroku";
             } else if ($text == "เมนูหลัก") {
                 $JsonFlex = $getMain;
                 $replyText = json_decode($JsonFlex);      
@@ -58,7 +55,7 @@
             } else {
                 $JsonFlex = '{
                     "type": "text",
-                    "text": "สวัสดีครับ/ค่ะ! ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
+                    "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
                     "quickReply": {
                       "items": [
                         {
