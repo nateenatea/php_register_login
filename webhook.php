@@ -53,26 +53,24 @@
                 $JsonFlex = $getFood;
                 $replyText = json_decode($JsonFlex);      
             } else {
-                $replyText["type"] = "text";
-                $replyText["text"] = $text;
-                // $JsonFlex = '{
-                //     "type": "text",
-                //     "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
-                //     "quickReply": {
-                //       "items": [
-                //         {
-                //           "type": "action",
-                //           "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-                //           "action": {
-                //             "type": "message",
-                //             "label": "เมนูหลัก",
-                //             "text": "เมนูหลัก"
-                //           }
-                //         }
-                //       ]
-                //     }
-                //   }';
-                // $replyText = json_decode($JsonFlex);  
+                $JsonFlex = '{
+                    "type": "text",
+                    "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
+                    "quickReply": {
+                      "items": [
+                        {
+                          "type": "action",
+                          "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+                          "action": {
+                            "type": "message",
+                            "label": "เมนูหลัก",
+                            "text": "เมนูหลัก"
+                          }
+                        }
+                      ]
+                    }
+                  }';
+                $replyText = json_decode($JsonFlex);  
             }
         }
 
