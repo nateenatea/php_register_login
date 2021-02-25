@@ -37,7 +37,7 @@
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
         $select_stmt->execute();
         while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-            if ($text == $row['Question']) {
+            if ($text === $row['Question']) {
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
             } else if ($text == "เมนูหลัก") {
