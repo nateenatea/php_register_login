@@ -37,7 +37,7 @@
         $select_stmt = $db->prepare("SELECT * FROM `chatbot_$uid`");
         $select_stmt->execute();
         while($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-            if ($text === $row['Question']) {
+            if ($text == $row['Question']) {
                 $replyText["type"] = "text";
                 $replyText["text"] = $row['Answer'];
             } else if ($text == "เมนูหลัก") {
@@ -53,24 +53,26 @@
                 $JsonFlex = $getFood;
                 $replyText = json_decode($JsonFlex);      
             } else {
-                $JsonFlex = '{
-                    "type": "text",
-                    "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
-                    "quickReply": {
-                      "items": [
-                        {
-                          "type": "action",
-                          "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
-                          "action": {
-                            "type": "message",
-                            "label": "เมนูหลัก",
-                            "text": "เมนูหลัก"
-                          }
-                        }
-                      ]
-                    }
-                  }';
-                $replyText = json_decode($JsonFlex);  
+                $replyText["type"] = "text";
+                $replyText["text"] = $text;
+                // $JsonFlex = '{
+                //     "type": "text",
+                //     "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
+                //     "quickReply": {
+                //       "items": [
+                //         {
+                //           "type": "action",
+                //           "imageUrl": "https://cdn1.iconfinder.com/data/icons/mix-color-3/502/Untitled-1-512.png",
+                //           "action": {
+                //             "type": "message",
+                //             "label": "เมนูหลัก",
+                //             "text": "เมนูหลัก"
+                //           }
+                //         }
+                //       ]
+                //     }
+                //   }';
+                // $replyText = json_decode($JsonFlex);  
             }
         }
 
