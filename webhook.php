@@ -55,7 +55,7 @@
         } else if ($text == "สั่งอาหาร") {
             $JsonFlex = $getFood;
             $replyText = json_decode($JsonFlex);      
-        } else {
+        } else if (!isset($replyText["text"])){
             $JsonFlex = '{
                 "type": "text",
                 "text": "สวัสดีครับ/ค่ะ ร้าน '.$ResName.' ยินดีให้บริการครับ/ค่ะ ลูกค้าสามารถจิ้มที่ เมนูหลัก ได้เลยครับ/ค่ะ",
